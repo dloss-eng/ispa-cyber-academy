@@ -1,0 +1,29 @@
+/* ===============================
+   PAYMENTS DASHBOARD
+================================= */
+
+/* 📊 couleur dynamique stats */
+.stat-color {
+    color: var(--stat-color);
+}
+
+/* 📦 wrapper tableau */
+.table-wrapper {
+    padding: 0;
+    overflow-x: auto;
+}
+
+/* 🏫 texte important */
+.td-strong {
+    font-weight: 700;
+}
+
+/* 💰 montant */
+.td-amount {
+    color: var(--gr);
+}
+
+/* 📅 dates */
+.td-date {
+    font-size: 11px;
+}

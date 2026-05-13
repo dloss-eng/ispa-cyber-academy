@@ -1,0 +1,71 @@
+
+
+/* ===============================
+   CERTIFICATE SHOW
+================================= */
+
+/* 📦 carte certificat */
+.certificate-card {
+    padding: 40px;
+    text-align: center;
+    border: 2px solid rgba(255,215,0,0.3);
+    background: linear-gradient(
+        135deg,
+        rgba(255,215,0,0.04),
+        rgba(0,229,160,0.02)
+    );
+}
+
+/* 📜 icône */
+.certificate-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+/* 🏷️ titre */
+.certificate-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--ye);
+}
+
+/* 👤 utilisateur */
+.certificate-user {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+/* 📄 texte */
+.certificate-text {
+    font-size: 16px;
+    color: var(--t2);
+}
+
+/* 📚 module */
+.certificate-module {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gr);
+    margin: 12px 0;
+}
+
+/* 📊 infos */
+.certificate-info {
+    font-size: 14px;
+    color: var(--t2);
+}
+
+/* 🔢 numéro */
+.certificate-number {
+    font-size: 11px;
+    color: var(--t3);
+    margin-top: 16px;
+}
+
+/* 📥 bouton */
+.certificate-download {
+    margin-top: 24px;
+}

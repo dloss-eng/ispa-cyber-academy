@@ -1,0 +1,342 @@
+/* ===============================
+   CREATE
+================================= */
+/* container formulaire forum */
+.forum-form {
+    padding: 24px;
+    max-width: 600px;
+}
+
+/* enlever margin-top du premier label */
+.no-margin-top {
+    margin-top: 0 !important;
+}
+
+/* ===============================
+   INDEX
+================================= */
+
+/* header */
+.forum-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+/* lien global */
+.forum-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* item */
+.forum-item {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* avatar */
+.forum-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gr), #009966);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.forum-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* contenu */
+.forum-content {
+    flex: 1;
+}
+
+.forum-title {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.forum-meta {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* compteur */
+.forum-count {
+    text-align: center;
+}
+
+.forum-count-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--bl);
+}
+
+.forum-count-label {
+    font-size: 9px;
+    color: var(--t3);
+}
+
+/* pagination */
+.forum-pagination {
+    margin-top: 16px;
+}
+
+/* ===============================
+   SHOW
+================================= */
+
+/* retour */
+.forum-back {
+    font-size: 12px;
+    color: var(--gr);
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* topic */
+.forum-topic {
+    background: var(--n2);
+    border: 1px solid var(--bd);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* header */
+.forum-topic-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+/* avatar */
+.topic-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,var(--or),#E85D04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* text */
+.topic-user {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.topic-date {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+.topic-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.topic-body {
+    font-size: 14px;
+    color: var(--t2);
+    line-height: 1.7;
+    background: var(--n3);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+/* chat */
+.chat-box {
+    max-height: 500px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* row */
+.chat-row {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-row.me {
+    flex-direction: row-reverse;
+}
+
+/* avatar */
+.chat-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.chat-avatar.me {
+    background: linear-gradient(135deg,var(--gr),#009966);
+}
+
+.chat-avatar.other {
+    background: linear-gradient(135deg,var(--bl),#3B5BDB);
+}
+
+/* bubble */
+.chat-bubble {
+    max-width: 70%;
+    padding: 10px 14px;
+}
+
+.chat-bubble.me {
+    background: rgba(0,229,160,0.08);
+    border: 1px solid rgba(0,229,160,0.2);
+    border-radius: 16px 4px 16px 16px;
+}
+
+.chat-bubble.other {
+    background: var(--n3);
+    border: 1px solid var(--bd);
+    border-radius: 4px 16px 16px 16px;
+}
+
+/* contenu */
+.chat-user {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.chat-bubble.me .chat-user {
+    color: var(--gr);
+}
+
+.chat-bubble.other .chat-user {
+    color: var(--bl);
+}
+
+.chat-text {
+    font-size: 13px;
+    color: var(--t);
+    line-height: 1.5;
+}
+
+.chat-time {
+    font-size: 9px;
+    color: var(--t3);
+    margin-top: 4px;
+    text-align: right;
+}
+
+/* form */
+.chat-form {
+    display: flex;
+    gap: 10px;
+    align-items: end;
+}
+
+.chat-input {
+    margin: 0;
+    flex: 1;
+    resize: none;
+}
+
+.chat-send {
+    height: 48px;
+}
+
+/* locked */
+.chat-locked {
+    text-align: center;
+    font-size: 12px;
+    color: var(--t3);
+}
+
+/* ===============================
+   FORUM SHOW — ÉTABLISSEMENT & RÔLES
+================================= */
+
+/* ── Établissement dans le sujet ── */
+.topic-etab {
+    font-size: 11px;
+    color: var(--gr);
+    font-weight: 600;
+    margin: 2px 0 4px;
+}
+
+/* ── Ligne méta dans les bulles ── */
+.chat-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+
+/* Établissement dans la bulle */
+.chat-etab {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gr);
+    background: rgba(0, 229, 160, 0.1);
+    border: 1px solid rgba(0, 229, 160, 0.2);
+    padding: 2px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+}
+
+/* Badge rôle */
+.chat-role {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+}
+.chat-role-admin        { background: rgba(255,107,53,.12); color: var(--or); border: 1px solid rgba(255,107,53,.2); }
+.chat-role-enseignant   { background: rgba(75,123,255,.12); color: var(--bl); border: 1px solid rgba(75,123,255,.2); }
+.chat-role-etudiant     { background: rgba(168,85,247,.12); color: #d8b4fe;   border: 1px solid rgba(168,85,247,.2); }
+.chat-role-eleve        { background: rgba(59,130,246,.12); color: #93c5fd;   border: 1px solid rgba(59,130,246,.2); }
+.chat-role-etablissement{ background: rgba(255,215,0,.1);   color: var(--ye); border: 1px solid rgba(255,215,0,.2); }
+
+/* Light mode */
+[data-theme="light"] .chat-etab { background: rgba(0,150,100,.08); border-color: rgba(0,150,100,.15); }
+[data-theme="light"] .chat-role-enseignant { background: rgba(59,130,246,.08); }
+[data-theme="light"] .chat-role-etudiant   { background: rgba(139,60,220,.08); }
+[data-theme="light"] .chat-role-eleve      { background: rgba(37,99,235,.08); }

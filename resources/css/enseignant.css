@@ -1,0 +1,427 @@
+/* ===============================
+   CLASS STATS
+================================= */
+
+/* 🔙 retour */
+.back-link {
+    font-size: 12px;
+    color: var(--gr);
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* 📦 tableau */
+.table-wrapper {
+    padding: 0;
+    overflow-x: auto;
+}
+
+/* ✏️ styles texte */
+.td-strong {
+    font-weight: 700;
+}
+
+.td-success {
+    color: var(--gr);
+}
+
+
+
+/* ===============================
+   CLASSES
+================================= */
+
+/* 📦 item */
+.class-item {
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* 📋 icône */
+.class-icon {
+    font-size: 24px;
+}
+
+/* 📄 contenu */
+.class-content {
+    flex: 1;
+}
+
+.class-name {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.class-meta {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* 🔗 liens */
+.class-link {
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.link-blue {
+    color: var(--bl);
+}
+
+.link-orange {
+    color: var(--or);
+}
+
+
+/* ===============================
+    DASHBOARD
+================================= */
+
+/* stats */
+.stat-green { color: var(--gr); }
+.stat-blue { color: var(--bl); }
+
+/* section title */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--t2);
+    letter-spacing: 1.5px;
+    margin: 20px 0 14px;
+}
+
+/* class item */
+.class-item {
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.class-icon {
+    font-size: 24px;
+}
+
+.class-content {
+    flex: 1;
+}
+
+.class-name {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.class-meta {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* activity */
+.activity-item {
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.activity-user {
+    font-weight: 600;
+}
+
+.activity-lesson {
+    color: var(--t3);
+}
+
+.activity-time {
+    margin-left: auto;
+    color: var(--t3);
+    font-size: 10px;
+}
+
+/* ===============================
+   CLASSES
+================================= */
+
+.teacher-class-card{
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.teacher-class-icon{
+    font-size: 24px;
+}
+
+.teacher-class-info{
+    flex: 1;
+}
+
+.teacher-class-name{
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.teacher-class-meta{
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* ===============================
+   ACTIVITÉ
+================================= */
+
+.teacher-activity{
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.activity-user{
+    font-weight: 600;
+}
+
+.activity-lesson{
+    color: var(--t3);
+}
+
+.activity-time{
+    margin-left: auto;
+    color: var(--t3);
+    font-size: 10px;
+}
+
+/* COLORS */
+.stat-green{ color: var(--gr); }
+.stat-blue{ color: var(--bl); }
+
+
+
+/* ===============================
+   PDF REPORT 
+================================= */
+
+.report-body{
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #333;
+    padding: 30px;
+}
+
+/* LOGO */
+.report-logo{
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a1a2e;
+}
+
+/* SUBTITLE */
+.report-subtitle{
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* TITLE */
+.report-title{
+    font-size: 20px;
+    color: #1a1a2e;
+    border-bottom: 2px solid #0B6623;
+    padding-bottom: 8px;
+}
+
+/* SECTION */
+.report-section{
+    font-size: 16px;
+    color: #0B6623;
+    margin-top: 20px;
+}
+
+/* TABLE */
+.report-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.report-table th,
+.report-table td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.report-table th{
+    background: #f5f5f5;
+    font-weight: bold;
+}
+
+/* FOOTER */
+.report-footer{
+    margin-top: 30px;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+}
+
+
+
+/* ===============================
+   STUDENT PROGRESS
+================================= */
+
+/* retour */
+.back-link {
+    font-size: 12px;
+    color: var(--gr);
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* carte utilisateur */
+.student-card {
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.student-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gr), #009966);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.student-name {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.student-meta {
+    font-size: 12px;
+    color: var(--t2);
+}
+
+.student-stats {
+    margin-left: auto;
+    text-align: right;
+}
+
+.student-points {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--gr);
+}
+
+.student-level {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* section */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--t2);
+    letter-spacing: 1.5px;
+    margin: 20px 0 10px;
+}
+
+/* leçons */
+.lesson-item {
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lesson-content {
+    flex: 1;
+    font-size: 12px;
+}
+
+.lesson-module {
+    font-size: 9px;
+    color: var(--t3);
+}
+
+/* quiz */
+.quiz-item {
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quiz-title {
+    flex: 1;
+    font-size: 12px;
+}
+
+.quiz-score {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+}
+
+.score-success {
+    color: var(--gr);
+}
+
+.score-fail {
+    color: var(--re);
+}
+
+
+/* ===============================
+   STUDENTS 
+================================= */
+
+/* 📦 tableau */
+.table-wrapper {
+    padding: 0;
+    overflow-x: auto;
+}
+
+/* texte */
+.td-strong {
+    font-weight: 700;
+}
+
+.td-muted {
+    color: var(--t2);
+}
+
+/* lien */
+.table-link {
+    color: var(--bl);
+    font-size: 11px;
+    text-decoration: none;
+}
+
+/* pagination */
+.table-pagination {
+    margin-top: 16px;
+}

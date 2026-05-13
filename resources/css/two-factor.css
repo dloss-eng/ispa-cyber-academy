@@ -1,0 +1,116 @@
+/* ===============================
+   2FA WRAPPER
+================================= */
+.auth-2fa-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+
+/* ===============================
+   2FA CARD
+================================= */
+.auth-2fa-card {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(13,22,40,.97);
+    border: 1px solid var(--bd);
+    border-radius: 22px;
+    padding: 42px 38px;
+    box-shadow: 0 32px 80px rgba(0,0,0,.55);
+}
+
+
+/* ===============================
+   2FA HEADER
+================================= */
+.auth-2fa-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.auth-2fa-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.auth-2fa-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.auth-2fa-subtitle {
+    font-size: 12px;
+    color: var(--t2);
+    margin-top: 8px;
+}
+
+
+/* ===============================
+   DEBUG BOX
+================================= */
+.auth-2fa-debug {
+    background: rgba(255,215,0,0.08);
+    border: 1px solid rgba(255,215,0,0.25);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.auth-2fa-debug small {
+    font-size: 10px;
+    color: var(--ye);
+}
+
+.auth-2fa-code {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--ye);
+    letter-spacing: 8px;
+}
+
+
+/* ===============================
+   INPUT CODE
+================================= */
+.auth-2fa-input {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    letter-spacing: 8px;
+}
+
+
+/* ===============================
+   ERROR
+================================= */
+.auth-2fa-error {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--re);
+}
+
+
+/* ===============================
+   RESEND BUTTON
+================================= */
+.auth-2fa-resend {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.auth-2fa-resend button {
+    background: none;
+    border: none;
+    color: var(--gr);
+    cursor: pointer;
+    font-size: 12px;
+}

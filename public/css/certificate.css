@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #fff;
+    color: #1a1a2e;
+    padding: 60px 50px;
+}
+
+h1 {
+    font-size: 28px;
+    color: #1a1a2e;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 36px;
+    color: #0B6623;
+    margin: 30px 0 10px;
+}
+
+/* cadre */
+.cert-border {
+    border: 4px double #B8860B;
+    padding: 50px;
+    margin: 20px 0;
+}
+
+/* couleurs */
+.gold {
+    color: #B8860B;
+}
+
+.academy-name {
+    font-size: 14px;
+    color: #B8860B;
+    margin-bottom: 24px;
+}
+
+/* textes */
+.text-muted {
+    font-size: 16px;
+    color: #666;
+}
+
+.info {
+    font-size: 16px;
+    color: #555;
+    margin: 8px 0;
+}
+
+.number {
+    font-size: 13px;
+    color: #999;
+    margin-top: 30px;
+    letter-spacing: 2px;
+}
+
+/* icône */
+.certificate-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+/* module */
+.module-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1a1a2e;
+    margin: 16px 0;
+}
+
+/* spacing */
+.mb-small {
+    margin-bottom: 8px;
+}
+
+.my-medium {
+    margin: 10px 0;
+}

@@ -1,0 +1,1084 @@
+/* ═══════════════════════════════════════════════════════
+   MODE CLAIR — ISPA Cyber Academy
+   Activé via : <html data-theme="light">
+   Désactivé via : <html data-theme="dark"> (défaut)
+═══════════════════════════════════════════════════════ */
+
+:root[data-theme="light"] {
+
+    /* ── Couleurs de fond ── */
+    --n:    #F0F4FA;
+    --n2:   #E4EAF4;
+    --n3:   #D8E0EF;
+    --n4:   #CBD4E8;
+
+    /* ── Couleurs d'accent (inchangées) ── */
+    --or:   #FF6B35;
+    --or2:  #FF8C5A;
+    --gr:   #00A876;   /* vert plus sombre sur fond clair */
+    --gr2:  #00C48A;
+    --ye:   #D4A000;
+    --bl:   #2B5CE6;
+    --re:   #E02040;
+
+    /* ── Textes ── */
+    --t:    #0D1628;   /* texte principal (quasi-noir) */
+    --t2:   #3A4A6A;   /* texte secondaire */
+    --t3:   #8A9BBF;   /* texte tertiaire */
+
+    /* ── Bordures & cartes ── */
+    --bd:   rgba(0, 168, 118, 0.18);
+    --card: rgba(255, 255, 255, 0.92);
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Body ── */
+[data-theme="light"] body {
+    background: var(--n);
+    color: var(--t);
+}
+
+[data-theme="light"] body::before {
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(0,168,118,0.04) 60px, rgba(0,168,118,0.04) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(0,168,118,0.03) 60px, rgba(0,168,118,0.03) 61px);
+}
+
+/* ── Sidebar ── */
+[data-theme="light"] .sidebar {
+    background: #FFFFFF;
+    border-right-color: rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .sb-logo {
+    border-bottom-color: rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .sb-lt { color: var(--t); }
+[data-theme="light"] .sb-lt em { color: var(--gr); }
+
+[data-theme="light"] .nv {
+    color: var(--t2);
+}
+
+[data-theme="light"] .nv:hover,
+[data-theme="light"] .nv.on {
+    background: rgba(0,168,118,0.1);
+    color: var(--gr);
+    border-left-color: var(--gr);
+}
+
+[data-theme="light"] .sbs {
+    color: var(--t3);
+}
+
+[data-theme="light"] .sb-usr {
+    border-top-color: rgba(0,0,0,0.08);
+    background: rgba(0,0,0,0.02);
+}
+
+[data-theme="light"] .un { color: var(--t); }
+[data-theme="light"] .ur { color: var(--t3); }
+
+/* ── Topbar ── */
+[data-theme="light"] .topbar {
+    background: rgba(255,255,255,0.95);
+    border-bottom-color: rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] #hbg { color: var(--t2); }
+[data-theme="light"] .tb-title { color: var(--t); }
+
+/* ── Cards ── */
+[data-theme="light"] .cyber-card {
+    background: var(--card);
+    border-color: rgba(0,0,0,0.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+[data-theme="light"] .cyber-card:hover {
+    border-color: rgba(0,168,118,0.3);
+    box-shadow: 0 8px 32px rgba(0,168,118,0.1);
+}
+
+/* ── Forms ── */
+[data-theme="light"] .fi {
+    background: #FFFFFF;
+    border-color: rgba(0,0,0,0.12);
+    color: var(--t);
+}
+
+[data-theme="light"] .fi:focus {
+    border-color: var(--gr);
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(0,168,118,0.1);
+}
+
+[data-theme="light"] .fi::placeholder { color: var(--t3); }
+[data-theme="light"] .fl { color: var(--t2); }
+
+/* ── Alerts ── */
+[data-theme="light"] .alert-success {
+    background: rgba(0,168,118,0.08);
+    border-color: rgba(0,168,118,0.25);
+    color: #007A55;
+}
+
+[data-theme="light"] .alert-error {
+    background: rgba(224,32,64,0.06);
+    border-color: rgba(224,32,64,0.2);
+    color: #B01030;
+}
+
+/* ── Progress bars ── */
+[data-theme="light"] .pb {
+    background: rgba(0,0,0,0.08);
+}
+
+/* ── Tags ── */
+[data-theme="light"] .tag-g {
+    background: rgba(0,168,118,0.1);
+    color: #007A55;
+}
+
+[data-theme="light"] .tag-o {
+    background: rgba(255,107,53,0.1);
+    color: #CC4400;
+}
+
+[data-theme="light"] .tag-b {
+    background: rgba(43,92,230,0.1);
+    color: var(--bl);
+}
+
+[data-theme="light"] .tag-r {
+    background: rgba(224,32,64,0.1);
+    color: var(--re);
+}
+
+/* ── Navbar publique ── */
+[data-theme="light"] .lnav {
+    background: rgba(255,255,255,0.95);
+    border-bottom-color: rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .nlnk a { color: var(--t2); }
+[data-theme="light"] .nlnk a:hover,
+[data-theme="light"] .nlnk a.active { color: var(--gr); }
+
+[data-theme="light"] .nlgo span { color: var(--t); }
+[data-theme="light"] .nlgo span em { color: var(--gr); }
+
+/* ── Landing page ── */
+[data-theme="light"] .landing-body {
+    background: var(--n);
+}
+
+[data-theme="light"] .blob-orange {
+    background: radial-gradient(ellipse, rgba(255,107,53,0.12) 0%, transparent 70%);
+}
+
+[data-theme="light"] .blob-green {
+    background: radial-gradient(ellipse, rgba(0,168,118,0.1) 0%, transparent 70%);
+}
+
+/* ── Tables ── */
+[data-theme="light"] table { color: var(--t); }
+[data-theme="light"] th {
+    background: rgba(0,0,0,0.04);
+    color: var(--t2);
+    border-bottom-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] td {
+    border-bottom-color: rgba(0,0,0,0.05);
+}
+[data-theme="light"] tr:hover { background: rgba(0,0,0,0.02); }
+
+/* ── Scrollbar ── */
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: rgba(0,168,118,0.25);
+}
+
+/* ── Input select ── */
+[data-theme="light"] select.fi {
+    background: #FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A9BBF' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 12px center;
+}
+
+/* ── Notification badge ── */
+[data-theme="light"] .nb {
+    background: var(--re);
+    color: #fff;
+}
+
+/* ── Forum ── */
+[data-theme="light"] .forum-row {
+    background: var(--card);
+    border-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] .forum-row:hover {
+    border-color: rgba(0,168,118,0.2);
+}
+
+/* ── Auth pages ── */
+[data-theme="light"] .auth-card {
+    background: #FFFFFF;
+    border-color: rgba(0,0,0,0.08);
+}
+
+/* ── Theme toggle button ── */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--bd);
+    border-radius: 8px;
+    padding: 6px 8px;
+    cursor: pointer;
+    color: var(--t2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-left: auto;
+}
+
+.theme-btn:hover {
+    background: rgba(0,229,160,0.08);
+    color: var(--gr);
+    border-color: var(--gr);
+}
+
+/* Show/hide sun-moon based on theme */
+[data-theme="dark"] .icon-sun  { display: none !important; }
+[data-theme="dark"] .icon-moon { display: inline-block !important; }
+[data-theme="light"] .icon-sun  { display: inline-block !important; }
+[data-theme="light"] .icon-moon { display: none !important; }
+
+/* ── Alert styles (replace emoji-based) ── */
+.alert-success {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,229,160,0.08);
+    border: 1px solid rgba(0,229,160,0.25);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--gr);
+}
+
+.alert-error {
+    background: rgba(255,59,92,0.08);
+    border: 1px solid rgba(255,59,92,0.25);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--re);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   CORRECTIONS — Fond pleine page + Textes lisibles
+   ══════════════════════════════════════════════════════ */
+
+/* ── Landing body : écraser le background hardcodé #060c1a ── */
+[data-theme="light"] .landing-body {
+    background: var(--n) !important;
+    color: var(--t);
+}
+
+/* ── Main content area ── */
+[data-theme="light"] #main {
+    background: var(--n);
+}
+
+[data-theme="light"] .vue {
+    background: var(--n);
+    color: var(--t);
+}
+
+/* ── Tous les textes génériques ── */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+    color: var(--t);
+}
+
+[data-theme="light"] p,
+[data-theme="light"] span,
+[data-theme="light"] div,
+[data-theme="light"] li,
+[data-theme="light"] a:not(.btn-cyber):not(.btn-cyber-outline) {
+    color: inherit;
+}
+
+/* ── Stat cards textes ── */
+[data-theme="light"] .kv { color: inherit; }
+[data-theme="light"] .kl { color: var(--t2); }
+[data-theme="light"] .kc { background: #fff; }
+
+/* ── Section titles ── */
+[data-theme="light"] .section-title {
+    color: var(--t2);
+    border-color: var(--bd);
+}
+[data-theme="light"] .section-title-yellow { color: var(--ye); }
+[data-theme="light"] .section-title-orange { color: var(--or); }
+[data-theme="light"] .section-title-green  { color: var(--gr); }
+
+[data-theme="light"] .dash-title        { color: var(--t2); }
+[data-theme="light"] .dash-title-yellow { color: var(--ye); }
+[data-theme="light"] .dash-title-green  { color: var(--gr); }
+
+/* ── Module cards ── */
+[data-theme="light"] .module-name { color: var(--t); }
+[data-theme="light"] .module-meta { color: var(--t2); }
+[data-theme="light"] .module-card { background: #fff; }
+
+/* ── Activity / class items ── */
+[data-theme="light"] .activity-item,
+[data-theme="light"] .class-item {
+    background: #fff;
+}
+[data-theme="light"] .activity-user,
+[data-theme="light"] .class-name  { color: var(--t); }
+[data-theme="light"] .activity-lesson,
+[data-theme="light"] .class-meta { color: var(--t2); }
+[data-theme="light"] .activity-time { color: var(--t3); }
+
+/* ── List rows ── */
+[data-theme="light"] .list-row {
+    border-bottom-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] .fw-700,
+[data-theme="light"] .fw-600 { color: var(--t); }
+[data-theme="light"] .text-muted,
+[data-theme="light"] .fs-9 { color: var(--t2); }
+
+/* ── Leaderboard ── */
+[data-theme="light"] .leader-name { color: var(--t); }
+[data-theme="light"] .leader-bio  { color: var(--t2); }
+[data-theme="light"] .rank-position { color: var(--t2); }
+[data-theme="light"] .rank-value { color: var(--gr); }
+[data-theme="light"] .leader-points { color: var(--t); }
+[data-theme="light"] .leaderboard-me {
+    background: rgba(0,168,118,0.08);
+}
+
+/* ── Etab header ── */
+[data-theme="light"] .etab-name { color: var(--t); }
+[data-theme="light"] .etab-meta { color: var(--t2); }
+
+/* ── Points / scores ── */
+[data-theme="light"] .points { color: var(--t); }
+[data-theme="light"] .score.success { color: var(--gr); }
+[data-theme="light"] .score.danger  { color: var(--re); }
+
+/* ── Topbar title ── */
+[data-theme="light"] .tb-title { color: var(--t); }
+
+/* ── LANDING PAGE : sections texte ── */
+[data-theme="light"] .landing-main { color: var(--t); }
+
+/* Héros / sections landing */
+[data-theme="light"] .hero-tag,
+[data-theme="light"] .hero-badge { background: rgba(0,168,118,0.1); color: var(--gr); }
+
+[data-theme="light"] .hero-title,
+[data-theme="light"] .section-subtitle,
+[data-theme="light"] .card-title { color: var(--t); }
+
+[data-theme="light"] .hero-desc,
+[data-theme="light"] .card-desc,
+[data-theme="light"] .feature-desc { color: var(--t2); }
+
+/* Cards landing */
+[data-theme="light"] .feature-card,
+[data-theme="light"] .stat-card,
+[data-theme="light"] .course-card,
+[data-theme="light"] .cyber-card {
+    background: rgba(255,255,255,0.92);
+    border-color: rgba(0,0,0,0.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Footer landing */
+[data-theme="light"] .lftr {
+    border-top-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .footer-title { color: var(--t); }
+[data-theme="light"] .footer-desc  { color: var(--t2); }
+
+/* ── Blobs : atténués en mode clair ── */
+[data-theme="light"] .blob-orange {
+    background: radial-gradient(ellipse, rgba(255,107,53,0.08) 0%, transparent 70%) !important;
+    opacity: 0.6;
+}
+[data-theme="light"] .blob-green {
+    background: radial-gradient(ellipse, rgba(0,168,118,0.07) 0%, transparent 70%) !important;
+    opacity: 0.5;
+}
+
+/* ── Avatar initiale ── */
+[data-theme="light"] .avatar {
+    background: linear-gradient(135deg, var(--gr), var(--bl));
+    color: #fff;
+}
+
+/* ── Progress bar track ── */
+[data-theme="light"] .pb {
+    background: rgba(0,0,0,0.08);
+}
+
+/* ── Empty text ── */
+[data-theme="light"] .empty-text { color: var(--t2); }
+
+/* ── Badge mini ── */
+[data-theme="light"] .badge-mini-name { color: var(--t2); }
+
+/* ── Module percent ── */
+[data-theme="light"] .module-percent { color: var(--t); }
+
+/* ── Links ── */
+[data-theme="light"] .link-center.link-green  { color: var(--gr); }
+[data-theme="light"] .link-center.link-orange { color: var(--or); }
+
+
+/* ════════════════════════════════════════════════════════════════════
+   CORRECTIONS COMPLÈTES — Mode Clair ISPA Cyber Academy
+   Corrige tous les problèmes d'affichage en mode light
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ══ 1. FOND PRINCIPAL ══════════════════════════════════════════════ */
+
+[data-theme="light"] body {
+    background: var(--n) !important;
+    color: var(--t) !important;
+}
+
+[data-theme="light"] #main {
+    background: var(--n) !important;
+}
+
+[data-theme="light"] .vue {
+    background: var(--n) !important;
+    color: var(--t) !important;
+}
+
+/* ══ 2. SIDEBAR ══════════════════════════════════════════════════════ */
+
+[data-theme="light"] .sidebar {
+    background: #FFFFFF !important;
+    border-right-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ══ 3. TOPBAR ═══════════════════════════════════════════════════════ */
+
+[data-theme="light"] .topbar {
+    background: rgba(255, 255, 255, 0.97) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .tb-title {
+    color: var(--t) !important;
+}
+
+/* ══ 4. CARTES STAT (.kc) ════════════════════════════════════════════ */
+
+[data-theme="light"] .kc {
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .kv { color: inherit !important; }
+[data-theme="light"] .kl { color: var(--t2) !important; }
+
+/* ══ 5. CYBER CARDS ══════════════════════════════════════════════════ */
+
+[data-theme="light"] .cyber-card,
+[data-theme="light"] .card,
+[data-theme="light"] .stat-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    color: var(--t) !important;
+}
+
+[data-theme="light"] .cyber-card:hover {
+    border-color: rgba(0, 168, 118, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(0, 168, 118, 0.1) !important;
+}
+
+/* ══ 6. COURSE CARDS (.cc) ═══════════════════════════════════════════ */
+
+[data-theme="light"] .cc {
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .cc:hover {
+    border-color: rgba(0, 168, 118, 0.3) !important;
+    box-shadow: 0 12px 40px rgba(0, 168, 118, 0.1) !important;
+}
+
+[data-theme="light"] .cn { color: var(--t) !important; }
+[data-theme="light"] .cd { color: var(--t2) !important; }
+
+[data-theme="light"] .bcours {
+    background: rgba(0, 168, 118, 0.12) !important;
+    color: var(--gr) !important;
+}
+[data-theme="light"] .bcours:hover {
+    background: rgba(0, 168, 118, 0.22) !important;
+}
+[data-theme="light"] .bcours.st {
+    background: rgba(255, 107, 53, 0.12) !important;
+    color: var(--or) !important;
+}
+
+/* ══ 7. QUIZ OPTIONS ══════════════════════════════════════════════════ */
+
+[data-theme="light"] .qopt {
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.10) !important;
+    color: var(--t) !important;
+}
+[data-theme="light"] .qopt:hover {
+    border-color: rgba(0, 168, 118, 0.35) !important;
+    background: rgba(0, 168, 118, 0.04) !important;
+}
+[data-theme="light"] .qopt.sel {
+    border-color: var(--gr) !important;
+    background: rgba(0, 168, 118, 0.08) !important;
+}
+
+/* ══ 8. TABLES ═══════════════════════════════════════════════════════ */
+
+[data-theme="light"] .tbl th {
+    background: rgba(0, 0, 0, 0.03) !important;
+    color: var(--t2) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="light"] .tbl td {
+    border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+    color: var(--t) !important;
+}
+[data-theme="light"] .tbl tr:hover td {
+    background: rgba(0, 0, 0, 0.02) !important;
+}
+
+/* ══ 9. FORMS & INPUTS ═══════════════════════════════════════════════ */
+
+/* Override admin/users.css select hardcodé #0f172a !important */
+[data-theme="light"] select,
+[data-theme="light"] select:focus,
+[data-theme="light"] select:active,
+[data-theme="light"] select option {
+    background-color: #FFFFFF !important;
+    color: var(--t) !important;
+}
+
+[data-theme="light"] input.fi,
+[data-theme="light"] textarea.fi,
+[data-theme="light"] select.fi {
+    background: #FFFFFF !important;
+    color: var(--t) !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-theme="light"] .contact-form-group input,
+[data-theme="light"] .contact-form-group select,
+[data-theme="light"] .contact-form-group textarea {
+    background: #FFFFFF !important;
+    color: var(--t) !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+/* ══ 10. LIST ROWS (bordures blanches → sombres) ═══════════════════ */
+
+[data-theme="light"] .list-row {
+    border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+    color: var(--t) !important;
+}
+[data-theme="light"] .leaderboard-row {
+    border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+}
+[data-theme="light"] .certificate-row {
+    border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ══ 11. TEXTES COURANTS ══════════════════════════════════════════════ */
+
+[data-theme="light"] .fw-700,
+[data-theme="light"] .fw-600 { color: var(--t) !important; }
+
+[data-theme="light"] .fs-9,
+[data-theme="light"] .text-muted { color: var(--t2) !important; }
+
+[data-theme="light"] .points { color: var(--gr) !important; }
+
+[data-theme="light"] .un { color: var(--t) !important; }
+[data-theme="light"] .ur { color: var(--t2) !important; }
+
+[data-theme="light"] .leader-name { color: var(--t) !important; }
+[data-theme="light"] .leader-bio  { color: var(--t2) !important; }
+[data-theme="light"] .leader-points { color: var(--gr) !important; }
+
+[data-theme="light"] .module-name { color: var(--t) !important; }
+[data-theme="light"] .module-meta { color: var(--t2) !important; }
+[data-theme="light"] .module-percent { color: var(--t) !important; }
+
+[data-theme="light"] .empty-text,
+[data-theme="light"] .empty-state { color: var(--t2) !important; }
+
+[data-theme="light"] .badge-mini-name { color: var(--t2) !important; }
+
+[data-theme="light"] .link-center.link-green  { color: var(--gr) !important; }
+[data-theme="light"] .link-center.link-orange { color: var(--or) !important; }
+
+/* ══ 12. DASHBOARD ADMIN ══════════════════════════════════════════════ */
+
+[data-theme="light"] .dash-title { color: var(--t2) !important; }
+[data-theme="light"] .dash-title-yellow { color: var(--ye) !important; }
+[data-theme="light"] .dash-title-green  { color: var(--gr) !important; }
+
+[data-theme="light"] .section-title { color: var(--t2) !important; }
+[data-theme="light"] .section-title-yellow { color: var(--ye) !important; }
+[data-theme="light"] .section-title-orange { color: var(--or) !important; }
+[data-theme="light"] .section-title-green  { color: var(--gr) !important; }
+
+[data-theme="light"] .rank-top    { color: var(--ye) !important; }
+[data-theme="light"] .rank-normal { color: var(--t2) !important; }
+
+[data-theme="light"] .score.success { color: var(--gr) !important; }
+[data-theme="light"] .score.danger  { color: var(--re) !important; }
+
+/* ══ 13. COURS / LEÇONS ══════════════════════════════════════════════ */
+
+[data-theme="light"] .module-header-card {
+    background: rgba(0, 168, 118, 0.05) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .module-title { color: var(--t) !important; }
+[data-theme="light"] .module-description { color: var(--t2) !important; }
+
+[data-theme="light"] .lesson-header {
+    background: rgba(0, 168, 118, 0.05) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .lesson-title { color: var(--t) !important; }
+[data-theme="light"] .lesson-title-small { color: var(--t) !important; }
+[data-theme="light"] .lesson-order { color: var(--t2) !important; }
+[data-theme="light"] .lesson-meta  { color: var(--t2) !important; }
+
+[data-theme="light"] .lesson-content { color: var(--t) !important; }
+
+[data-theme="light"] .resource-link {
+    background: var(--n3) !important;
+    color: var(--t) !important;
+}
+
+/* ══ 14. FORUM ═══════════════════════════════════════════════════════ */
+
+[data-theme="light"] .forum-topic {
+    background: var(--n2) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .topic-title,
+[data-theme="light"] .topic-user { color: var(--t) !important; }
+[data-theme="light"] .topic-date  { color: var(--t2) !important; }
+
+[data-theme="light"] .topic-body {
+    background: var(--n3) !important;
+    color: var(--t) !important;
+}
+
+[data-theme="light"] .forum-title { color: var(--t) !important; }
+[data-theme="light"] .forum-meta  { color: var(--t2) !important; }
+
+[data-theme="light"] .chat-bubble.other {
+    background: var(--n3) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    color: var(--t) !important;
+}
+[data-theme="light"] .chat-text { color: var(--t) !important; }
+
+/* ══ 15. ÉTABLISSEMENT ═══════════════════════════════════════════════ */
+
+[data-theme="light"] .badge-item-mini {
+    background: var(--n3) !important;
+    color: var(--t) !important;
+}
+
+[data-theme="light"] .class-select-box {
+    background: var(--n3) !important;
+    color: var(--t) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .etab-name { color: var(--t) !important; }
+[data-theme="light"] .etab-meta { color: var(--t2) !important; }
+
+/* ══ 16. ADMIN MODULES ═══════════════════════════════════════════════ */
+
+[data-theme="light"] .quiz-answer-item,
+[data-theme="light"] .lesson-nav-item,
+[data-theme="light"] .signal-content {
+    background: var(--n3) !important;
+    color: var(--t) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ══ 17. PAGE PUBLIQUE / NAVBAR ══════════════════════════════════════ */
+
+[data-theme="light"] .api-code {
+    background: var(--n3) !important;
+    color: var(--t) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .lnav .card,
+[data-theme="light"] nav .card {
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ══ 18. BADGES ADMIN ════════════════════════════════════════════════ */
+
+[data-theme="light"] .badge-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .badge-name { color: var(--t) !important; }
+[data-theme="light"] .badge-description { color: var(--t2) !important; }
+
+/* ══ 19. PROFILE ══════════════════════════════════════════════════════ */
+
+[data-theme="light"] .badge-item {
+    background: var(--n3) !important;
+    color: var(--t) !important;
+}
+[data-theme="light"] .badge-name { color: var(--t2) !important; }
+
+[data-theme="light"] .leaderboard-name { color: var(--t) !important; }
+[data-theme="light"] .leaderboard-meta { color: var(--t2) !important; }
+[data-theme="light"] .leaderboard-points { color: var(--gr) !important; }
+
+/* ══ 20. WRAPPERS ADMIN GÉNÉRIQUES ═══════════════════════════════════ */
+
+[data-theme="light"] .table-wrapper {
+    background: #FFFFFF !important;
+}
+
+[data-theme="light"] .user-form-card,
+[data-theme="light"] .class-form-card,
+[data-theme="light"] .profile-card,
+[data-theme="light"] .forum-form {
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   FIXES SUPPLÉMENTAIRES — Hardcoded rgba(0,229,160) → mode clair
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Landing body hardcodé #060c1a ── */
+[data-theme="light"] .landing-body,
+[data-theme="light"] body.landing-body {
+    background: var(--n) !important;
+    color: var(--t) !important;
+}
+
+/* ── Blobs landing ── */
+[data-theme="light"] .blob-orange,
+[data-theme="light"] .blob-green {
+    opacity: 0.3 !important;
+}
+
+/* ── Hero landing textes ── */
+[data-theme="light"] .hero-main,
+[data-theme="light"] .hero-title,
+[data-theme="light"] .hero-desc,
+[data-theme="light"] .hstat-n,
+[data-theme="light"] .hstat-l,
+[data-theme="light"] .stat-num,
+[data-theme="light"] .stat-label { color: var(--t) !important; }
+
+[data-theme="light"] .hstats { color: var(--t) !important; }
+
+/* ── Course cards (rgba hardcodés) ── */
+[data-theme="light"] .course-header-bg {
+    background: linear-gradient(135deg, rgba(0,168,118,0.08), rgba(0,100,80,0.04)) !important;
+}
+
+[data-theme="light"] .course-btn-complete {
+    background: rgba(0,168,118,0.12) !important;
+    color: var(--gr) !important;
+}
+
+/* ── Lesson sidebar ── */
+[data-theme="light"] .lesson-list-item {
+    border-bottom-color: rgba(0,0,0,0.06) !important;
+    color: var(--t) !important;
+}
+[data-theme="light"] .lesson-list-item:hover,
+[data-theme="light"] .lesson-list-item.active {
+    background: rgba(0,168,118,0.06) !important;
+}
+[data-theme="light"] .lesson-name { color: var(--t) !important; }
+[data-theme="light"] .lesson-duration { color: var(--t2) !important; }
+
+/* ── Module header card ── */
+[data-theme="light"] .module-description-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+    color: var(--t) !important;
+}
+
+/* ── Lesson content area ── */
+[data-theme="light"] .lesson-panel,
+[data-theme="light"] .course-content-panel {
+    background: var(--n) !important;
+    color: var(--t) !important;
+}
+
+/* ── Status tags rgba hardcodés → light ── */
+[data-theme="light"] .tag-completed,
+[data-theme="light"] .tag-terminee {
+    background: rgba(0,168,118,0.12) !important;
+    color: #007A55 !important;
+}
+
+/* ── Nav next/prev leçon ── */
+[data-theme="light"] .lesson-nav-btn {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.10) !important;
+    color: var(--t) !important;
+}
+[data-theme="light"] .lesson-nav-btn:hover {
+    border-color: rgba(0,168,118,0.3) !important;
+    color: var(--gr) !important;
+}
+
+/* ── Cours vidéo overlay ── */
+[data-theme="light"] .video-placeholder {
+    background: var(--n3) !important;
+}
+
+/* ── Badge earned/locked ── */
+[data-theme="light"] .badge-earned {
+    border-color: rgba(212,160,0,0.3) !important;
+    background: #FFFFFF !important;
+}
+[data-theme="light"] .badge-locked {
+    background: #FFFFFF !important;
+    opacity: 0.45 !important;
+}
+[data-theme="light"] .badge-icon { color: var(--t) !important; }
+
+/* ── Admin dashboard stat blocks ── */
+[data-theme="light"] .dash-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+}
+[data-theme="light"] .dash-value { color: var(--t) !important; }
+[data-theme="light"] .dash-label { color: var(--t2) !important; }
+
+/* ── Etablissements card list ── */
+[data-theme="light"] .etab-card,
+[data-theme="light"] .class-card,
+[data-theme="light"] .user-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+}
+
+/* ── Signalement ── */
+[data-theme="light"] .signal-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+}
+[data-theme="light"] .signal-title { color: var(--t) !important; }
+[data-theme="light"] .signal-meta  { color: var(--t2) !important; }
+
+/* ✅ Sélecteurs larges supprimés — causaient des problèmes de clics */
+
+
+/* ════════════════════════════════════════════════════════════════════
+   CORRECTIONS CRITIQUES — Couleurs hardcodées dans app.css
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── html + body fond clair ── */
+[data-theme="light"] html {
+    background: var(--n) !important;
+    min-height: 100vh;
+}
+
+[data-theme="light"] body {
+    background: var(--n) !important;
+    color: var(--t) !important;
+    min-height: 100vh;
+}
+
+/* ── body::before grille verte → grille subtile claire ── */
+[data-theme="light"] body::before {
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(0,0,0,0.018) 60px, rgba(0,0,0,0.018) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(0,0,0,0.012) 60px, rgba(0,0,0,0.012) 61px) !important;
+}
+
+/* ── #main fond ── */
+[data-theme="light"] #main {
+    background: var(--n) !important;
+    min-height: 100vh;
+}
+
+/* ── .vue fond ── */
+[data-theme="light"] .vue {
+    background: var(--n) !important;
+}
+
+/* ── Topbar : rgba(6,12,26,0.85) hardcodé → blanc ── */
+[data-theme="light"] .topbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ── Sidebar : rgba(5,9,20,0.98) hardcodé → blanc ── */
+[data-theme="light"] .sidebar {
+    background: #FFFFFF !important;
+    border-right-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ── Scrollbar claire ── */
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: rgba(0, 168, 118, 0.3) !important;
+}
+
+/* ── Selection ── */
+[data-theme="light"] ::selection {
+    background: rgba(0, 168, 118, 0.25) !important;
+}
+
+/* ── tb-search ── */
+[data-theme="light"] .tb-search {
+    background: rgba(0, 0, 0, 0.04) !important;
+    border-color: rgba(0, 0, 0, 0.10) !important;
+    color: var(--t) !important;
+}
+
+/* ── Stat cards KPI ── */
+[data-theme="light"] .kr { background: transparent !important; }
+[data-theme="light"] .kc {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05) !important;
+}
+[data-theme="light"] .kv { color: var(--t) !important; }
+[data-theme="light"] .kl { color: var(--t2) !important; }
+
+/* ── Module progression cards ── */
+[data-theme="light"] .module-card,
+[data-theme="light"] .mc {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+}
+[data-theme="light"] .module-name,
+[data-theme="light"] .mn { color: var(--t) !important; }
+[data-theme="light"] .module-meta,
+[data-theme="light"] .mm { color: var(--t2) !important; }
+
+/* ── Classement / leaderboard ── */
+[data-theme="light"] .lboard-card,
+[data-theme="light"] .classement-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+}
+[data-theme="light"] .lr,
+[data-theme="light"] .leaderboard-row {
+    border-bottom-color: rgba(0,0,0,0.06) !important;
+}
+[data-theme="light"] .ln { color: var(--t) !important; }
+[data-theme="light"] .lp { color: var(--gr) !important; }
+
+/* ── Badges mini dashboard ── */
+[data-theme="light"] .badge-mini {
+    background: transparent !important;
+}
+[data-theme="light"] .badge-mini-name { color: var(--t2) !important; }
+
+/* ── Liens voir tout ── */
+[data-theme="light"] .link-green { color: var(--gr) !important; }
+[data-theme="light"] .link-orange { color: var(--or) !important; }
+
+/* ── Section titles ── */
+[data-theme="light"] .section-title { color: var(--t2) !important; }
+[data-theme="light"] .section-title em,
+[data-theme="light"] .section-title-green  { color: var(--gr) !important; }
+[data-theme="light"] .section-title-yellow { color: var(--ye) !important; }
+[data-theme="light"] .section-title-orange { color: var(--or) !important; }
+
+/* ── Admin dashboard cards ── */
+[data-theme="light"] .dash-stat-card,
+[data-theme="light"] .admin-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+}
+
+/* ── Tables admin ── */
+[data-theme="light"] .table-wrapper,
+[data-theme="light"] .tbl-wrap {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+}
+
+/* ── Wrappers génériques ── */
+[data-theme="light"] .wrap,
+[data-theme="light"] .content-wrap,
+[data-theme="light"] .inner-wrap {
+    background: transparent !important;
+}
+
+/* ── Fond page cours show ── */
+[data-theme="light"] .course-layout,
+[data-theme="light"] .course-wrapper {
+    background: var(--n) !important;
+}
+
+/* ── Leçon sidebar (left panel) ── */
+[data-theme="light"] .lesson-sidebar,
+[data-theme="light"] .cs {
+    background: #FFFFFF !important;
+    border-right-color: rgba(0,0,0,0.08) !important;
+}
+
+/* ── Leçon contenu (right panel) ── */
+[data-theme="light"] .lesson-content-area,
+[data-theme="light"] .cp {
+    background: var(--n) !important;
+    color: var(--t) !important;
+}
+
+/* ── Bouton retour cours ── */
+[data-theme="light"] .back-btn,
+[data-theme="light"] .btn-back {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.10) !important;
+    color: var(--t) !important;
+}
+
+/* ── Landing hero circle gradient ── */
+[data-theme="light"] .hero-circle,
+[data-theme="light"] .hring {
+    opacity: 0.5 !important;
+}
+

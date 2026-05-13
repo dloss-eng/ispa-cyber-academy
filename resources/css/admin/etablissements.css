@@ -1,0 +1,122 @@
+/* ===============================
+   ETABLISSEMENT FORM
+================================= */
+
+/* 🔙 Lien retour */
+.back-link {
+    font-size: 12px;
+    color: var(--gr);
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* 📦 Carte formulaire */
+.etab-form-card {
+    padding: 24px;
+    max-width: 600px;
+}
+
+/* ❌ Pas de marge en haut */
+.no-margin-top {
+    margin-top: 0;
+}
+
+/* 🧩 Grid 2 colonnes */
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* 📁 Input file spécifique */
+.file-input {
+    padding: 10px;
+}
+
+/* 🖼️ Conteneur preview */
+.logo-preview-wrapper {
+    margin-top: 8px;
+}
+
+/* 🖼️ Image logo */
+.logo-preview {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid var(--bd);
+}
+
+
+/* ===============================
+   ETABLISSEMENTS INDEX
+================================= */
+
+/* ➕ Header avec bouton */
+.etab-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+/* 📦 Carte établissement */
+.etab-card {
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* 🖼️ Logo */
+.etab-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* 🏫 Icône fallback */
+.etab-icon {
+    font-size: 28px;
+}
+
+/* 📄 Infos */
+.etab-info {
+    flex: 1;
+}
+
+/* 🏷️ Nom */
+.etab-name {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* 📊 Meta infos */
+.etab-meta {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* ✏️ Bouton modifier */
+.etab-edit {
+    color: var(--bl);
+    font-size: 11px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* 🗑️ Form suppression */
+.etab-delete-form {
+    display: inline;
+}
+
+/* 🗑️ Bouton suppression */
+.etab-delete-btn {
+    background: none;
+    border: none;
+    color: var(--re);
+    cursor: pointer;
+    font-size: 14px;
+}

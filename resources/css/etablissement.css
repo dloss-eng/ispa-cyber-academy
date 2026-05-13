@@ -1,0 +1,966 @@
+/* ===============================
+BADGES PAGE
+================================= */
+
+/* carte */
+.student-badge-card {
+    padding: 14px 18px;
+    margin-bottom: 10px;
+}
+
+/* header */
+.student-badge-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* avatar */
+.student-badge-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0,229,160,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gr);
+}
+
+/* nom */
+.student-badge-name {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* compteur */
+.student-badge-count {
+    margin-left: auto;
+}
+
+/* badges */
+.student-badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.badge-item-mini {
+    background: var(--n3);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* empty */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--t3);
+}
+
+
+
+/* ===============================
+   CERTIFICATES PAGE
+================================= */
+
+/* 📦 item */
+.certificate-item {
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* 📜 icône */
+.certificate-icon {
+    font-size: 24px;
+}
+
+/* contenu */
+.certificate-content {
+    flex: 1;
+}
+
+/* nom */
+.certificate-name {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* module */
+.certificate-module {
+    font-size: 11px;
+    color: var(--t2);
+}
+
+/* meta */
+.certificate-meta {
+    font-size: 9px;
+    color: var(--t3);
+}
+
+/* empty */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--t3);
+}
+
+/* ===============================
+   CLASS FORM
+================================= */
+
+/* 🔙 retour */
+.back-link {
+    font-size: 12px;
+    color: var(--gr);
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* 📦 carte */
+.class-form-card {
+    padding: 24px;
+    max-width: 500px;
+}
+
+/* fix label */
+.no-margin-top {
+    margin-top: 0;
+}
+
+
+
+/* ===============================
+   CLASS STATS
+================================= */
+
+/* 🔙 retour */
+.back-link {
+    font-size: 12px;
+    color: var(--gr);
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* 📦 table */
+.table-wrapper {
+    padding: 0;
+    overflow-x: auto;
+}
+
+/* cellules */
+.td-strong {
+    font-weight: 700;
+}
+
+.td-success {
+    color: var(--gr);
+}
+
+
+/* ===============================
+    CLASSES
+================================= */
+
+
+/* header */
+.classes-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+/* item */
+.class-item {
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* icône */
+.class-icon {
+    font-size: 24px;
+}
+
+/* contenu */
+.class-content {
+    flex: 1;
+}
+
+.class-name {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.class-meta {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* élèves */
+.class-count {
+    font-size: 12px;
+    color: var(--t2);
+}
+
+/* liens */
+.class-link {
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.link-blue {
+    color: var(--bl);
+}
+
+.link-orange {
+    color: var(--or);
+}
+
+/* form inline */
+.inline-form {
+    display: inline;
+}
+
+/* bouton delete */
+.btn-delete {
+    background: none;
+    border: none;
+    color: var(--re);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+
+
+/* ===============================
+   COURSES 
+================================= */
+/* ℹ️ info box */
+.info-box {
+    font-size: 13px;
+    color: var(--t2);
+    margin-bottom: 20px;
+    background: rgba(75,123,255,0.06);
+    border: 1px solid rgba(75,123,255,0.2);
+    border-radius: 10px;
+    padding: 14px;
+}
+
+/* 📦 item */
+.course-item {
+    padding: 18px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* 📚 icône */
+.course-icon {
+    font-size: 22px;
+}
+
+/* contenu */
+.course-content {
+    flex: 1;
+}
+
+/* titre */
+.course-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* description */
+.course-description {
+    font-size: 12px;
+    color: var(--t2);
+    margin-top: 4px;
+}
+
+/* meta */
+.course-meta {
+    font-size: 10px;
+    color: var(--t3);
+    margin-top: 4px;
+}
+
+
+
+/* ===============================
+ DASHBOARD
+================================= */
+
+/* header */
+.etab-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+/* logo */
+.etab-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid var(--bd);
+}
+
+/* icône */
+.etab-icon {
+    font-size: 36px;
+}
+
+/* nom */
+.etab-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+/* meta */
+.etab-meta {
+    font-size: 12px;
+    color: var(--t2);
+}
+
+/* stats colors */
+.stat-green { color: var(--gr); }
+.stat-blue { color: var(--bl); }
+.stat-orange { color: var(--or); }
+
+/* section title */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--t2);
+    letter-spacing: 1.5px;
+    margin: 20px 0 14px;
+}
+
+/* activity */
+.activity-item {
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.activity-user {
+    font-weight: 600;
+}
+
+.activity-lesson {
+    color: var(--t3);
+}
+
+.activity-time {
+    margin-left: auto;
+    color: var(--t3);
+    font-size: 10px;
+}
+
+
+/* ===============================
+   ENSEIGNANT FORM
+================================= */
+
+/* carte */
+.teacher-form-card {
+    padding: 24px;
+    max-width: 500px;
+}
+
+/* fix label */
+.no-margin-top {
+    margin-top: 0;
+}
+
+/* box classes */
+.class-select-box {
+    background: var(--n3);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+/* checkbox row */
+.class-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    font-size: 13px;
+    color: var(--t);
+    cursor: pointer;
+}
+
+/* checkbox style */
+.checkbox-green {
+    accent-color: var(--gr);
+}
+
+/* level */
+.class-level {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+
+
+.teacher-form-card {
+    padding: 24px;
+    max-width: 500px;
+}
+
+.no-margin-top {
+    margin-top: 0;
+}
+
+.class-select-box {
+    background: var(--n3);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.class-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    font-size: 13px;
+    color: var(--t);
+    cursor: pointer;
+}
+
+.checkbox-green {
+    accent-color: var(--gr);
+}
+
+.class-level {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* header */
+.teachers-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+/* item */
+.teacher-item {
+    padding: 14px 18px;
+    margin-bottom: 8px;
+}
+
+/* row */
+.teacher-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* avatar */
+.teacher-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(192,132,252,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--bl);
+}
+
+.teacher-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* content */
+.teacher-content {
+    flex: 1;
+}
+
+.teacher-name {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.teacher-email {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* classes */
+.teacher-classes {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.class-badge {
+    font-size: 9px;
+    background: rgba(0,229,160,0.1);
+    color: var(--gr);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* warning */
+.teacher-warning {
+    font-size: 9px;
+    color: var(--or);
+    margin-top: 4px;
+}
+
+/* links */
+.teacher-link {
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.link-orange {
+    color: var(--or);
+}
+
+/* delete */
+.btn-delete {
+    background: none;
+    border: none;
+    color: var(--re);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* pagination */
+.pagination-box {
+    margin-top: 16px;
+}
+
+
+
+/* ===============================
+   PAYMENT
+================================= */
+
+/* active */
+.subscription-active {
+    padding: 24px;
+    border-color: rgba(0,229,160,0.3);
+    background: linear-gradient(135deg,rgba(0,229,160,0.06),rgba(0,229,160,0.02));
+    margin-bottom: 20px;
+}
+
+.subscription-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subscription-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--gr);
+}
+
+.subscription-dates {
+    font-size: 13px;
+    color: var(--t2);
+    margin-top: 6px;
+}
+
+.subscription-meta {
+    font-size: 12px;
+    color: var(--t3);
+    margin-top: 4px;
+}
+
+.subscription-days {
+    text-align: right;
+}
+
+.subscription-days-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--gr);
+}
+
+.subscription-days-label {
+    font-size: 11px;
+    color: var(--t2);
+}
+
+/* empty */
+.subscription-empty {
+    padding: 24px;
+    border-color: rgba(255,107,53,0.3);
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--or);
+    font-weight: 700;
+}
+
+/* grid */
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+/* plan */
+.plan-card {
+    padding: 24px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.plan-radio {
+    display: none;
+}
+
+.plan-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.plan-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.plan-price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--gr);
+    margin: 12px 0;
+}
+
+.plan-duration {
+    font-size: 12px;
+    color: var(--or);
+    font-weight: 600;
+}
+
+.plan-desc {
+    font-size: 11px;
+    color: var(--t2);
+    margin-top: 8px;
+}
+
+/* payments */
+.payment-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.payment-card {
+    padding: 12px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.payment-radio {
+    accent-color: var(--or);
+}
+
+.payment-label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* button */
+.subscribe-btn {
+    max-width: 400px;
+}
+
+/* history */
+.history-item {
+    padding: 12px 16px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.history-content {
+    flex: 1;
+}
+
+.history-title {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.history-meta {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* spacing */
+.section-margin {
+    margin: 30px 0 14px;
+}
+
+
+/* ===============================
+   STUDENT EDIT 
+================================= */
+
+/* carte formulaire */
+.student-form-card {
+    padding: 24px;
+    max-width: 500px;
+}
+
+/* fix premier label */
+.no-margin-top {
+    margin-top: 0;
+}
+
+
+
+/* ===============================
+   STUDENT FORM
+================================= */
+
+/* carte formulaire */
+.student-form-card {
+    padding: 24px;
+    max-width: 500px;
+}
+
+/* fix premier label */
+.no-margin-top {
+    margin-top: 0;
+}
+
+
+/* ===============================
+   PROGRESSION USER
+================================= */
+
+/* 🔙 retour */
+.back-link {
+    font-size: 12px;
+    color: var(--gr);
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* 👤 header */
+.student-header {
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* avatar */
+.student-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gr), #009966);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* nom */
+.student-name {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* meta */
+.student-meta {
+    font-size: 12px;
+    color: var(--t2);
+}
+
+/* stats */
+.student-stats {
+    margin-left: auto;
+    text-align: right;
+}
+
+.student-points {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--gr);
+}
+
+.student-level {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* sections */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--t2);
+    letter-spacing: 1.5px;
+    margin: 20px 0 10px;
+}
+
+/* leçons */
+.lesson-item {
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lesson-content {
+    flex: 1;
+    font-size: 12px;
+}
+
+.lesson-module {
+    font-size: 9px;
+    color: var(--t3);
+}
+
+/* quiz */
+.quiz-item {
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quiz-title {
+    flex: 1;
+    font-size: 12px;
+}
+
+.quiz-score {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+}
+
+.quiz-score.success {
+    color: var(--gr);
+}
+
+.quiz-score.danger {
+    color: var(--re);
+}
+
+
+
+/* ===============================
+   STUDENTS TABLE
+================================= */
+
+/* header */
+.header-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+/* table wrapper */
+.table-container {
+    padding: 0;
+    overflow-x: auto;
+}
+
+/* nom */
+.td-name {
+    font-weight: 700;
+}
+
+.link-name {
+    color: var(--t);
+    text-decoration: none;
+}
+
+/* email */
+.td-email {
+    color: var(--t2);
+}
+
+/* actions */
+.td-actions {
+    display: flex;
+    gap: 6px;
+}
+
+/* boutons actions */
+.action-view {
+    color: var(--bl);
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.action-edit {
+    color: var(--or);
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.action-delete {
+    background: none;
+    border: none;
+    color: var(--re);
+    cursor: pointer;
+    font-size: 11px;
+}
+
+/* form inline */
+.inline-form {
+    display: inline;
+}
+
+/* pagination */
+.pagination-container {
+    margin-top: 16px;
+}

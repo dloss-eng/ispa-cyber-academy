@@ -1,0 +1,629 @@
+/* ===============================
+   BADGES PAGE
+================================= */
+
+/* 🧩 grid */
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+}
+
+/* 📦 carte */
+.badge-card {
+    text-align: center;
+    padding: 20px;
+}
+
+/* 🏅 obtenu */
+.badge-earned {
+    border-color: rgba(255,215,0,0.3);
+}
+
+/* 🔒 non obtenu */
+.badge-locked {
+    opacity: 0.4;
+}
+
+/* 🎨 icône */
+.badge-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+/* 🏷️ nom */
+.badge-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* 📝 description */
+.badge-description {
+    font-size: 10px;
+    color: var(--t2);
+    margin-top: 4px;
+}
+
+/* 🎯 status */
+.badge-status {
+    margin-top: 8px;
+}
+
+
+/* ===============================
+   CERTIFICATES PAGE
+================================= */
+
+/* 📭 vide */
+.cert-empty {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.cert-empty-icon {
+    font-size: 56px;
+    margin-bottom: 12px;
+}
+
+.cert-empty-text {
+    color: var(--t2);
+}
+
+/* 📜 item */
+.cert-item {
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+    border-color: rgba(255,215,0,0.2);
+}
+
+/* icône */
+.cert-icon {
+    font-size: 36px;
+}
+
+/* infos */
+.cert-info {
+    flex: 1;
+}
+
+.cert-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.cert-meta {
+    font-size: 11px;
+    color: var(--t2);
+}
+
+.cert-number {
+    font-size: 9px;
+    color: var(--t3);
+}
+
+
+/* ===============================
+   INDEX PAGE
+================================= */
+
+/* layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.dashboard-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* titres */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--t2);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.section-title-yellow {
+    color: var(--ye);
+    letter-spacing: 2px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.section-title-orange {
+    color: var(--or);
+    letter-spacing: 2px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+/* stats */
+.stat-green { color: var(--gr); }
+.stat-orange { color: var(--or); }
+.stat-blue { color: var(--bl); }
+.stat-yellow { color: var(--ye); }
+
+/* module */
+.module-card { padding: 16px 18px; }
+.module-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.module-name { font-size: 13px; font-weight: 700; }
+.module-meta { font-size: 10px; color: var(--t3); }
+.module-percent { font-family: 'Orbitron'; font-size: 12px; font-weight: 700; }
+
+.module-action {
+    margin-top: 8px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.text-success { color: var(--gr); }
+.text-warning { color: var(--or); }
+
+/* leaderboard */
+.rank-position { font-size: 11px; color: var(--t2); margin-bottom: 10px; }
+.rank-value { font-family: 'Orbitron'; font-weight: 900; color: var(--gr); }
+
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 0;
+}
+
+.leaderboard-me {
+    background: rgba(0,229,160,0.06);
+    margin: 0 -8px;
+    padding: 5px 8px;
+    border-radius: 6px;
+}
+
+.leader-rank { font-family: 'Orbitron'; font-size: 11px; width: 18px; }
+.rank-top { color: var(--ye); }
+.rank-normal { color: var(--t3); }
+
+.leader-name {
+    font-size: 11px;
+    font-weight: 600;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.leader-bio {
+    font-size: 9px;
+    color: var(--t3);
+    font-weight: 400;
+}
+
+.leader-points {
+    font-family: 'Orbitron';
+    font-size: 10px;
+    color: var(--gr);
+}
+
+/* badges mini */
+.badges-mini {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge-mini { text-align: center; }
+.badge-mini-icon { font-size: 28px; }
+.badge-mini-name { font-size: 9px; color: var(--t2); }
+
+/* links */
+.link-center {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-green { color: var(--gr); }
+.link-orange { color: var(--or); }
+
+/* empty */
+.empty-text {
+    font-size: 12px;
+    color: var(--t3);
+}
+
+
+/* ===============================
+   LEADERBOARD PAGE
+================================= */
+
+/* 📦 carte */
+.leaderboard-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+/* 📄 ligne */
+.leaderboard-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--bd);
+}
+
+/* 🎯 utilisateur courant */
+.leaderboard-me {
+    background: rgba(0,229,160,0.06);
+}
+
+/* 🏆 rang */
+.leaderboard-rank {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    width: 24px;
+    text-align: center;
+}
+
+/* 👤 avatar */
+.leaderboard-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gr), #009966);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 📄 infos */
+.leaderboard-info {
+    flex: 1;
+}
+
+.leaderboard-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--t);
+    text-decoration: none;
+}
+
+.leaderboard-meta {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* ⭐ points */
+.leaderboard-points {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--gr);
+}
+
+/* 🔢 pagination */
+.leaderboard-pagination {
+    margin-top: 16px;
+}
+
+
+
+/* ===============================
+   NOTIFICATIONS PAGE
+================================= */
+
+/* 🔝 header */
+.notifications-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.notifications-count {
+    font-size: 12px;
+    color: var(--t2);
+}
+
+/* 📄 item */
+.notification-item {
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* états */
+.notif-read {
+    opacity: 0.5;
+}
+
+.notif-unread {
+    border-color: rgba(0,229,160,0.3);
+}
+
+/* 🔔 icône */
+.notification-icon {
+    font-size: 24px;
+}
+
+/* contenu */
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.notif-highlight {
+    color: var(--gr);
+}
+
+.notification-message {
+    font-size: 12px;
+    color: var(--t2);
+}
+
+.notification-time {
+    font-size: 10px;
+    color: var(--t3);
+    margin-top: 2px;
+}
+
+/* bouton ✔ */
+.notif-read-btn {
+    background: none;
+    border: none;
+    color: var(--gr);
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* pagination */
+.notifications-pagination {
+    margin-top: 16px;
+}
+
+
+
+/* ===============================
+   PROFILE PAGE
+================================= */
+/* 📦 carte */
+.profile-card {
+    padding: 24px;
+    max-width: 500px;
+}
+
+/* 👤 avatar container */
+.profile-avatar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 🖼️ image */
+.profile-avatar-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--gr);
+}
+
+/* 🧩 placeholder */
+.profile-avatar-placeholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gr), #009966);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 auto;
+}
+
+/* 📁 file input */
+.file-input {
+    padding: 10px;
+}
+
+/* ❌ margin fix */
+.no-margin-top {
+    margin-top: 0;
+}
+
+
+
+/* 🔙 retour */
+.back-link {
+    font-size: 12px;
+    color: var(--gr);
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* 📦 carte profil */
+.profile-public-card {
+    padding: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 👤 avatar */
+.profile-public-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    overflow: hidden;
+    border: 3px solid var(--gr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--gr), #009966);
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.profile-public-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 🧑 nom */
+.profile-public-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+/* 📝 bio */
+.profile-public-bio {
+    font-size: 13px;
+    color: var(--t2);
+    margin-top: 6px;
+}
+
+/* 📄 meta */
+.profile-public-meta {
+    font-size: 12px;
+    color: var(--t3);
+    margin-top: 4px;
+}
+
+/* 📊 stats */
+.profile-public-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.stat-label {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* 📦 section */
+.section-card {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* badges */
+.badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.badge-item {
+    text-align: center;
+    background: var(--n3);
+    border-radius: 10px;
+    padding: 10px 14px;
+}
+
+.badge-icon {
+    font-size: 28px;
+}
+
+.badge-name {
+    font-size: 10px;
+    color: var(--t2);
+    margin-top: 4px;
+}
+
+/* certificats */
+.certificate-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--bd);
+}
+
+.certificate-icon {
+    font-size: 20px;
+}
+
+.certificate-info {
+    flex: 1;
+}
+
+.certificate-title {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.certificate-meta {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* titres */
+.section-title-yellow {
+    font-family: 'Orbitron';
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--ye);
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+}
+
+.section-title-green {
+    font-family: 'Orbitron';
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gr);
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+}

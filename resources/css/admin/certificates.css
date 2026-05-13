@@ -1,0 +1,59 @@
+/* ===============================
+   CERTIFICATES INDEX
+================================= */
+
+/* 📊 Texte info (nombre de certificats) */
+.cert-meta {
+    font-size: 13px;
+    color: var(--t2);
+    margin-bottom: 16px;
+}
+
+/* 📦 Carte certificat */
+.cert-card {
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* 📜 Icône */
+.cert-icon {
+    font-size: 24px;
+}
+
+/* 📄 Bloc infos */
+.cert-info {
+    flex: 1;
+}
+
+/* 👤 Nom utilisateur */
+.cert-user {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* 📘 Module + score */
+.cert-module {
+    font-size: 11px;
+    color: var(--t2);
+}
+
+/* 🆔 Détails (numéro + date) */
+.cert-meta-small {
+    font-size: 9px;
+    color: var(--t3);
+}
+
+/* ❌ Aucun résultat */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--t3);
+}
+
+/* 🔢 Pagination */
+.pagination-wrapper {
+    margin-top: 16px;
+}

@@ -1,0 +1,141 @@
+/* ===== BODY ===== */
+.landing-body {
+    margin: 0;
+    background: #060c1a;
+}
+
+/* ===== NAVBAR ===== */
+.lnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(20px);
+    background: rgba(6,12,26,0.8);
+    border-bottom: 1px solid var(--bd);
+
+    padding: 0 40px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LOGO */
+.nlgo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.nlgo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+}
+
+.nlgo span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--t);
+}
+
+.nlgo span em {
+    color: var(--gr);
+    font-style: normal;
+}
+
+/* LINKS */
+.nlnk {
+    display: flex;
+    gap: 28px;
+}
+
+.nlnk a {
+    color: var(--t2);
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.nlnk a:hover {
+    color: var(--t);
+}
+
+/* MAIN */
+.landing-main {
+    padding-top: 90px;
+}
+
+/* FOOTER */
+.lftr {
+    text-align: center;
+    padding: 60px 40px;
+    border-top: 1px solid var(--bd);
+}
+
+.footer-title {
+    font-family: 'Orbitron';
+    font-weight: 900;
+}
+
+.footer-title span {
+    color: var(--gr);
+}
+
+.footer-desc {
+    font-size: 13px;
+    color: var(--t2);
+    margin: 10px 0;
+}
+
+.footer-badge {
+    display: inline-flex;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(0,229,160,0.08);
+    border: 1px solid rgba(0,229,160,0.2);
+    font-size: 11px;
+    color: var(--gr);
+}
+
+/* BLOBS */
+.blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+}
+
+.blob-orange {
+    width: 600px;
+    height: 600px;
+    background: var(--or);
+    top: -200px;
+    right: -200px;
+}
+
+.blob-green {
+    width: 500px;
+    height: 500px;
+    background: var(--gr);
+    bottom: 10%;
+    left: -150px;
+    opacity: .15;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .lnav {
+        padding: 0 16px;
+    }
+
+    .nlnk {
+        display: none;
+    }
+}

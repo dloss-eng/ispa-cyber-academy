@@ -1,0 +1,170 @@
+/* ===============================
+   INDEX
+================================= */
+
+/* 📊 couleur dynamique des stats */
+.stat-color {
+    color: var(--stat-color);
+}
+
+/* 🔗 lien carte */
+.signalement-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* 📦 carte signalement */
+.signalement-card {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* ⚠️ icône */
+.signalement-icon {
+    font-size: 20px;
+}
+
+/* 📄 bloc infos */
+.signalement-info {
+    flex: 1;
+}
+
+/* 🏷️ titre */
+.signalement-title {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* 👤 utilisateur */
+.signalement-user {
+    font-weight: 400;
+    color: var(--t3);
+}
+
+/* 📝 description */
+.signalement-desc {
+    font-size: 11px;
+    color: var(--t2);
+}
+
+/* 🆔 meta */
+.signalement-meta {
+    font-size: 9px;
+    color: var(--t3);
+}
+
+/* 🤖 bloc IA */
+.signalement-ai {
+    text-align: center;
+}
+
+/* 🤖 score */
+.ai-score {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--bl);
+}
+
+/* 🤖 label */
+.ai-label {
+    font-size: 8px;
+    color: var(--t3);
+}
+
+/* 🔢 pagination */
+.pagination-wrapper {
+    margin-top: 16px;
+}
+
+/* ===============================
+   SIGNALEMENT SHOW
+================================= */
+
+/* 🔙 lien retour */
+.back-link {
+    font-size: 12px;
+    color: var(--gr);
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* 📦 carte détail */
+.signalement-detail-card {
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+/* 📊 grid infos */
+.signalement-meta-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+/* 🏷️ label */
+.meta-label {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* 📄 valeur */
+.meta-value {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* 🤖 IA */
+.meta-ai {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--bl);
+    margin-top: 4px;
+}
+
+/* 📝 description */
+.signalement-description {
+    background: var(--n3);
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 14px;
+    color: var(--t2);
+    line-height: 1.7;
+}
+
+/* ⚠️ contact */
+.signalement-contact {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--or);
+}
+
+/* 🖼️ image wrapper */
+.signalement-image-wrapper {
+    margin-top: 12px;
+}
+
+/* 🖼️ image */
+.signalement-image {
+    max-width: 300px;
+    border-radius: 8px;
+    border: 1px solid var(--bd);
+}
+
+/* 📦 carte formulaire */
+.signalement-form-card {
+    padding: 20px;
+}
+
+/* ❌ supprime marge top */
+.no-margin-top {
+    margin-top: 0;
+}

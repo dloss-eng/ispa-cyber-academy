@@ -1,0 +1,195 @@
+/* ===============================
+   FORM
+================================= */
+
+/* 🔙 Lien "Retour" en haut du formulaire */
+.back-link {
+    font-size: 12px;              /* Texte petit */
+    color: var(--gr);             /* Couleur définie dans ton thème */
+    text-decoration: none;        /* Supprime le soulignement */
+    margin-bottom: 16px;          /* Espace en dessous */
+    display: inline-block;        /* Permet d'appliquer margin correctement */
+}
+
+/* 📦 Carte contenant le formulaire */
+.badge-form-card {
+    padding: 24px;                /* Espace interne */
+    max-width: 500px;             /* Largeur maximale */
+}
+
+/* ❌ Supprime la marge du premier label */
+.no-margin-top {
+    margin-top: 0;
+}
+
+/* 😀 Style spécifique au champ emoji */
+.icon-input {
+    font-size: 24px;              /* Emoji plus grand */
+    text-align: center;           /* Centré dans le champ */
+}
+
+
+/* ===============================
+   HOLDERS
+================================= */
+
+/* 🔙 Lien retour */
+.back-link {
+    font-size: 12px;
+    color: var(--gr);
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* 📊 Bloc description + stats */
+.badge-meta {
+    font-size: 14px;
+    color: var(--t2);
+    margin-bottom: 20px;
+}
+
+/* 👥 Carte utilisateur */
+.user-card {
+    padding: 12px 16px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 👤 Avatar rond avec initiale */
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 229, 160, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gr);
+}
+
+/* 📄 Conteneur infos utilisateur */
+.user-info {
+    flex: 1;
+}
+
+/* 🧑 Nom utilisateur */
+.user-name {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* 📧 Email utilisateur */
+.user-email {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* 📅 Date */
+.user-date {
+    font-size: 10px;
+    color: var(--t3);
+}
+
+/* ❌ Aucun résultat */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--t3);
+}
+
+/* 🔢 Pagination */
+.pagination-wrapper {
+    margin-top: 16px;
+}
+
+/* ===============================
+   INDEX
+================================= */
+
+/* ➕ Header avec bouton à droite */
+.badge-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+/* 🧩 Grille responsive */
+.badge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+}
+
+/* 📦 Carte badge */
+.badge-card {
+    text-align: center;
+    padding: 20px;
+}
+
+/* 😀 Icône badge */
+.badge-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+/* 🏷️ Nom badge */
+.badge-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* 📝 Description */
+.badge-description {
+    font-size: 10px;
+    color: var(--t2);
+    margin: 6px 0;
+}
+
+/* 📊 Nombre d'obtentions */
+.badge-count {
+    font-size: 11px;
+    color: var(--gr);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* ⚙️ Actions (liens + bouton) */
+.badge-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+/* 👥 Voir */
+.action-view {
+    font-size: 10px;
+    color: var(--bl);
+    text-decoration: none;
+}
+
+/* ✏️ Modifier */
+.action-edit {
+    font-size: 10px;
+    color: var(--or);
+    text-decoration: none;
+}
+
+/* 🗑️ Formulaire suppression */
+.action-delete-form {
+    display: inline;
+}
+
+/* 🗑️ Bouton suppression */
+.action-delete-btn {
+    background: none;
+    border: none;
+    color: var(--re);
+    cursor: pointer;
+    font-size: 10px;
+}
