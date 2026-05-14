@@ -276,12 +276,22 @@ Route::get('/ispa-setup', function (\Illuminate\Http\Request $request) {
         \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
         \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
 
-        $admin = \App\Models\User::where('email', 'admin@ispa-cyber.ci')->first();
+        // Force reset du mot de passe admin
+        $adminRole = \App\Models\Role::firstOrCreate(['name' => 'admin'], ['display_name' => 'Administrateur']);
+        $admin = \App\Models\User::updateOrCreate(
+            ['email' => 'admin@ispa-cyber.ci'],
+            [
+                'name'      => 'Admin ISPA',
+                'password'  => \Illuminate\Support\Facades\Hash::make('AdminIspa@2024!'),
+                'role_id'   => $adminRole->id,
+                'is_active' => true,
+            ]
+        );
 
         return response()->json([
             'status'   => '✅ Succès',
-            'message'  => 'Base de données initialisée.',
-            'admin'    => $admin ? "Trouvé — ID {$admin->id}" : '❌ Non trouvé',
+            'message'  => 'Mot de passe admin réinitialisé.',
+            'admin_id' => $admin->id,
             'email'    => 'admin@ispa-cyber.ci',
             'password' => 'AdminIspa@2024!',
         ]);
