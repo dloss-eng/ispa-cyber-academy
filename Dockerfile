@@ -16,7 +16,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# Copier TOUT le projet d'abord
+# Copier tout le projet
 COPY . .
 
 # Installer les dépendances PHP
@@ -30,8 +30,9 @@ RUN chmod -R 775 storage bootstrap/cache
 
 EXPOSE 8000
 
+# Seeder conditionnel : ne seede que si la table roles est vide
 CMD php artisan config:cache && \
     php artisan route:cache && \
     php artisan migrate --force && \
-    php artisan db:seed --class=DatabaseSeeder --force && \
+    php artisan tinker --execute="if(\App\Models\Role::count() === 0) { \Artisan::call('db:seed', ['--class' => 'DatabaseSeeder', '--force' => true]); echo 'Seeded!'; } else { echo 'Already seeded, skipping.'; }" && \
     php artisan serve --host=0.0.0.0 --port=8000
