@@ -59,7 +59,9 @@ class DashboardController extends Controller
 
     public function createClass()
     {
-        return view('etablissement.class-form');
+        $etab = Etablissement::find(Auth::user()->etablissement_id);
+        abort_if(! $etab, 403);
+        return view('etablissement.class-form', compact('etab'));
     }
 
     public function storeClass(Request $r)

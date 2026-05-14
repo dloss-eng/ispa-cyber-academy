@@ -964,3 +964,163 @@ BADGES PAGE
 .pagination-container {
     margin-top: 16px;
 }
+
+/* ===============================
+   ÉTABLISSEMENT — COURSES GRILLE
+================================= */
+
+.etab-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+@media (max-width: 1024px) {
+    .etab-courses-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .etab-courses-grid { grid-template-columns: 1fr; }
+}
+
+/* Carte module */
+.etab-module-card {
+    background: var(--card);
+    border: 1px solid var(--bd);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.etab-module-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,229,160,.35);
+    box-shadow: 0 16px 48px rgba(0,229,160,.08);
+}
+
+/* Bande colorée */
+.etab-card-top {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.etab-card-green  { background: linear-gradient(135deg, rgba(0,229,160,.15), rgba(0,229,160,.04)); }
+.etab-card-blue   { background: linear-gradient(135deg, rgba(75,123,255,.15), rgba(75,123,255,.04)); }
+.etab-card-orange { background: linear-gradient(135deg, rgba(255,107,53,.15), rgba(255,107,53,.04)); }
+.etab-card-red    { background: linear-gradient(135deg, rgba(255,71,87,.15),  rgba(255,71,87,.04)); }
+.etab-card-yellow { background: linear-gradient(135deg, rgba(255,211,42,.15), rgba(255,211,42,.04)); }
+.etab-card-purple { background: linear-gradient(135deg, rgba(162,89,255,.15), rgba(162,89,255,.04)); }
+
+/* Numéro module */
+.etab-module-num {
+    position: absolute;
+    top: 10px;
+    left: 14px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,.2);
+    letter-spacing: 1px;
+}
+
+/* Badge niveau */
+.etab-level-badge {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(0,229,160,.15);
+    color: var(--gr);
+    border: 1px solid rgba(0,229,160,.3);
+}
+
+/* Corps */
+.etab-card-body {
+    padding: 18px 20px 14px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+}
+
+.etab-card-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--t);
+    line-height: 1.4;
+}
+
+.etab-card-desc {
+    font-size: 12px;
+    color: var(--t2);
+    line-height: 1.6;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+}
+
+.etab-card-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: var(--t3);
+}
+
+/* Séparateur */
+.etab-card-sep {
+    height: 1px;
+    background: var(--bd);
+    margin: 0;
+}
+
+/* Footer */
+.etab-card-footer {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.etab-card-price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gr);
+}
+
+.etab-btn-voir {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--gr);
+    color: #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity .2s, transform .15s;
+    white-space: nowrap;
+}
+
+.etab-btn-voir:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+}
