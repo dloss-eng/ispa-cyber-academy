@@ -19,7 +19,7 @@ WORKDIR /var/www/html
 # Copier TOUT le projet d'abord
 COPY . .
 
-# Installer les dépendances PHP (artisan est disponible)
+# Installer les dépendances PHP
 RUN composer install --optimize-autoloader --no-dev --no-interaction
 
 # Installer et builder les assets
@@ -33,4 +33,5 @@ EXPOSE 8000
 CMD php artisan config:cache && \
     php artisan route:cache && \
     php artisan migrate --force && \
+    php artisan db:seed --class=DatabaseSeeder --force && \
     php artisan serve --host=0.0.0.0 --port=8000
