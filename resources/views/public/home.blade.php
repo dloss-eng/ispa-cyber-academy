@@ -1,8 +1,6 @@
 @extends('layouts.landing')
 @section('title', 'Accueil')
 
-
-
 @section('content')
 
 {{-- ══ HERO ══ --}}
@@ -26,17 +24,18 @@
                 <div><span class="sn">{{ $stats['certificates'] }}</span><span class="sl">Certificats</span></div>
             </div>
         </div>
-        <div style="position:relative;display:flex;justify-content:center;align-items:center">
+        <div class="hero-right-col">
             <div class="cshield">
                 <div class="souter"><div class="sinner">
                     <img src="{{ asset('images/logo.png') }}" alt="ISPA" style="width:80px;height:80px;object-fit:contain" onerror="this.outerHTML='<div style=\'font-size:60px\'>🛡️</div>'">
                     <div style="font-family:'Orbitron',sans-serif;font-size:10px;color:var(--gr);letter-spacing:3px;text-transform:uppercase">CYBER SAFE CI</div>
                 </div></div>
             </div>
-            <div class="fc" style="top:10%;right:-10%;animation:float 5s ease-in-out infinite"><span style="color:var(--gr)">✅</span> Phishing détecté</div>
-            <div class="fc" style="bottom:20%;left:-15%;animation:float 7s ease-in-out infinite 1s"><span style="color:var(--or)">🏅</span> Badge Expert obtenu !</div>
-            <div class="fc" style="bottom:5%;right:5%;animation:float 6s ease-in-out infinite .5s"><span style="color:var(--ye)">⚡</span> +250 XP gagnés</div>
+            <div class="fc fc1"><span style="color:var(--gr)">✅</span> Phishing détecté</div>
+            <div class="fc fc2"><span style="color:var(--or)">🏅</span> Badge Expert obtenu !</div>
+            <div class="fc fc3"><span style="color:var(--ye)">⚡</span> +250 XP gagnés</div>
         </div>
     </div>
 </div>
+
 @endsection
