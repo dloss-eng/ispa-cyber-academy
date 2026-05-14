@@ -261,3 +261,31 @@ Route::middleware(['auth', 'role:enseignant'])
     Route::get('/eleves',                    [EnseignantDash::class, 'students'])->name('students');
     Route::get('/eleves/{user}/progression', [EnseignantDash::class, 'studentProgress'])->name('students.progress');
 });
+
+// ══════════════════════════════════════════════
+//  SETUP — Route d'initialisation (usage unique)
+//  Accès : /ispa-setup?token=IspaSetup2024
+//  À SUPPRIMER après la première utilisation
+// ══════════════════════════════════════════════
+Route::get('/ispa-setup', function (\Illuminate\Http\Request $request) {
+    if ($request->query('token') !== 'IspaSetup2024') {
+        abort(403, 'Token invalide.');
+    }
+
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+
+        $admin = \App\Models\User::where('email', 'admin@ispa-cyber.ci')->first();
+
+        return response()->json([
+            'status'   => '✅ Succès',
+            'message'  => 'Base de données initialisée.',
+            'admin'    => $admin ? "Trouvé — ID {$admin->id}" : '❌ Non trouvé',
+            'email'    => 'admin@ispa-cyber.ci',
+            'password' => 'AdminIspa@2024!',
+        ]);
+    } catch (\Exception $e) {
+        return response()->json(['status' => '❌ Erreur', 'detail' => $e->getMessage()], 500);
+    }
+});
