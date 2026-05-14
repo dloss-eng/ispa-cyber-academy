@@ -16,10 +16,11 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        // ✅ FIX — validation forte
+        // ✅ Validation login — on vérifie seulement que les champs sont présents
+        // (la complexité du mot de passe ne s'applique qu'à l'inscription)
         $credentials = $request->validate([
             'email'    => 'required|email',
-            'password' => ['required', \Illuminate\Validation\Rules\Password::min(12)->mixedCase()->numbers()->symbols()],
+            'password' => ['required', 'string'],
         ]);
 
         // ✅ FIX CRITIQUE — Rate Limiter Laravel (remplace cache manuel)
