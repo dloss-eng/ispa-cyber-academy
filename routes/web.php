@@ -261,3 +261,59 @@ Route::middleware(['auth', 'role:enseignant'])
     Route::get('/eleves',                    [EnseignantDash::class, 'students'])->name('students');
     Route::get('/eleves/{user}/progression', [EnseignantDash::class, 'studentProgress'])->name('students.progress');
 });
+
+// ══════════════════════════════════════════════
+//  SETUP — Route d'initialisation (usage unique)
+//  Accès : /ispa-setup?token=IspaSetup2024
+//  À SUPPRIMER après la première utilisation
+// ══════════════════════════════════════════════
+Route::get('/ispa-setup', function (\Illuminate\Http\Request $request) {
+    if ($request->query('token') !== 'IspaSetup2024') {
+        abort(403, 'Token invalide.');
+    }
+
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+
+        // Force reset du mot de passe admin
+        $adminRole = \App\Models\Role::firstOrCreate(['name' => 'admin'], ['display_name' => 'Administrateur']);
+        $admin = \App\Models\User::updateOrCreate(
+            ['email' => 'admin@ispa-cyber.ci'],
+            [
+                'name'      => 'Admin ISPA',
+                'password'  => \Illuminate\Support\Facades\Hash::make('AdminIspa@2024!'),
+                'role_id'   => $adminRole->id,
+                'is_active' => true,
+            ]
+        );
+
+        return response()->json([
+            'status'   => '✅ Succès',
+            'message'  => 'Mot de passe admin réinitialisé.',
+            'admin_id' => $admin->id,
+            'email'    => 'admin@ispa-cyber.ci',
+            'password' => 'AdminIspa@2024!',
+        ]);
+    } catch (\Exception $e) {
+        return response()->json(['status' => '❌ Erreur', 'detail' => $e->getMessage()], 500);
+    }
+});
+
+Route::get('/ispa-setup', function (\Illuminate\Http\Request $request) {
+    if ($request->query('token') !== 'IspaSetup2024') {
+        abort(403, 'Token invalide.');
+    }
+    try {
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+        $modules = \App\Models\Module::count();
+        $lessons = \App\Models\Lesson::count();
+        return response()->json([
+            'status'  => '✅ Succès',
+            'modules' => $modules,
+            'lecons'  => $lessons,
+        ]);
+    } catch (\Exception $e) {
+        return response()->json(['status' => '❌ Erreur', 'detail' => $e->getMessage()], 500);
+    }
+});

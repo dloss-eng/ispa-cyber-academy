@@ -86,6 +86,16 @@ class DatabaseSeeder extends Seeder
         if (Module::count() === 0) {
             $this->seedModules();
         }
+
+        // ── Seeders de cours complets ──
+        $this->call([
+            PhishingSeeder::class,
+            MobileMoneySeeder::class,
+            EadministrationSeeder::class,
+            ViePriseeSeeder::class,
+            CtfSeeder::class,
+            BadgeSeeder::class,
+        ]);
     }
 
     private function seedModules(): void
