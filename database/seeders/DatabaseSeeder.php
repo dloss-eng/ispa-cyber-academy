@@ -82,6 +82,11 @@ class DatabaseSeeder extends Seeder
             ['name'=>'CTF Master','slug'=>'ctf-master','description'=>'5 challenges CTF réussis','icon'=>'🏁','category'=>'special'],
         ] as $b) Badge::firstOrCreate(['slug'=>$b['slug']], $b);
 
+        // ── Modules de base (non couverts par les seeders spécialisés) ──
+        if (!\App\Models\Module::where('slug', 'introduction-cybersecurite')->exists()) {
+            $this->seedModules();
+        }
+
         // ── Seeders de cours complets ──
         // (les seeders spécialisés gèrent leurs propres modules)
         $this->call([

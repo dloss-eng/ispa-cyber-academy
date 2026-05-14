@@ -273,31 +273,20 @@ Route::get('/ispa-setup', function (\Illuminate\Http\Request $request) {
     }
 
     try {
-        // ── Supprimer les modules doublons créés par seedModules() ──
-        $slugsDoublons = [
-            'introduction-cybersecurite',
-            'mots-de-passe-securises',
-            'detection-phishing',
-            'securite-mobile-money',
-            'reseaux-sociaux-vie-privee',
-        ];
-
-        foreach ($slugsDoublons as $slug) {
-            $module = \App\Models\Module::where('slug', $slug)->first();
-            if ($module) {
-                $module->lessons()->each(function ($lesson) {
-                    $lesson->quizzes()->each(function ($quiz) {
-                        $quiz->questions()->each(fn($q) => $q->answers()->delete());
-                        $quiz->questions()->delete();
-                        $quiz->delete();
-                    });
-                    $lesson->delete();
+        // ── Supprimer TOUS les modules et leurs leçons/quiz proprement ──
+        \App\Models\Module::all()->each(function ($module) {
+            $module->lessons()->each(function ($lesson) {
+                $lesson->quizzes()->each(function ($quiz) {
+                    $quiz->questions()->each(fn($q) => $q->answers()->delete());
+                    $quiz->questions()->delete();
+                    $quiz->delete();
                 });
-                $module->delete();
-            }
-        }
+                $lesson->delete();
+            });
+            $module->delete();
+        });
 
-        // ── Re-seeder avec les vrais seeders ──
+        // ── Re-seeder tout proprement ──
         \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
 
         return response()->json([
