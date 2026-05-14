@@ -1,10 +1,10 @@
 FROM php:8.3-cli
 
-# Installer Node.js 20 (LTS) proprement
+# Node.js 20 LTS
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs
 
-# Extensions PHP + dépendances
+# Extensions PHP
 RUN apt-get update && apt-get install -y \
     git unzip libzip-dev libpng-dev libonig-dev \
     libxml2-dev libpq-dev \
@@ -16,18 +16,14 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# Copier d'abord les fichiers de dépendances
-COPY composer.json composer.lock ./
-RUN composer install --optimize-autoloader --no-dev --no-interaction
-
-COPY package.json package-lock.json ./
-RUN npm ci
-
-# Copier le reste du projet
+# Copier TOUT le projet d'abord
 COPY . .
 
-# Build des assets Vite
-RUN npm run build
+# Installer les dépendances PHP (artisan est disponible)
+RUN composer install --optimize-autoloader --no-dev --no-interaction
+
+# Installer et builder les assets
+RUN npm ci && npm run build
 
 # Permissions
 RUN chmod -R 775 storage bootstrap/cache
