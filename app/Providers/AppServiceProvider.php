@@ -2,7 +2,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\{Schema, Gate};
+use Illuminate\Support\Facades\{Schema, Gate, URL};
 use Illuminate\Pagination\Paginator;
 use App\Models\{User, Module, Badge, Certificate, Etablissement, Signalement, Subscription, UserNotification, ForumTopic, Quiz};
 use App\Models\Classe;
@@ -19,6 +19,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         Paginator::useTailwind();
+
+        // ✅ Forcer HTTPS en production (nécessaire pour Render)
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+            $this->app['request']->server->set('HTTPS', 'on');
+        }
 
         // ✅ Enregistrement de toutes les Policies
         Gate::policy(User::class,             UserPolicy::class);
