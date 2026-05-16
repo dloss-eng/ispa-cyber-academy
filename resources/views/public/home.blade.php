@@ -31,9 +31,6 @@
                     <div style="font-family:'Orbitron',sans-serif;font-size:10px;color:var(--gr);letter-spacing:3px;text-transform:uppercase">CYBER SAFE CI</div>
                 </div></div>
             </div>
-            <div class="fc fc1"><span style="color:var(--gr)">✅</span> Phishing détecté</div>
-            <div class="fc fc2"><span style="color:var(--or)">🏅</span> Badge Expert obtenu !</div>
-            <div class="fc fc3"><span style="color:var(--ye)">⚡</span> +250 XP gagnés</div>
         </div>
     </div>
 </div>
