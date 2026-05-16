@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\{AuthController, TwoFactorController};
 use App\Http\Controllers\Student\{DashboardController, CourseController, QuizController, CertificateController, NotificationController, SignalementController};
-use App\Http\Controllers\Student\CtfController;                         // ✅ CTF étudiant
+use App\Http\Controllers\Student\CtfController;
 use App\Http\Controllers\Admin\DashboardController      as AdminDash;
 use App\Http\Controllers\Admin\UserController           as AdminUser;
 use App\Http\Controllers\Admin\ModuleController         as AdminModule;
@@ -24,7 +24,7 @@ use App\Http\Controllers\Admin\BadgeController          as AdminBadge;
 use App\Http\Controllers\Admin\CertificateController    as AdminCert;
 use App\Http\Controllers\Admin\SignalementController    as AdminSignalement;
 use App\Http\Controllers\Admin\PaymentController        as AdminPayment;
-use App\Http\Controllers\Admin\CtfController            as AdminCtf;    // ✅ CTF admin
+use App\Http\Controllers\Admin\CtfController            as AdminCtf;
 use App\Http\Controllers\Etablissement\DashboardController as EtabDash;
 use App\Http\Controllers\Etablissement\PaymentController   as EtabPayment;
 use App\Http\Controllers\Enseignant\DashboardController    as EnseignantDash;
@@ -41,13 +41,10 @@ Route::get('/verifier-certificat', [HomeController::class, 'verifyCertificate'])
 Route::get('/api-docs',            [HomeController::class, 'apiDocs'])->name('api.docs');
 Route::get('/contact',             [HomeController::class, 'contact'])->name('contact');
 Route::get('/about',               [HomeController::class, 'about'])->name('about');
-
-// ✅ Route POST contact — notifie les admins
 Route::post('/contact', [HomeController::class, 'sendContact'])->name('contact.send');
 
 // ══════════════════════════════════════════════
 //  AUTHENTIFICATION
-//  ✅ Rate limiting sur login et 2FA
 // ══════════════════════════════════════════════
 
 Route::middleware('guest')->group(function () {
@@ -63,7 +60,6 @@ Route::post('/2fa/resend', [TwoFactorController::class, 'resend'])->name('2fa.re
 
 // ══════════════════════════════════════════════
 //  NOTIFICATIONS — tous les rôles connectés
-//  ✅ Admin, étudiant, enseignant, établissement
 // ══════════════════════════════════════════════
 
 Route::middleware('auth')->group(function () {
@@ -74,8 +70,6 @@ Route::middleware('auth')->group(function () {
 
 // ══════════════════════════════════════════════
 //  ÉTUDIANT / ÉLÈVE
-//  ✅ role:eleve,etudiant — admin ne peut plus
-//     accéder au dashboard étudiant
 // ══════════════════════════════════════════════
 
 Route::middleware(['auth', 'role:eleve,etudiant'])->group(function () {
@@ -91,10 +85,8 @@ Route::middleware(['auth', 'role:eleve,etudiant'])->group(function () {
     Route::post('/mes-cours/{module}/lecon/{lesson}/complete', [CourseController::class, 'completeLesson'])->name('courses.lesson.complete');
     Route::get('/mes-cours/{module}/{lesson}/ajax',            [CourseController::class, 'lessonAjax'])->name('courses.lesson.ajax');
 
-    Route::get('/quiz/{quiz}',         [QuizController::class, 'show'])->name('quiz.show');
-    Route::post('/quiz/{quiz}/submit', [QuizController::class, 'submit'])
-        ->middleware('throttle:10,1')
-        ->name('quiz.submit');
+    Route::get('/quiz/{quiz}',             [QuizController::class, 'show'])->name('quiz.show');
+    Route::post('/quiz/{quiz}/submit',     [QuizController::class, 'submit'])->middleware('throttle:10,1')->name('quiz.submit');
     Route::get('/quiz-resultat/{attempt}', [QuizController::class, 'result'])->name('quiz.result');
 
     Route::get('/certificat/{certificate}',          [CertificateController::class, 'show'])->name('certificate.show');
@@ -102,37 +94,25 @@ Route::middleware(['auth', 'role:eleve,etudiant'])->group(function () {
 
     Route::get('/signalements',         [SignalementController::class, 'index'])->name('signalements.index');
     Route::get('/signalements/nouveau', [SignalementController::class, 'create'])->name('signalements.create');
-    Route::post('/signalements',        [SignalementController::class, 'store'])
-        ->middleware('throttle:5,10')
-        ->name('signalements.store');
+    Route::post('/signalements',        [SignalementController::class, 'store'])->middleware('throttle:5,10')->name('signalements.store');
 
-    // ✅ CTF — Challenges Capture The Flag
     Route::get('/ctf',                     [CtfController::class, 'index'])->name('ctf.index');
     Route::get('/ctf/classement',          [CtfController::class, 'leaderboard'])->name('ctf.leaderboard');
     Route::get('/ctf/{challenge}',         [CtfController::class, 'show'])->name('ctf.show');
-    Route::post('/ctf/{challenge}/submit', [CtfController::class, 'submit'])
-        ->middleware('throttle:10,5')
-        ->name('ctf.submit');
-    Route::post('/ctf/{challenge}/hint',   [CtfController::class, 'revealHint'])
-        ->middleware('throttle:20,5')
-        ->name('ctf.hint');
+    Route::post('/ctf/{challenge}/submit', [CtfController::class, 'submit'])->middleware('throttle:10,5')->name('ctf.submit');
+    Route::post('/ctf/{challenge}/hint',   [CtfController::class, 'revealHint'])->middleware('throttle:20,5')->name('ctf.hint');
 });
 
 // ══════════════════════════════════════════════
 //  FORUM (tous les rôles connectés)
-//  ✅ Rate limiting sur store et reply
 // ══════════════════════════════════════════════
 
 Route::middleware('auth')->group(function () {
     Route::get('/forum',                [ForumController::class, 'index'])->name('forum.index');
     Route::get('/forum/nouveau',        [ForumController::class, 'create'])->name('forum.create');
-    Route::post('/forum',               [ForumController::class, 'store'])
-        ->middleware('throttle:10,10')
-        ->name('forum.store');
+    Route::post('/forum',               [ForumController::class, 'store'])->middleware('throttle:10,10')->name('forum.store');
     Route::get('/forum/{topic}',        [ForumController::class, 'show'])->name('forum.show');
-    Route::post('/forum/{topic}/reply', [ForumController::class, 'reply'])
-        ->middleware('throttle:20,10')
-        ->name('forum.reply');
+    Route::post('/forum/{topic}/reply', [ForumController::class, 'reply'])->middleware('throttle:20,10')->name('forum.reply');
 });
 
 // ══════════════════════════════════════════════
@@ -146,7 +126,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // ══════════════════════════════════════════════
-//  ADMIN — bloc unique fusionné
+//  ADMIN
 // ══════════════════════════════════════════════
 
 Route::middleware(['auth', 'role:admin'])
@@ -156,10 +136,8 @@ Route::middleware(['auth', 'role:admin'])
 
     Route::get('/dashboard', [AdminDash::class, 'index'])->name('dashboard');
 
-    // Utilisateurs
     Route::resource('users', AdminUser::class)->except('show');
 
-    // Modules + Leçons + Quiz
     Route::resource('modules', AdminModule::class)->except('show');
     Route::get('/modules/{module}/lessons/new',           [AdminModule::class, 'createLesson'])->name('modules.lessons.create');
     Route::post('/modules/{module}/lessons',              [AdminModule::class, 'storeLesson'])->name('modules.lessons.store');
@@ -177,12 +155,10 @@ Route::middleware(['auth', 'role:admin'])
     Route::put('/modules/{module}/quiz/{quiz}',           [AdminModule::class, 'updateModuleQuiz'])->name('modules.quiz.update');
     Route::delete('/modules/{module}/quiz/{quiz}',        [AdminModule::class, 'destroyModuleQuiz'])->name('modules.quiz.destroy');
 
-    // Établissements, Badges
     Route::resource('etablissements', AdminEtab::class)->except('show');
     Route::resource('badges', AdminBadge::class)->except('show');
     Route::get('/badges/{badge}/holders', [AdminBadge::class, 'holders'])->name('badges.holders');
 
-    // Certificats, Signalements, Paiements
     Route::get('/certificats',                [AdminCert::class, 'index'])->name('certificates.index');
     Route::get('/signalements',               [AdminSignalement::class, 'index'])->name('signalements.index');
     Route::get('/signalements/{signalement}', [AdminSignalement::class, 'show'])->name('signalements.show');
@@ -191,18 +167,16 @@ Route::middleware(['auth', 'role:admin'])
 
     Route::delete('/resources/{resource}', [AdminModule::class, 'destroyResource'])->name('resources.destroy');
 
-    // Modération forum
     Route::post('/forum/{topic}/lock',               [ForumController::class, 'lock'])->name('forum.lock');
     Route::delete('/forum/{topic}/delete',           [ForumController::class, 'destroy'])->name('forum.delete');
     Route::delete('/forum/message/{message}/delete', [ForumController::class, 'destroyMessage'])->name('forum.message.delete');
 
-    // ✅ CTF — Gestion des challenges (admin)
     Route::resource('ctf', AdminCtf::class)->except('show');
     Route::get('/ctf/{challenge}/stats', [AdminCtf::class, 'stats'])->name('ctf.stats');
 });
 
 // ══════════════════════════════════════════════
-//  ÉTABLISSEMENT — bloc unique
+//  ÉTABLISSEMENT
 // ══════════════════════════════════════════════
 
 Route::middleware(['auth', 'role:etablissement'])
@@ -241,7 +215,6 @@ Route::middleware(['auth', 'role:etablissement'])
     Route::get('/paiements',            [EtabPayment::class, 'index'])->name('payments');
     Route::post('/paiements/souscrire', [EtabPayment::class, 'subscribe'])->name('payments.subscribe');
 
-    // ✅ CTF — Stats apprenants de l'établissement
     Route::get('/ctf', [EtabDash::class, 'ctfStats'])->name('ctf');
 });
 
@@ -260,41 +233,4 @@ Route::middleware(['auth', 'role:enseignant'])
     Route::get('/classes/{classe}/report',   [EnseignantDash::class, 'classReport'])->name('classes.report');
     Route::get('/eleves',                    [EnseignantDash::class, 'students'])->name('students');
     Route::get('/eleves/{user}/progression', [EnseignantDash::class, 'studentProgress'])->name('students.progress');
-});
-
-// ══════════════════════════════════════════════
-//  SETUP — Route d'initialisation (usage unique)
-//  Accès : /ispa-setup?token=IspaSetup2024
-//  À SUPPRIMER après la première utilisation
-// ══════════════════════════════════════════════
-Route::get('/ispa-setup', function (\Illuminate\Http\Request $request) {
-    if ($request->query('token') !== 'IspaSetup2024') {
-        abort(403, 'Token invalide.');
-    }
-
-    try {
-        // ── Supprimer TOUS les modules et leurs leçons/quiz proprement ──
-        \App\Models\Module::all()->each(function ($module) {
-            $module->lessons()->each(function ($lesson) {
-                $lesson->quizzes()->each(function ($quiz) {
-                    $quiz->questions()->each(fn($q) => $q->answers()->delete());
-                    $quiz->questions()->delete();
-                    $quiz->delete();
-                });
-                $lesson->delete();
-            });
-            $module->delete();
-        });
-
-        // ── Re-seeder tout proprement ──
-        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
-
-        return response()->json([
-            'status'   => '✅ Succès',
-            'modules'  => \App\Models\Module::count(),
-            'lecons'   => \App\Models\Lesson::count(),
-        ]);
-    } catch (\Exception $e) {
-        return response()->json(['status' => '❌ Erreur', 'detail' => $e->getMessage()], 500);
-    }
 });
