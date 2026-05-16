@@ -80,6 +80,43 @@
                value="{{ old('email', $etablissement->email ?? '') }}"
                class="fi">
 
+        {{-- 🔐 Mot de passe (uniquement à la création ou si on veut changer) --}}
+        @if(!isset($etablissement))
+            {{-- Création : mot de passe obligatoire --}}
+            <label class="fl">Mot de passe</label>
+            <input type="password"
+                   name="password"
+                   required
+                   placeholder="Minimum 8 caractères"
+                   class="fi">
+
+            <label class="fl">Confirmer le mot de passe</label>
+            <input type="password"
+                   name="password_confirmation"
+                   required
+                   placeholder="Répétez le mot de passe"
+                   class="fi">
+        @else
+            {{-- Modification : mot de passe optionnel --}}
+            <div style="border:1px solid var(--bd);border-radius:10px;padding:16px;margin:16px 0;">
+                <p style="font-size:12px;color:var(--t2);margin:0 0 12px 0;">
+                    🔐 Laisser vide pour conserver le mot de passe actuel
+                </p>
+
+                <label class="fl no-margin-top">Nouveau mot de passe</label>
+                <input type="password"
+                       name="password"
+                       placeholder="Laisser vide pour ne pas changer"
+                       class="fi">
+
+                <label class="fl">Confirmer le nouveau mot de passe</label>
+                <input type="password"
+                       name="password_confirmation"
+                       placeholder="Laisser vide pour ne pas changer"
+                       class="fi">
+            </div>
+        @endif
+
         {{-- 🖼️ Logo --}}
         <label class="fl">Logo (image)</label>
         <input type="file"
