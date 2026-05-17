@@ -13,11 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
 
-        // ✅ SecurityHeaders — CSP, XSS, HSTS
-        // ✅ BlockSqlInjection — protection anti-injection SQL
+        // ✅ SecurityHeaders — appliqué sur TOUTES les requêtes web (CSP, XSS, HSTS)
         $middleware->web(append: [
             \App\Http\Middleware\SecurityHeaders::class,
-            \App\Http\Middleware\BlockSqlInjection::class,
         ]);
 
         // ✅ Alias personnalisés
