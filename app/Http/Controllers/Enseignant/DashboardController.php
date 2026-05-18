@@ -10,20 +10,17 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class DashboardController extends Controller
 {
     
-    private function getTeacherClassIds(): \Illuminate\Support\Collection
+    private function getTeacherClasses()
     {
-        $etab = Auth::user()->etablissement;
-        if (!$etab) return collect();
-
-        return Classe::where('etablissement_id', $etab->id)->pluck('id');
+        return Classe::where('enseignant_id', Auth::id())
+            ->where('is_active', true)
+            ->get();
     }
 
-    /**
-     * Retourne les IDs des élèves des classes de l'enseignant uniquement
-     */
+    
     private function getTeacherStudentIds(): \Illuminate\Support\Collection
     {
-        $classIds = $this->getTeacherClassIds();
+        $classIds = $this->getTeacherClasses()->pluck('id');
         if ($classIds->isEmpty()) return collect();
 
         return User::whereHas('classes', fn($q) => $q->whereIn('classes.id', $classIds))
@@ -38,44 +35,37 @@ class DashboardController extends Controller
 
         abort_if(!$etab, 403);
 
-        $classes = Classe::where('etablissement_id', $etab->id)
-            ->withCount('students')
-            ->get();
+        
+        $classes = $this->getTeacherClasses();
 
         
         $studentIds = $this->getTeacherStudentIds();
 
-        $recentProgress = StudentProgress::whereIn('user_id', $studentIds)
-            ->with(['user','lesson.module'])
-            ->latest()
-            ->limit(20)
-            ->get();
+        $recentProgress = $studentIds->isEmpty()
+            ? collect()
+            : StudentProgress::whereIn('user_id', $studentIds)
+                ->with(['user','lesson.module'])
+                ->latest()
+                ->limit(20)
+                ->get();
 
         return view('enseignant.dashboard', compact('etab','classes','recentProgress'));
     }
 
     public function classes()
     {
-        $etab = Auth::user()->etablissement;
-        abort_if(!$etab, 403);
-
-        $classes = Classe::where('etablissement_id', $etab->id)
-            ->withCount('students')
-            ->get();
+        $classes = $this->getTeacherClasses()->loadCount('students');
 
         return view('enseignant.classes', compact('classes'));
     }
 
     public function students()
     {
-        $etab = Auth::user()->etablissement;
-        abort_if(!$etab, 403);
-
-        
         $studentIds = $this->getTeacherStudentIds();
 
-        $students = User::whereIn('id', $studentIds)
-            ->paginate(30);
+        $students = $studentIds->isEmpty()
+            ? collect()
+            : User::whereIn('id', $studentIds)->paginate(30);
 
         return view('enseignant.students', compact('students'));
     }
@@ -100,7 +90,8 @@ class DashboardController extends Controller
 
     public function classStats(Classe $classe)
     {
-        abort_if($classe->etablissement_id !== Auth::user()->etablissement_id, 403);
+        
+        abort_if($classe->enseignant_id !== Auth::id(), 403);
 
         $students = $classe->students()->with('badges')->get();
         $ids = $students->pluck('id');
@@ -129,7 +120,8 @@ class DashboardController extends Controller
 
     public function classReport(Classe $classe)
     {
-        abort_if($classe->etablissement_id !== Auth::user()->etablissement_id, 403);
+        
+        abort_if($classe->enseignant_id !== Auth::id(), 403);
 
         $students = $classe->students()->with('badges')->get();
         $ids = $students->pluck('id');
