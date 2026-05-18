@@ -56,11 +56,11 @@
                 <td class="td-actions">
 
                     <a href="{{ route('etablissement.students.progress',$s) }}" class="action-view">
-                        📊
+                        Stats
                     </a>
 
                     <a href="{{ route('etablissement.students.edit',$s) }}" class="action-edit">
-                        ✏️
+                        Modifier
                     </a>
 
                     <form action="{{ route('etablissement.students.destroy',$s) }}" method="POST" class="inline-form" onsubmit="return confirm('Supprimer ?')">
