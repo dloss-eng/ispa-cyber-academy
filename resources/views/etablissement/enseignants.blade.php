@@ -76,7 +76,7 @@
             {{-- ✏️ edit --}}
             <a href="{{ route('etablissement.enseignants.edit',$e) }}"
                class="teacher-link link-orange">
-                ✏️
+                Modifier
             </a>
 
             {{-- 🗑️ delete --}}
