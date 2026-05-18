@@ -15,7 +15,7 @@
             </h1>
             <p class="hdesc"><strong>ISPA Cyber Academy</strong> est la première plateforme intelligente d'éducation à la cybersécurité adaptée au contexte ivoirien — <strong>Mobile Money, phishing local, arnaques du quotidien</strong>.</p>
             <div style="display:flex;gap:16px;flex-wrap:wrap">
-                <a href="{{ route('about') }}" class="btn-cyber">🚀 Découvrir la plateforme</a>
+                <a href="{{ route('about') }}" class="btn-cyber"> Découvrir la plateforme</a>
                 <a href="{{ route('public.courses') }}" class="btn-cyber-outline">📚 Voir les modules</a>
             </div>
             <div class="hstats">
