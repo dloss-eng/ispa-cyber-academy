@@ -9,6 +9,28 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class DashboardController extends Controller
 {
+    
+    private function getTeacherClassIds(): \Illuminate\Support\Collection
+    {
+        $etab = Auth::user()->etablissement;
+        if (!$etab) return collect();
+
+        return Classe::where('etablissement_id', $etab->id)->pluck('id');
+    }
+
+    /**
+     * Retourne les IDs des élèves des classes de l'enseignant uniquement
+     */
+    private function getTeacherStudentIds(): \Illuminate\Support\Collection
+    {
+        $classIds = $this->getTeacherClassIds();
+        if ($classIds->isEmpty()) return collect();
+
+        return User::whereHas('classes', fn($q) => $q->whereIn('classes.id', $classIds))
+            ->whereHas('role', fn($q) => $q->whereIn('name', ['eleve','etudiant']))
+            ->pluck('id');
+    }
+
     public function index()
     {
         $user = Auth::user();
@@ -20,10 +42,8 @@ class DashboardController extends Controller
             ->withCount('students')
             ->get();
 
-        // ⚡ optimisation : récupérer IDs étudiants une seule fois
-        $studentIds = User::where('etablissement_id', $etab->id)
-            ->whereHas('role', fn($q) => $q->whereIn('name', ['eleve','etudiant']))
-            ->pluck('id');
+        
+        $studentIds = $this->getTeacherStudentIds();
 
         $recentProgress = StudentProgress::whereIn('user_id', $studentIds)
             ->with(['user','lesson.module'])
@@ -37,6 +57,7 @@ class DashboardController extends Controller
     public function classes()
     {
         $etab = Auth::user()->etablissement;
+        abort_if(!$etab, 403);
 
         $classes = Classe::where('etablissement_id', $etab->id)
             ->withCount('students')
@@ -48,9 +69,12 @@ class DashboardController extends Controller
     public function students()
     {
         $etab = Auth::user()->etablissement;
+        abort_if(!$etab, 403);
 
-        $students = User::where('etablissement_id', $etab->id)
-            ->whereHas('role', fn($q) => $q->whereIn('name', ['eleve','etudiant']))
+        
+        $studentIds = $this->getTeacherStudentIds();
+
+        $students = User::whereIn('id', $studentIds)
             ->paginate(30);
 
         return view('enseignant.students', compact('students'));
@@ -58,7 +82,9 @@ class DashboardController extends Controller
 
     public function studentProgress(User $user)
     {
-        abort_if($user->etablissement_id !== Auth::user()->etablissement_id, 403);
+        
+        $studentIds = $this->getTeacherStudentIds();
+        abort_if(!$studentIds->contains($user->id), 403);
 
         $progress = StudentProgress::where('user_id', $user->id)
             ->with('lesson.module')
@@ -79,7 +105,6 @@ class DashboardController extends Controller
         $students = $classe->students()->with('badges')->get();
         $ids = $students->pluck('id');
 
-        // ⚡ group queries (évite N+1)
         $progressCounts = StudentProgress::whereIn('user_id', $ids)
             ->where('status','completed')
             ->selectRaw('user_id, COUNT(*) as total')
@@ -93,10 +118,10 @@ class DashboardController extends Controller
             ->pluck('total','user_id');
 
         $stats = $students->map(fn($s) => [
-            'user'=>$s,
-            'progress'=>$progressCounts[$s->id] ?? 0,
-            'quizzes'=>$quizCounts[$s->id] ?? 0,
-            'points'=>$s->points
+            'user'     => $s,
+            'progress' => $progressCounts[$s->id] ?? 0,
+            'quizzes'  => $quizCounts[$s->id] ?? 0,
+            'points'   => $s->points
         ]);
 
         return view('enseignant.class-stats', compact('classe','stats'));
@@ -109,7 +134,6 @@ class DashboardController extends Controller
         $students = $classe->students()->with('badges')->get();
         $ids = $students->pluck('id');
 
-        // ⚡ optimisation stats
         $progressCounts = StudentProgress::whereIn('user_id', $ids)
             ->where('status','completed')
             ->selectRaw('user_id, COUNT(*) as total')
@@ -128,12 +152,12 @@ class DashboardController extends Controller
             ->pluck('avg_score','user_id');
 
         $stats = $students->map(fn($s) => [
-            'user'=>$s,
-            'progress'=>$progressCounts[$s->id] ?? 0,
-            'quizzes'=>$quizCounts[$s->id] ?? 0,
-            'avg_score'=>round($avgScores[$s->id] ?? 0),
-            'points'=>$s->points,
-            'badges'=>$s->badges->count()
+            'user'      => $s,
+            'progress'  => $progressCounts[$s->id] ?? 0,
+            'quizzes'   => $quizCounts[$s->id] ?? 0,
+            'avg_score' => round($avgScores[$s->id] ?? 0),
+            'points'    => $s->points,
+            'badges'    => $s->badges->count()
         ]);
 
         $etab = Auth::user()->etablissement;
