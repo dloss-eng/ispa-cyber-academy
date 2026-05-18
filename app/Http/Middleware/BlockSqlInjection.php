@@ -8,16 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BlockSqlInjection
 {
-    /**
-     * Patterns dangereux UNIQUEMENT dans les paramètres GET/POST
-     * (pas dans l'URL elle-même pour éviter les faux positifs)
-     */
     private array $patterns = [
         '/(\bunion\b.+\bselect\b)/i',
         '/(\bselect\b.+\bfrom\b.+\bwhere\b)/i',
         '/(\bdrop\s+table\b)/i',
         '/(\bdelete\s+from\b)/i',
         '/(\binsert\s+into\b)/i',
+        '/(\bupdate\b.+\bset\b)/i',
         '/(\bexec\s*\()/i',
         '/(\bexecute\s*\()/i',
         "/(';.*--)/",
@@ -26,7 +23,6 @@ class BlockSqlInjection
 
     public function handle(Request $request, Closure $next): Response
     {
-        // Ne vérifier QUE les paramètres GET/POST — pas l'URL entière
         foreach ($request->query() as $key => $value) {
             if (is_string($value) && $this->isSuspicious($value)) {
                 \Illuminate\Support\Facades\Log::warning('SQL Injection tentative (GET)', [
