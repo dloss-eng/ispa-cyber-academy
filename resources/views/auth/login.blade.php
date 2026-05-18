@@ -19,8 +19,8 @@
             <!-- HEADER -->
             <div class="auth-header">
 
-                <img 
-                    src="{{ asset('images/logo.png') }}" 
+                <img
+                    src="{{ asset('images/logo.png') }}"
                     alt="ISPA"
                     class="auth-logo"
                     onerror="this.outerHTML='<div class=\'auth-logo-fallback\'>🛡️</div>'"
@@ -44,12 +44,12 @@
                     Adresse email
                 </label>
 
-                <input 
-                    type="email" 
-                    name="email" 
-                    value="{{ old('email') }}" 
-                    required 
-                    autofocus 
+                <input
+                    type="email"
+                    name="email"
+                    value="{{ old('email') }}"
+                    required
+                    autofocus
                     class="fi"
                     placeholder="votre@email.com"
                 >
@@ -58,10 +58,10 @@
                     Mot de passe
                 </label>
 
-                <input 
-                    type="password" 
-                    name="password" 
-                    required 
+                <input
+                    type="password"
+                    name="password"
+                    required
                     class="fi"
                     placeholder="••••••••"
                 >
@@ -92,9 +92,40 @@
                 <span>🔐 Bcrypt</span>
             </div>
 
+            <!-- 🌙 Toggle Dark/Light Mode -->
+            <div style="text-align:center;margin-top:16px;">
+                <button onclick="toggleAuthMode()" id="auth-mode-btn"
+                    style="background:none;border:1px solid var(--bd);border-radius:20px;padding:6px 16px;cursor:pointer;font-size:12px;color:var(--t2);">
+                    🌙 Mode sombre
+                </button>
+            </div>
+
         </div>
 
     </div>
+
+    <script>
+        // Appliquer le mode sauvegardé au chargement
+        (function() {
+            const mode = localStorage.getItem('auth-mode') || 'dark';
+            document.documentElement.setAttribute('data-theme', mode);
+            updateBtn(mode);
+        })();
+
+        function toggleAuthMode() {
+            const current = document.documentElement.getAttribute('data-theme') || 'dark';
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('auth-mode', next);
+            updateBtn(next);
+        }
+
+        function updateBtn(mode) {
+            const btn = document.getElementById('auth-mode-btn');
+            if (!btn) return;
+            btn.textContent = mode === 'dark' ? '☀️ Mode clair' : '🌙 Mode sombre';
+        }
+    </script>
 
 </body>
 </html>
