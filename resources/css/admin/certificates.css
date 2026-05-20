@@ -57,3 +57,27 @@
 .pagination-wrapper {
     margin-top: 16px;
 }
+
+/* 🔗 Carte cliquable */
+.cert-card-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+}
+
+.cert-card-link:hover {
+    border-color: var(--gr);
+    transform: translateX(4px);
+}
+
+/* 👁️ Icône voir */
+.cert-view-icon {
+    font-size: 18px;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+}
+
+.cert-card-link:hover .cert-view-icon {
+    opacity: 1;
+}

@@ -16,7 +16,7 @@
 {{-- 🔁 Liste des certificats --}}
 @forelse($certificates as $c)
 
-    <div class="cyber-card cert-card">
+    <a href="{{ route('certificate.show', $c) }}" class="cyber-card cert-card cert-card-link">
 
         {{-- 📜 Icône --}}
         <div class="cert-icon">
@@ -43,7 +43,12 @@
 
         </div>
 
-    </div>
+        {{-- 👁️ Icône voir --}}
+        <div class="cert-view-icon">
+            👁️
+        </div>
+
+    </a>
 
 {{-- ❌ Aucun certificat --}}
 @empty
