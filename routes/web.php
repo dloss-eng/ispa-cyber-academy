@@ -9,6 +9,7 @@
 //    - route:cache compatible (0 closure)
 //    - Notifications accessibles à tous les rôles connectés
 //    - ✅ Routes CTF ajoutées (étudiant + admin + établissement)
+//    - ✅ Routes certificats accessibles à tous les rôles connectés
 // ════════════════════════════════════════════════════════════════════
 
 use Illuminate\Support\Facades\Route;
@@ -69,6 +70,16 @@ Route::middleware('auth')->group(function () {
 });
 
 // ══════════════════════════════════════════════
+//  ✅ CERTIFICATS — tous les rôles connectés
+//  (admin, enseignant, établissement peuvent voir)
+// ══════════════════════════════════════════════
+
+Route::middleware('auth')->group(function () {
+    Route::get('/certificat/{certificate}',          [CertificateController::class, 'show'])->name('certificate.show');
+    Route::get('/certificat/{certificate}/download', [CertificateController::class, 'download'])->name('certificate.download');
+});
+
+// ══════════════════════════════════════════════
 //  ÉTUDIANT / ÉLÈVE
 // ══════════════════════════════════════════════
 
@@ -88,9 +99,6 @@ Route::middleware(['auth', 'role:eleve,etudiant'])->group(function () {
     Route::get('/quiz/{quiz}',             [QuizController::class, 'show'])->name('quiz.show');
     Route::post('/quiz/{quiz}/submit',     [QuizController::class, 'submit'])->middleware('throttle:10,1')->name('quiz.submit');
     Route::get('/quiz-resultat/{attempt}', [QuizController::class, 'result'])->name('quiz.result');
-
-    Route::get('/certificat/{certificate}',          [CertificateController::class, 'show'])->name('certificate.show');
-    Route::get('/certificat/{certificate}/download', [CertificateController::class, 'download'])->name('certificate.download');
 
     Route::get('/signalements',         [SignalementController::class, 'index'])->name('signalements.index');
     Route::get('/signalements/nouveau', [SignalementController::class, 'create'])->name('signalements.create');
@@ -190,7 +198,7 @@ Route::middleware(['auth', 'role:etablissement'])
     Route::get('/classes/new',           [EtabDash::class, 'createClass'])->name('classes.create');
     Route::post('/classes',              [EtabDash::class, 'storeClass'])->name('classes.store');
     Route::get('/classes/{classe}/edit', [EtabDash::class, 'editClass'])->name('classes.edit');
-    Route::put('/classes/{classe}',      [EtabDash::class, 'updateClass'])->name('classes.update');
+    Route::put('/classe/{classe}',      [EtabDash::class, 'updateClass'])->name('classes.update');
     Route::delete('/classes/{classe}',   [EtabDash::class, 'destroyClass'])->name('classes.destroy');
     Route::get('/classes/{classe}/stats',[EtabDash::class, 'classStats'])->name('classes.stats');
 
