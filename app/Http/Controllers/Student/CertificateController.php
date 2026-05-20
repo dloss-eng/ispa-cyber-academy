@@ -26,8 +26,15 @@ class CertificateController extends Controller
         if (!Storage::disk('public')->exists($path)) {
 
             try {
+                // ✅ Logo ISPA en base64 pour le PDF
+                $logoPath = public_path('images/log.jpeg');
+                $logoBase64 = file_exists($logoPath)
+                    ? base64_encode(file_get_contents($logoPath))
+                    : null;
+
                 $pdf = Pdf::loadView('certificates.pdf', [
-                    'certificate' => $certificate
+                    'certificate' => $certificate,
+                    'logoBase64'  => $logoBase64,
                 ])->setPaper('a4', 'landscape');
 
                 Storage::disk('public')->put($path, $pdf->output());
