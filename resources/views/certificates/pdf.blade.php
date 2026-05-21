@@ -5,118 +5,106 @@
 </head>
 <body>
 
-<div class="cert-wrapper">
+<table width="100%" height="100%" cellpadding="0" cellspacing="0"
+       style="background:#0D1628; border:2px solid #00C896; height:100%;">
+    <tr>
+        <td style="padding:16px 24px; vertical-align:top;">
 
-    <!-- Coins décoratifs -->
-    <div class="corner corner-tl"></div>
-    <div class="corner corner-tr"></div>
-    <div class="corner corner-bl"></div>
-    <div class="corner corner-br"></div>
+            <!-- Coins décoratifs -->
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
 
-    <!-- Header : Logo + Nom plateforme -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
-        <tr>
-            <td width="56" style="vertical-align:middle; text-align:center;">
-                @if($logoBase64)
-                    <img src="data:image/jpeg;base64,{{ $logoBase64 }}"
-                         width="50" height="50"
-                         style="border-radius:50%; border:2px solid #00C896; background:#fff;">
-                @else
-                    <div style="font-size:28px; text-align:center;">*</div>
-                @endif
-            </td>
-            <td style="vertical-align:middle; padding-left:12px;">
-                <div class="cert-academy">ISPA CYBER ACADEMY</div>
-                <div class="cert-subtitle">Plateforme de cybersecurite educative</div>
-            </td>
-        </tr>
-    </table>
+            <!-- Header : Logo + Nom plateforme -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
+                <tr>
+                    <td width="60" style="vertical-align:middle; text-align:center;">
+                        @if($logoBase64)
+                            <img src="data:image/jpeg;base64,{{ $logoBase64 }}"
+                                 width="50" height="50"
+                                 style="border-radius:50%; border:2px solid #00C896; background:#fff;">
+                        @endif
+                    </td>
+                    <td style="vertical-align:middle; padding-left:12px;">
+                        <div class="cert-academy">ISPA CYBER ACADEMY</div>
+                        <div class="cert-subtitle">Plateforme de cybersecurite educative</div>
+                    </td>
+                </tr>
+            </table>
 
-    <!-- Séparateur simple -->
-    <hr style="border:none; border-top:1px solid #1A3A5C; margin-bottom:12px;">
+            <hr style="border:none; border-top:1px solid #1A3A5C; margin-bottom:14px;">
 
-    <!-- Titre -->
-    <div class="cert-title">Certificat de Completion</div>
+            <div class="cert-title">Certificat de Completion</div>
+            <div class="cert-declare">Ce certificat est decerne a</div>
+            <div class="cert-name">{{ $certificate->user->name }}</div>
+            <div class="cert-module-label">pour avoir complete avec succes le module</div>
 
-    <!-- Déclaratif -->
-    <div class="cert-declare">Ce certificat est decerne a</div>
+            <table width="65%" align="center" cellpadding="10" cellspacing="0"
+                   style="margin:10px auto; background:#1A3A5C; border:1px solid #00C896;">
+                <tr>
+                    <td style="text-align:center; font-family:Arial,sans-serif; font-size:14px;
+                                font-weight:bold; color:#FFFFFF;">
+                        {{ $certificate->module->title }}
+                    </td>
+                </tr>
+            </table>
 
-    <!-- Nom apprenant -->
-    <div class="cert-name">{{ $certificate->user->name }}</div>
+            <div class="cert-score">
+                Score obtenu : <span style="color:#00C896; font-weight:bold;">{{ $certificate->final_score }}%</span>
+            </div>
 
-    <!-- Module -->
-    <div class="cert-module-label">pour avoir complete avec succes le module</div>
+            <hr style="border:none; border-top:1px solid #1A3A5C; margin:14px 0;">
 
-    <table width="70%" align="center" cellpadding="8" cellspacing="0"
-           style="margin:8px auto; background:#1A3A5C; border:1px solid #00C896;">
-        <tr>
-            <td style="text-align:center; font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:#FFFFFF;">
-                {{ $certificate->module->title }}
-            </td>
-        </tr>
-    </table>
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
+                <tr>
+                    <td width="30%" style="text-align:center; vertical-align:middle;">
+                        <div class="cert-footer-label">Date de delivrance</div>
+                        <div class="cert-footer-value">{{ $certificate->issued_at->format('d/m/Y') }}</div>
+                    </td>
+                    <td width="40%" style="text-align:center; vertical-align:middle;">
+                        <div class="cert-signature">ISPA Cyber Academy</div>
+                        <div class="cert-sig-label">Direction pedagogique</div>
+                    </td>
+                    <td width="30%" style="text-align:center; vertical-align:middle;">
+                        <div class="cert-footer-label">Verifier en ligne :</div>
+                        <div style="font-family:Arial,sans-serif; font-size:7px; color:#00C896;">
+                            {{ config('app.url') }}/verifier-certificat
+                        </div>
+                    </td>
+                </tr>
+            </table>
 
-    <!-- Score -->
-    <div class="cert-score">
-        Score obtenu : <span style="color:#00C896; font-weight:bold;">{{ $certificate->final_score }}%</span>
-    </div>
+            <div class="cert-code">N{{ chr(176) }} {{ $certificate->certificate_number }}</div>
 
-    <!-- Séparateur -->
-    <hr style="border:none; border-top:1px solid #1A3A5C; margin:12px 0;">
-
-    <!-- Footer -->
-    <table width="100%" cellpadding="0" cellspacing="0">
-        <tr>
-            <td width="30%" style="text-align:center; vertical-align:middle;">
-                <div class="cert-footer-label">Date de delivrance</div>
-                <div class="cert-footer-value">{{ $certificate->issued_at->format('d/m/Y') }}</div>
-            </td>
-            <td width="40%" style="text-align:center; vertical-align:middle;">
-                <div class="cert-signature">ISPA Cyber Academy</div>
-                <div class="cert-sig-label">Direction pedagogique</div>
-            </td>
-            <td width="30%" style="text-align:center; vertical-align:middle;">
-                <div class="cert-footer-label">Verifier en ligne :</div>
-                <div style="font-family:Arial,sans-serif; font-size:7px; color:#00C896; word-break:break-all;">
-                    {{ config('app.url') }}/verifier-certificat
-                </div>
-            </td>
-        </tr>
-    </table>
-
-    <!-- Code unique -->
-    <div class="cert-code">
-        N{{ chr(176) }} {{ $certificate->certificate_number }}
-    </div>
-
-</div>
+        </td>
+    </tr>
+</table>
 
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page {
+        margin: 10px;
+        size: A4 landscape;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #0D1628;
+    }
 
     body {
         font-family: Georgia, 'Times New Roman', serif;
-        background: #0D1628;
         color: #FFFFFF;
-        margin: 0;
-        padding: 0;
     }
 
-    .cert-wrapper {
-        background: #0D1628;
-        border: 2px solid #00C896;
-        position: relative;
-        padding: 16px 24px 14px 24px;
-        width: 100%;
-        height: 148mm;
-    }
-
-    /* Coins décoratifs */
-    .corner { position: absolute; width: 16px; height: 16px; }
-    .corner-tl { top: 6px; left: 6px; border-top: 2px solid #00C896; border-left: 2px solid #00C896; }
-    .corner-tr { top: 6px; right: 6px; border-top: 2px solid #00C896; border-right: 2px solid #00C896; }
-    .corner-bl { bottom: 6px; left: 6px; border-bottom: 2px solid #00C896; border-left: 2px solid #00C896; }
-    .corner-br { bottom: 6px; right: 6px; border-bottom: 2px solid #00C896; border-right: 2px solid #00C896; }
+    .corner { position: fixed; width: 16px; height: 16px; }
+    .corner-tl { top: 14px; left: 14px; border-top: 2px solid #00C896; border-left: 2px solid #00C896; }
+    .corner-tr { top: 14px; right: 14px; border-top: 2px solid #00C896; border-right: 2px solid #00C896; }
+    .corner-bl { bottom: 14px; left: 14px; border-bottom: 2px solid #00C896; border-left: 2px solid #00C896; }
+    .corner-br { bottom: 14px; right: 14px; border-bottom: 2px solid #00C896; border-right: 2px solid #00C896; }
 
     .cert-academy {
         font-family: Arial, sans-serif;
@@ -134,11 +122,11 @@
 
     .cert-title {
         font-family: Georgia, serif;
-        font-size: 22px;
+        font-size: 24px;
         font-weight: bold;
         color: #FFFFFF;
         text-align: center;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
     }
 
     .cert-declare {
@@ -146,19 +134,19 @@
         font-size: 10px;
         color: #8899AA;
         text-align: center;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
     }
 
     .cert-name {
         font-family: Georgia, serif;
-        font-size: 24px;
+        font-size: 26px;
         font-weight: bold;
         color: #00C896;
         text-align: center;
         border-bottom: 1px solid #00C896;
         padding-bottom: 4px;
-        margin: 0 auto 8px auto;
-        width: 65%;
+        margin: 0 auto 10px auto;
+        width: 60%;
     }
 
     .cert-module-label {
@@ -166,27 +154,27 @@
         font-size: 10px;
         color: #8899AA;
         text-align: center;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
     }
 
     .cert-score {
         font-family: Arial, sans-serif;
-        font-size: 10px;
+        font-size: 11px;
         color: #8899AA;
         text-align: center;
-        margin-top: 6px;
+        margin-top: 8px;
     }
 
     .cert-footer-label {
         font-family: Arial, sans-serif;
-        font-size: 8px;
+        font-size: 9px;
         color: #8899AA;
-        margin-bottom: 2px;
+        margin-bottom: 3px;
     }
 
     .cert-footer-value {
         font-family: Arial, sans-serif;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: bold;
         color: #FFFFFF;
     }
@@ -214,7 +202,6 @@
         font-size: 8px;
         color: #2A4A6C;
         text-align: center;
-        margin-top: 10px;
         letter-spacing: 1px;
     }
 </style>
