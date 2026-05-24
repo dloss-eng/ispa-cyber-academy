@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\{Module, Lesson, Quiz, Question, Answer};
-use App\Services\NotificationService; // ✅ import ajouté
+use App\Services\NotificationService; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -42,7 +42,7 @@ class ModuleController extends Controller
             'is_published' => $request->boolean('is_published'),
         ]);
 
-        // ✅ Notifier si le module est publié immédiatement
+        //  Notifier si le module est publié immédiatement
         if ($module->is_published) {
             NotificationService::newModulePublished($module->title, $module->level);
             NotificationService::newModuleForEtablissement($module->title, $module->level);
@@ -62,7 +62,7 @@ class ModuleController extends Controller
     {
         $this->authorize('update', $module);
 
-        $wasPublished = $module->is_published; // ✅ état avant la mise à jour
+        $wasPublished = $module->is_published; 
 
         $module->update([
             ...$request->only('title', 'description', 'level', 'duration_hours', 'order'),
@@ -70,7 +70,7 @@ class ModuleController extends Controller
             'is_published' => $request->boolean('is_published'),
         ]);
 
-        // ✅ Notifier uniquement si le module vient d'être publié (passage de false → true)
+        //  Notifier uniquement si le module vient d'être publié (passage de false → true)
         if (! $wasPublished && $module->is_published) {
             NotificationService::newModulePublished($module->title, $module->level);
             NotificationService::newModuleForEtablissement($module->title, $module->level);
@@ -96,6 +96,27 @@ class ModuleController extends Controller
         return view('admin.modules.lesson-form', compact('module'));
     }
 
+    //  Convertit toute URL YouTube/Vimeo en URL embed propre
+    private function normalizeVideoUrl(?string $url): ?string
+    {
+        if (!$url) return null;
+
+        // youtu.be/VIDEO_ID ou youtu.be/VIDEO_ID?si=...
+        if (preg_match('/youtu\.be\/([a-zA-Z0-9_-]+)/', $url, $m)) {
+            return 'https://www.youtube.com/embed/' . $m[1];
+        }
+        // youtube.com/watch?v=VIDEO_ID
+        if (preg_match('/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/', $url, $m)) {
+            return 'https://www.youtube.com/embed/' . $m[1];
+        }
+        // Vimeo : vimeo.com/VIDEO_ID
+        if (preg_match('/vimeo\.com\/(\d+)/', $url, $m)) {
+            return 'https://player.vimeo.com/video/' . $m[1];
+        }
+        // Déjà une URL embed ou vidéo locale → on garde telle quelle
+        return $url;
+    }
+
     public function storeLesson(Request $request, Module $module)
     {
         $this->authorize('update', $module);
@@ -109,9 +130,14 @@ class ModuleController extends Controller
         if ($request->hasFile('video_file')) {
             $videoPath = $request->file('video_file')->store('videos', 'public');
         }
+        // Priorité : fichier uploadé > URL saisie (convertie)
+        $videoUrl = $videoPath
+            ? asset('storage/' . $videoPath)
+            : $this->normalizeVideoUrl($request->video_url);
+
         $lesson = $module->lessons()->create([
             ...$request->only('title', 'content', 'duration_minutes', 'order'),
-            'video_url'    => $request->video_url ?? ($videoPath ? asset('storage/' . $videoPath) : null),
+            'video_url'    => $videoUrl,
             'slug'         => Str::slug($request->title) . '-' . Str::random(4),
             'is_published' => $request->boolean('is_published'),
         ]);
@@ -142,8 +168,10 @@ class ModuleController extends Controller
         $request->validate([
             'pdf_files.*' => 'nullable|mimes:pdf|max:10240',
         ]);
+        
         $lesson->update([
-            ...$request->only('title', 'content', 'video_url', 'duration_minutes', 'order'),
+            ...$request->only('title', 'content', 'duration_minutes', 'order'),
+            'video_url'    => $this->normalizeVideoUrl($request->video_url),
             'is_published' => $request->boolean('is_published'),
         ]);
         if ($request->hasFile('pdf_files')) {
