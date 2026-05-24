@@ -42,7 +42,6 @@ class ModuleController extends Controller
             'is_published' => $request->boolean('is_published'),
         ]);
 
-        //  Notifier si le module est publié immédiatement
         if ($module->is_published) {
             NotificationService::newModulePublished($module->title, $module->level);
             NotificationService::newModuleForEtablissement($module->title, $module->level);
@@ -62,7 +61,7 @@ class ModuleController extends Controller
     {
         $this->authorize('update', $module);
 
-        $wasPublished = $module->is_published; 
+        $wasPublished = $module->is_published;
 
         $module->update([
             ...$request->only('title', 'description', 'level', 'duration_hours', 'order'),
@@ -70,7 +69,6 @@ class ModuleController extends Controller
             'is_published' => $request->boolean('is_published'),
         ]);
 
-        //  Notifier uniquement si le module vient d'être publié (passage de false → true)
         if (! $wasPublished && $module->is_published) {
             NotificationService::newModulePublished($module->title, $module->level);
             NotificationService::newModuleForEtablissement($module->title, $module->level);
@@ -101,20 +99,32 @@ class ModuleController extends Controller
     {
         if (!$url) return null;
 
-        // youtu.be/VIDEO_ID ou youtu.be/VIDEO_ID?si=...
         if (preg_match('/youtu\.be\/([a-zA-Z0-9_-]+)/', $url, $m)) {
             return 'https://www.youtube.com/embed/' . $m[1];
         }
-        // youtube.com/watch?v=VIDEO_ID
         if (preg_match('/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/', $url, $m)) {
             return 'https://www.youtube.com/embed/' . $m[1];
         }
-        // Vimeo : vimeo.com/VIDEO_ID
         if (preg_match('/vimeo\.com\/(\d+)/', $url, $m)) {
             return 'https://player.vimeo.com/video/' . $m[1];
         }
-        // Déjà une URL embed ou vidéo locale → on garde telle quelle
         return $url;
+    }
+
+    //  Upload PDF vers Cloudinary (persistant sur Render)
+    private function uploadPdfToCloudinary($file): array
+    {
+        $uploaded = cloudinary()->uploadFile($file->getRealPath(), [
+            'folder'        => 'ispa/resources',
+            'resource_type' => 'raw',
+            'public_id'     => pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)
+                               . '_' . Str::random(6),
+        ]);
+
+        return [
+            'url'  => $uploaded->getSecurePath(),
+            'name' => $file->getClientOriginalName(),
+        ];
     }
 
     public function storeLesson(Request $request, Module $module)
@@ -130,7 +140,6 @@ class ModuleController extends Controller
         if ($request->hasFile('video_file')) {
             $videoPath = $request->file('video_file')->store('videos', 'public');
         }
-        // Priorité : fichier uploadé > URL saisie (convertie)
         $videoUrl = $videoPath
             ? asset('storage/' . $videoPath)
             : $this->normalizeVideoUrl($request->video_url);
@@ -141,12 +150,14 @@ class ModuleController extends Controller
             'slug'         => Str::slug($request->title) . '-' . Str::random(4),
             'is_published' => $request->boolean('is_published'),
         ]);
+
+        //  Upload PDFs sur Cloudinary au lieu du storage local
         if ($request->hasFile('pdf_files')) {
             foreach ($request->file('pdf_files') as $pdf) {
-                $path = $pdf->store('resources', 'public');
+                $result = $this->uploadPdfToCloudinary($pdf);
                 $lesson->resources()->create([
-                    'title'     => $pdf->getClientOriginalName(),
-                    'file_path' => $path,
+                    'title'     => $result['name'],
+                    'file_path' => $result['url'],
                     'type'      => 'pdf',
                 ]);
             }
@@ -168,18 +179,20 @@ class ModuleController extends Controller
         $request->validate([
             'pdf_files.*' => 'nullable|mimes:pdf|max:10240',
         ]);
-        
+
         $lesson->update([
             ...$request->only('title', 'content', 'duration_minutes', 'order'),
             'video_url'    => $this->normalizeVideoUrl($request->video_url),
             'is_published' => $request->boolean('is_published'),
         ]);
+
+        //  Upload PDFs sur Cloudinary au lieu du storage local
         if ($request->hasFile('pdf_files')) {
             foreach ($request->file('pdf_files') as $pdf) {
-                $path = $pdf->store('resources', 'public');
+                $result = $this->uploadPdfToCloudinary($pdf);
                 $lesson->resources()->create([
-                    'title'     => $pdf->getClientOriginalName(),
-                    'file_path' => $path,
+                    'title'     => $result['name'],
+                    'file_path' => $result['url'],
                     'type'      => 'pdf',
                 ]);
             }
@@ -421,7 +434,6 @@ class ModuleController extends Controller
     public function destroyResource(\App\Models\Resource $resource)
     {
         $this->authorize('delete', $resource->lesson->module);
-        \Illuminate\Support\Facades\Storage::disk('public')->delete($resource->file_path);
         $resource->delete();
         return back()->with('success', 'Fichier supprimé.');
     }

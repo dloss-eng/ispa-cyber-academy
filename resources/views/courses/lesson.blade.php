@@ -41,7 +41,9 @@
     <div class="lp-resources">
         <div class="lp-resources-title">📎 Ressources</div>
         @foreach($lesson->resources as $r)
-            <a href="{{ asset('storage/'.$r->file_path) }}" target="_blank" class="lp-resource-link">
+            {{-- ✅ Cloudinary = URL complète (https://...) | ancien = chemin local --}}
+            <a href="{{ Str::startsWith($r->file_path, 'http') ? $r->file_path : asset('storage/'.$r->file_path) }}"
+               target="_blank" class="lp-resource-link">
                 📄 {{ $r->title }}
             </a>
         @endforeach
