@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\{Module, Lesson, Quiz, Question, Answer};
 use App\Services\NotificationService; 
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -114,7 +115,7 @@ class ModuleController extends Controller
     // ✅ Upload PDF vers Cloudinary (persistant sur Render)
     private function uploadPdfToCloudinary($file): array
     {
-        $uploaded = cloudinary()->uploadFile($file->getRealPath(), [
+        $uploaded = Cloudinary::uploadFile($file->getRealPath(), [
             'folder'        => 'ispa/resources',
             'resource_type' => 'raw',
             'public_id'     => pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)
