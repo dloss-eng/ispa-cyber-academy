@@ -115,17 +115,22 @@ class ModuleController extends Controller
     // ✅ Upload PDF vers Cloudinary (persistant sur Render)
     private function uploadPdfToCloudinary($file): array
     {
-        $uploaded = Cloudinary::uploadFile($file->getRealPath(), [
-            'folder'        => 'ispa/resources',
-            'resource_type' => 'raw',
-            'public_id'     => pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)
-                               . '_' . Str::random(6),
-        ]);
+        try {
+            $uploaded = Cloudinary::uploadFile($file->getRealPath(), [
+                'folder'        => 'ispa/resources',
+                'resource_type' => 'raw',
+                'public_id'     => pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)
+                                   . '_' . Str::random(6),
+            ]);
 
-        return [
-            'url'  => $uploaded->getSecurePath(),
-            'name' => $file->getClientOriginalName(),
-        ];
+            return [
+                'url'  => $uploaded->getSecurePath(),
+                'name' => $file->getClientOriginalName(),
+            ];
+        } catch (\Exception $e) {
+            \Illuminate\Support\Facades\Log::error('Cloudinary upload error: ' . $e->getMessage());
+            throw $e;
+        }
     }
 
     public function storeLesson(Request $request, Module $module)
