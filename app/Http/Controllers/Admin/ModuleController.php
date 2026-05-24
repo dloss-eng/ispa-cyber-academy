@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\{Module, Lesson, Quiz, Question, Answer};
-use App\Services\NotificationService; 
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use App\Services\NotificationService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class ModuleController extends Controller
@@ -61,7 +61,6 @@ class ModuleController extends Controller
     public function update(Request $request, Module $module)
     {
         $this->authorize('update', $module);
-
         $wasPublished = $module->is_published;
 
         $module->update([
@@ -116,11 +115,14 @@ class ModuleController extends Controller
     private function uploadPdfToCloudinary($file): array
     {
         try {
+            $cloudinaryUrl = env('CLOUDINARY_URL');
+            $parsed = parse_url($cloudinaryUrl);
+
             $cloudinary = new \Cloudinary\Cloudinary([
                 'cloud' => [
-                    'cloud_name' => env('CLOUDINARY_CLOUD_NAME', parse_url(env('CLOUDINARY_URL'), PHP_URL_HOST)),
-                    'api_key'    => env('CLOUDINARY_API_KEY',    parse_url(env('CLOUDINARY_URL'), PHP_URL_USER)),
-                    'api_secret' => env('CLOUDINARY_API_SECRET', parse_url(env('CLOUDINARY_URL'), PHP_URL_PASS)),
+                    'cloud_name' => $parsed['host']  ?? env('CLOUDINARY_CLOUD_NAME'),
+                    'api_key'    => $parsed['user']  ?? env('CLOUDINARY_API_KEY'),
+                    'api_secret' => $parsed['pass']  ?? env('CLOUDINARY_API_SECRET'),
                 ],
             ]);
 
@@ -136,7 +138,7 @@ class ModuleController extends Controller
                 'name' => $file->getClientOriginalName(),
             ];
         } catch (\Exception $e) {
-            \Illuminate\Support\Facades\Log::error('Cloudinary upload error: ' . $e->getMessage());
+            Log::error('Cloudinary upload error: ' . $e->getMessage());
             throw $e;
         }
     }
@@ -150,6 +152,7 @@ class ModuleController extends Controller
             'video_file'  => 'nullable|mimes:mp4,webm,ogg|max:102400',
             'pdf_files.*' => 'nullable|mimes:pdf|max:10240',
         ]);
+
         $videoPath = null;
         if ($request->hasFile('video_file')) {
             $videoPath = $request->file('video_file')->store('videos', 'public');
@@ -165,7 +168,6 @@ class ModuleController extends Controller
             'is_published' => $request->boolean('is_published'),
         ]);
 
-        // ✅ Upload PDFs sur Cloudinary au lieu du storage local
         if ($request->hasFile('pdf_files')) {
             foreach ($request->file('pdf_files') as $pdf) {
                 $result = $this->uploadPdfToCloudinary($pdf);
@@ -176,6 +178,7 @@ class ModuleController extends Controller
                 ]);
             }
         }
+
         return redirect()
             ->route('admin.modules.lessons.edit', [$module, $lesson])
             ->with('success', 'Leçon ajoutée. Vous pouvez maintenant ajouter un quiz.');
@@ -200,7 +203,6 @@ class ModuleController extends Controller
             'is_published' => $request->boolean('is_published'),
         ]);
 
-        // ✅ Upload PDFs sur Cloudinary au lieu du storage local
         if ($request->hasFile('pdf_files')) {
             foreach ($request->file('pdf_files') as $pdf) {
                 $result = $this->uploadPdfToCloudinary($pdf);
@@ -211,6 +213,7 @@ class ModuleController extends Controller
                 ]);
             }
         }
+
         return redirect()->route('admin.modules.edit', $module)->with('success', 'Leçon modifiée.');
     }
 
@@ -448,7 +451,6 @@ class ModuleController extends Controller
     public function destroyResource(\App\Models\Resource $resource)
     {
         $this->authorize('delete', $resource->lesson->module);
-        // ✅ Cloudinary : pas de suppression locale nécessaire
         $resource->delete();
         return back()->with('success', 'Fichier supprimé.');
     }
