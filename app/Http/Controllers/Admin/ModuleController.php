@@ -94,7 +94,7 @@ class ModuleController extends Controller
         return view('admin.modules.lesson-form', compact('module'));
     }
 
-    //  Convertit toute URL YouTube/Vimeo en URL embed propre
+    // ✅ Convertit toute URL YouTube/Vimeo en URL embed propre
     private function normalizeVideoUrl(?string $url): ?string
     {
         if (!$url) return null;
@@ -111,7 +111,7 @@ class ModuleController extends Controller
         return $url;
     }
 
-    //  Upload PDF vers Cloudinary (persistant sur Render)
+    // ✅ Upload PDF vers Cloudinary (persistant sur Render)
     private function uploadPdfToCloudinary($file): array
     {
         $uploaded = cloudinary()->uploadFile($file->getRealPath(), [
@@ -151,7 +151,7 @@ class ModuleController extends Controller
             'is_published' => $request->boolean('is_published'),
         ]);
 
-        //  Upload PDFs sur Cloudinary au lieu du storage local
+        // ✅ Upload PDFs sur Cloudinary au lieu du storage local
         if ($request->hasFile('pdf_files')) {
             foreach ($request->file('pdf_files') as $pdf) {
                 $result = $this->uploadPdfToCloudinary($pdf);
@@ -186,7 +186,7 @@ class ModuleController extends Controller
             'is_published' => $request->boolean('is_published'),
         ]);
 
-        //  Upload PDFs sur Cloudinary au lieu du storage local
+        // ✅ Upload PDFs sur Cloudinary au lieu du storage local
         if ($request->hasFile('pdf_files')) {
             foreach ($request->file('pdf_files') as $pdf) {
                 $result = $this->uploadPdfToCloudinary($pdf);
@@ -434,6 +434,7 @@ class ModuleController extends Controller
     public function destroyResource(\App\Models\Resource $resource)
     {
         $this->authorize('delete', $resource->lesson->module);
+        // ✅ Cloudinary : pas de suppression locale nécessaire
         $resource->delete();
         return back()->with('success', 'Fichier supprimé.');
     }
