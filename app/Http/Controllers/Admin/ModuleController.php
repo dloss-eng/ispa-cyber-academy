@@ -116,15 +116,23 @@ class ModuleController extends Controller
     private function uploadPdfToCloudinary($file): array
     {
         try {
-            $uploaded = Cloudinary::uploadFile($file->getRealPath(), [
-                'folder'        => 'ispa/resources',
+            $cloudinary = new \Cloudinary\Cloudinary([
+                'cloud' => [
+                    'cloud_name' => env('CLOUDINARY_CLOUD_NAME', parse_url(env('CLOUDINARY_URL'), PHP_URL_HOST)),
+                    'api_key'    => env('CLOUDINARY_API_KEY',    parse_url(env('CLOUDINARY_URL'), PHP_URL_USER)),
+                    'api_secret' => env('CLOUDINARY_API_SECRET', parse_url(env('CLOUDINARY_URL'), PHP_URL_PASS)),
+                ],
+            ]);
+
+            $result = $cloudinary->uploadApi()->upload($file->getRealPath(), [
                 'resource_type' => 'raw',
+                'folder'        => 'ispa/resources',
                 'public_id'     => pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)
                                    . '_' . Str::random(6),
             ]);
 
             return [
-                'url'  => $uploaded->getSecurePath(),
+                'url'  => $result['secure_url'],
                 'name' => $file->getClientOriginalName(),
             ];
         } catch (\Exception $e) {
