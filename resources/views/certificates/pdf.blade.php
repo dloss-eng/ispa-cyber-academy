@@ -88,6 +88,7 @@
         height: 210mm;
         margin: 0;
         padding: 0;
+        overflow: hidden;
         background: #0D1628;
         font-family: Georgia, 'Times New Roman', serif;
         color: #FFFFFF;
@@ -96,6 +97,7 @@
     .cert-wrapper {
         width: 297mm;
         height: 210mm;
+        overflow: hidden;
         background: #0D1628;
         border: 3px solid #00C896;
         position: relative;
