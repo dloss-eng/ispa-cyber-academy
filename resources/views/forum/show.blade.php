@@ -20,7 +20,7 @@
         <div>
             <div class="topic-user">{{ $topic->user->name }}</div>
 
-            {{-- ✅ Établissement de l'auteur du sujet --}}
+            {{--  Établissement de l'auteur du sujet --}}
             @if($topic->user->etablissement)
                 <div class="topic-etab">
                     🏫 {{ $topic->user->etablissement->name }}
@@ -46,7 +46,7 @@
                       onsubmit="return confirm('Supprimer ce sujet ?')">
                     @csrf
                     @method('DELETE')
-                    <button class="btn-delete-text">🗑️ Supprimer</button>
+                    <button class="btn-delete-text"> Supprimer</button>
                 </form>
             @endcan
         </div>
@@ -76,7 +76,7 @@
                 {{-- Nom --}}
                 <div class="chat-user">{{ $msg->user->name }}</div>
 
-                {{-- ✅ Établissement + rôle de l'auteur du message --}}
+                {{--  Établissement + rôle de l'auteur du message --}}
                 <div class="chat-meta-row">
                     @if($msg->user->etablissement)
                         <span class="chat-etab">
@@ -109,7 +109,7 @@
                           onsubmit="return confirm('Supprimer ce message ?')">
                         @csrf
                         @method('DELETE')
-                        <button class="btn-delete-text btn-xs">🗑️</button>
+                        <button class="btn-delete-text btn-xs">Supprimer</button>
                     </form>
                 @endif
 
@@ -127,7 +127,7 @@
         <textarea name="body" rows="2" required
                   placeholder="Votre message..."
                   class="fi chat-input"></textarea>
-        <button type="submit" class="btn-cyber btn-sm chat-send">📤</button>
+        <button type="submit" class="btn-cyber btn-sm chat-send">Envoyer</button>
     </form>
 @else
     <div class="chat-locked">🔒 Sujet verrouillé — aucune réponse possible</div>

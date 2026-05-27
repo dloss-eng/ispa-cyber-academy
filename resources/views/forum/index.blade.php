@@ -5,12 +5,12 @@
 @section('content')
 
 <div class="forum-header">
-    {{-- ✅ Créer un sujet seulement si policy l'autorise --}}
+    {{--  Créer un sujet seulement si policy l'autorise --}}
     @can('create', \App\Models\ForumTopic::class)
         <a href="{{ route('forum.create') }}" class="btn-cyber btn-sm">+ Nouveau sujet</a>
     @endcan
 
-    {{-- ✅ Message si l'utilisateur ne peut pas créer --}}
+    {{--  Message si l'utilisateur ne peut pas créer --}}
     @cannot('create', \App\Models\ForumTopic::class)
         <span class="td-muted" title="Rôle non autorisé à créer un sujet">🔒 Lecture seule</span>
     @endcannot
