@@ -75,7 +75,7 @@
 
                         <span class="course-status">
                             @if($m->user_progress >= 100)
-                                ✅ Terminé
+                                 Terminé
                             @elseif($m->user_progress > 0)
                                 ⏳ En cours
                             @else
@@ -108,7 +108,7 @@
                     </a>
                 @else
                     <a href="{{ route('courses.show', $m) }}" class="bcours st">
-                        🚀 Commencer
+                         Commencer
                     </a>
                 @endif
 
