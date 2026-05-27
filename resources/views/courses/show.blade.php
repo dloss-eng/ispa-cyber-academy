@@ -129,7 +129,7 @@
                 </div>
             </div>
 
-            {{-- ── Section titre avec toggle ✅ ── --}}
+            {{-- ── Section titre avec toggle  ── --}}
             <div class="mo-section-title mo-section-toggle" onclick="toggleLessons()">
                 <div style="display:flex;align-items:center;gap:8px">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
@@ -164,7 +164,7 @@
                                 </div>
                             </div>
                             <span class="cm-status-tag {{ $l->user_status }}">
-                                @if($l->user_status === 'completed') ✅ Terminé
+                                @if($l->user_status === 'completed')  Terminé
                                 @elseif($l->user_status === 'in_progress') ⏳ En cours
                                 @else À faire @endif
                             </span>
@@ -195,7 +195,7 @@
 const CSRF = document.querySelector('meta[name="csrf-token"]').content;
 let lessonsOpen = false;
 
-// ── Toggle Contenu du module ✅ ────────────────────────────────
+// ── Toggle Contenu du module  ────────────────────────────────
 function toggleLessons() {
     const container = document.getElementById('lessonsContainer');
     const icon      = document.getElementById('toggleIcon');
@@ -223,7 +223,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (c) {
         c.style.overflow   = 'hidden';
         c.style.transition = 'max-height .3s ease, opacity .25s ease';
-        // ✅ Fermé par défaut
+        //  Fermé par défaut
         c.style.maxHeight  = '0';
         c.style.opacity    = '0';
         if (icon) icon.style.transform = 'rotate(180deg)';

@@ -41,7 +41,7 @@
     <div class="lp-resources">
         <div class="lp-resources-title">📎 Ressources</div>
         @foreach($lesson->resources as $r)
-            {{-- ✅ Cloudinary = URL complète (https://...) | ancien = chemin local --}}
+            {{--  Cloudinary = URL complète (https://...) | ancien = chemin local --}}
             <a href="{{ Str::startsWith($r->file_path, 'http') ? $r->file_path : asset('storage/'.$r->file_path) }}"
                target="_blank" class="lp-resource-link">
                 📄 {{ $r->title }}
@@ -57,16 +57,16 @@
         <form id="completeForm" action="{{ route('courses.lesson.complete', [$module, $lesson]) }}" method="POST">
             @csrf
             <button type="submit" class="btn-cyber btn-sm">
-                ✅ Terminer (+10 pts)
+                 Terminer (+10 pts)
             </button>
         </form>
     @else
-        <span class="tag tag-g">✅ Terminée</span>
+        <span class="tag tag-g"> Terminée</span>
     @endif
 
     @if($quiz)
         <a href="{{ route('quiz.show', $quiz) }}" class="btn-cyber-outline btn-sm">
-            📝 Quiz
+             Quiz
         </a>
     @endif
 </div>

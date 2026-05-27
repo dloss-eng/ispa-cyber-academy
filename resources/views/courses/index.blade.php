@@ -5,7 +5,7 @@
 
 @section('content')
 
-{{-- ✅ Bandeau niveau étudiant --}}
+{{--  Bandeau niveau étudiant --}}
 <div class="level-banner">
     <span class="level-banner-icon">
         @if(auth()->user()->getRoleName() === 'eleve') 🏫
@@ -19,7 +19,7 @@
     </span>
 </div>
 
-{{-- ✅ Message si aucun module disponible --}}
+{{--  Message si aucun module disponible --}}
 @if($modules->isEmpty())
     <div class="empty-state">
         <div class="empty-icon">📭</div>
@@ -34,7 +34,7 @@
 
         <div class="cc">
 
-            {{-- 🎨 Header --}}
+            {{--  Header --}}
             <div class="cth course-header-bg">
 
                 {{-- ✅ Badge niveau coloré selon lycée / université / tous --}}
@@ -53,22 +53,22 @@
                 📚
             </div>
 
-            {{-- 📦 Body --}}
+            {{--  Body --}}
             <div class="cbb">
 
-                {{-- 🏷️ Titre --}}
+                {{--  Titre --}}
                 <div class="cn">{{ $m->title }}</div>
 
-                {{-- 📝 Description --}}
+                {{--  Description --}}
                 <div class="cd">{{ Str::limit($m->description, 80) }}</div>
 
-                {{-- 📊 Infos --}}
+                {{--  Infos --}}
                 <div class="course-meta">
                     <span>📖 {{ $m->lessons_count }} leçon{{ $m->lessons_count > 1 ? 's' : '' }}</span>
                     <span>⏱️ {{ $m->duration_hours }}h</span>
                 </div>
 
-                {{-- 📈 Progression --}}
+                {{--  Progression --}}
                 <div class="course-progress">
 
                     <div class="course-progress-header">
@@ -77,7 +77,7 @@
                             @if($m->user_progress >= 100)
                                  Terminé
                             @elseif($m->user_progress > 0)
-                                ⏳ En cours
+                                 En cours
                             @else
                                 Non commencé
                             @endif
@@ -97,14 +97,14 @@
 
                 </div>
 
-                {{-- 🎯 Action --}}
+                {{--  Action --}}
                 @if($m->user_progress >= 100)
                     <a href="{{ route('courses.show', $m) }}" class="bcours course-btn-complete">
-                        ✅ Terminé — Revoir
+                         Terminé — Revoir
                     </a>
                 @elseif($m->user_progress > 0)
                     <a href="{{ route('courses.show', $m) }}" class="bcours">
-                        ▶️ Continuer
+                         Continuer
                     </a>
                 @else
                     <a href="{{ route('courses.show', $m) }}" class="bcours st">
