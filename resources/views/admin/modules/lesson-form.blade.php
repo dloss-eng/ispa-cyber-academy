@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-{{-- 🏷️ Titre navigateur --}}
+{{--  Titre navigateur --}}
 @section('title', isset($lesson) ? 'Modifier leçon' : 'Nouvelle leçon')
 
 {{-- 📌 Titre page --}}
@@ -13,7 +13,7 @@
     ← Module
 </a>
 
-{{-- 📦 FORMULAIRE --}}
+{{--  FORMULAIRE --}}
 <div class="cyber-card lesson-form-card">
 
     <form method="POST"
@@ -25,13 +25,13 @@
         @csrf
         @if(isset($lesson)) @method('PUT') @endif
 
-        {{-- 🏷️ Titre --}}
+        {{--  Titre --}}
         <label class="fl no-margin-top">Titre</label>
         <input type="text" name="title"
                value="{{ old('title',$lesson->title??'') }}"
                required class="fi">
 
-        {{-- 📝 Contenu --}}
+        {{--  Contenu --}}
         <label class="fl">Description du cours</label>
         <textarea name="content" rows="10" required class="fi"
                   placeholder="Décrivez le contenu de cette leçon...">
@@ -58,7 +58,7 @@
 
         </div>
 
-        {{-- 📄 PDF existants --}}
+        {{--  PDF existants --}}
         @if(isset($lesson) && $lesson->resources->count() > 0)
 
             <div class="resource-section">
@@ -72,7 +72,8 @@
                             📄 {{ $r->title }}
                         </span>
 
-                        <a href="{{ asset('storage/'.$r->file_path) }}"
+                        {{-- ✅ Cloudinary = URL complète | ancien = chemin local --}}
+                        <a href="{{ Str::startsWith($r->file_path, 'http') ? $r->file_path : asset('storage/'.$r->file_path) }}"
                            target="_blank"
                            class="resource-view">
                             👁️ Voir
@@ -85,7 +86,7 @@
 
         @endif
 
-        {{-- 📤 Upload PDF --}}
+        {{--  Upload PDF --}}
         <label class="fl">Ajouter des fichiers PDF</label>
         <input type="file" name="pdf_files[]" multiple accept=".pdf"
                class="fi file-input">
@@ -109,7 +110,7 @@
 
         </div>
 
-        {{-- ✅ publication --}}
+        {{--  publication --}}
         <label class="checkbox-inline">
             <input type="checkbox"
                    name="is_published"
@@ -119,7 +120,7 @@
             Publiée
         </label>
 
-        {{-- 🚀 submit --}}
+        {{--  submit --}}
         <button type="submit" class="btn-lg">
             Enregistrer
         </button>
@@ -128,7 +129,7 @@
 
 </div>
 
-{{-- 🧠 SECTION QUIZ (visible uniquement en mode édition) --}}
+{{--  SECTION QUIZ (visible uniquement en mode édition) --}}
 @if(isset($lesson))
 @php $quiz = $lesson->quizzes()->first(); @endphp
 <div class="cyber-card" style="margin-top:16px">
