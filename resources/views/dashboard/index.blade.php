@@ -5,7 +5,7 @@
 
 @section('content')
 
-{{-- 📊 Stats --}}
+{{--  Stats --}}
 <div class="kr">
 
     <div class="kc kc-g">
@@ -30,17 +30,17 @@
 
 </div>
 
-{{-- 🧩 Layout --}}
+{{--  Layout --}}
 <div class="dashboard-grid">
 
-    {{-- 📚 Modules commencés --}}
+    {{--  Modules commencés --}}
     <div>
 
         <div class="section-title" style="font-size:13px;color:var(--t);display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:18px">
             <div style="display:flex;align-items:center;gap:8px">
                 📚 <span style="font-family:'Orbitron',sans-serif;letter-spacing:2px">MES COURS EN COURS</span>
             </div>
-            {{-- ✅ Lien vers tous les cours --}}
+            {{--  Lien vers tous les cours --}}
             <a href="{{ route('courses.index') }}"
                style="font-size:11px;color:var(--gr);text-decoration:none;font-weight:600;white-space:nowrap">
                 @if($availableCount > 0)
@@ -112,7 +112,7 @@
 
             @empty
 
-                {{-- ✅ État vide — aucun cours commencé --}}
+                {{--  État vide — aucun cours commencé --}}
                 <div class="cyber-card" style="padding:36px 24px;text-align:center">
                     <div style="font-size:40px;margin-bottom:14px">🚀</div>
                     <div style="font-size:14px;font-weight:700;margin-bottom:8px">
@@ -132,10 +132,10 @@
 
     </div>
 
-    {{-- 📊 Sidebar --}}
+    {{--  Sidebar --}}
     <div class="dashboard-sidebar">
 
-        {{-- 🏆 Classement --}}
+        {{--  Classement --}}
         <div class="cyber-card sidebar-card">
 
             <div class="section-title-yellow">
@@ -144,7 +144,7 @@
 
             <div class="rank-position">
                 Position :
-                <span class="rank-value">#{{ $userRank }}</span>
+                <span class="rank-value">{{ $userRank }}</span>
             </div>
 
             @foreach($leaderboard as $i => $p)
@@ -174,7 +174,7 @@
 
         </div>
 
-        {{-- 🏅 Badges --}}
+        {{--  Badges --}}
         <div class="cyber-card sidebar-card">
 
             <div class="section-title-orange">

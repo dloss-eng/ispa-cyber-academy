@@ -5,7 +5,7 @@
 
 @section('content')
 
-{{-- 🔝 Header --}}
+{{--  Header --}}
 <div class="notifications-header">
 
     <div class="notifications-count">
@@ -21,17 +21,17 @@
 
 </div>
 
-{{-- 📄 Liste --}}
+{{--  Liste --}}
 @foreach($notifications as $n)
 
     <div class="cyber-card notification-item {{ $n->isRead() ? 'notif-read' : 'notif-unread' }}">
 
-        {{-- 🔔 Icône --}}
+        {{--  Icône --}}
         <div class="notification-icon">
             {{ $n->icon }}
         </div>
 
-        {{-- 📄 Contenu --}}
+        {{--  Contenu --}}
         <div class="notification-content">
 
             <div class="notification-title {{ $n->isRead() ? '' : 'notif-highlight' }}">
@@ -48,7 +48,7 @@
 
         </div>
 
-        {{-- ✔️ Action --}}
+        {{--  Action --}}
         @if(!$n->isRead())
 
             <form method="POST" action="{{ route('notifications.read',$n) }}">
@@ -64,7 +64,7 @@
 
 @endforeach
 
-{{-- 🔢 Pagination --}}
+{{--  Pagination --}}
 <div class="notifications-pagination">
     {{ $notifications->links() }}
 </div>

@@ -16,12 +16,12 @@
 
         <div class="leaderboard-row {{ $isMe ? 'leaderboard-me' : '' }}">
 
-            {{-- 🏆 Rang --}}
+            {{--  Rang --}}
             <span class="leaderboard-rank">
                 {{ $rank === 1 ? '🥇' : ($rank === 2 ? '🥈' : ($rank === 3 ? '🥉' : $rank)) }}
             </span>
 
-            {{-- 👤 Avatar --}}
+            {{--  Avatar --}}
             <div class="leaderboard-avatar">
 
                 @if($p->avatar)
@@ -36,7 +36,7 @@
 
             </div>
 
-            {{-- 📄 Infos --}}
+            {{--  Infos --}}
             <div class="leaderboard-info">
 
                 <a href="{{ route('profile.public', $p) }}" class="leaderboard-name">
@@ -49,7 +49,7 @@
 
             </div>
 
-            {{-- ⭐ Points --}}
+            {{--  Points --}}
             <span class="leaderboard-points">
                 {{ $p->points }} pts
             </span>
@@ -60,7 +60,7 @@
 
 </div>
 
-{{-- 🔢 Pagination --}}
+{{--  Pagination --}}
 <div class="leaderboard-pagination">
     {{ $users->links() }}
 </div>

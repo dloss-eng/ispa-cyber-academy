@@ -10,10 +10,10 @@
     ← Retour
 </a>
 
-{{-- 👤 Carte profil --}}
+{{--  Carte profil --}}
 <div class="cyber-card profile-public-card">
 
-    {{-- 🖼️ Avatar --}}
+    {{--  Avatar --}}
     <div class="profile-public-avatar">
 
         @if($user->avatar)
@@ -29,24 +29,24 @@
 
     </div>
 
-    {{-- 🧑 Nom --}}
+    {{--  Nom --}}
     <div class="profile-public-name">
         {{ $user->name }}
     </div>
 
-    {{-- 📝 Bio --}}
+    {{--  Bio --}}
     @if($user->bio)
         <div class="profile-public-bio">
             {{ $user->bio }}
         </div>
     @endif
 
-    {{-- 🏫 Infos --}}
+    {{--  Infos --}}
     <div class="profile-public-meta">
         {{ $user->role_display }} · {{ $user->etablissement->name ?? '' }}
     </div>
 
-    {{-- 📊 Stats --}}
+    {{--  Stats --}}
     <div class="profile-public-stats">
 
         <div class="stat-item">
@@ -73,7 +73,7 @@
 
 </div>
 
-{{-- 🏅 Badges --}}
+{{--  Badges --}}
 @if($userBadges->count() > 0)
 
 <div class="cyber-card section-card">
@@ -106,7 +106,7 @@
 
 @endif
 
-{{-- 📜 Certificats --}}
+{{--  Certificats --}}
 @if($userCertificates->count() > 0)
 
 <div class="cyber-card section-card">

@@ -7,7 +7,7 @@
 
 <div class="cyber-card profile-card">
 
-    {{-- 👤 Avatar --}}
+    {{--  Avatar --}}
     <div class="profile-avatar">
 
         @if(auth()->user()->avatar)
@@ -25,7 +25,7 @@
 
     </div>
 
-    {{-- 📄 Formulaire --}}
+    {{--  Formulaire --}}
     <form method="POST"
           action="{{ route('profile.update') }}"
           enctype="multipart/form-data">
@@ -33,7 +33,7 @@
         @csrf
         @method('PUT')
 
-        {{-- 🧑 Nom --}}
+        {{--  Nom --}}
         <label class="fl no-margin-top">Nom</label>
         <input type="text"
                name="name"
@@ -41,7 +41,7 @@
                required
                class="fi">
 
-        {{-- 📝 Bio --}}
+        {{--  Bio --}}
         @if(auth()->user()->isLearner())
 
             <label class="fl">Bio / Statut</label>
@@ -53,27 +53,27 @@
 
         @endif
 
-        {{-- 📞 Téléphone --}}
+        {{--  Téléphone --}}
         <label class="fl">Téléphone</label>
         <input type="text"
                name="phone"
                value="{{ auth()->user()->phone }}"
                class="fi">
 
-        {{-- 📸 Avatar --}}
+        {{--  Avatar --}}
         <label class="fl">Photo de profil</label>
         <input type="file"
                name="avatar"
                accept="image/*"
                class="fi file-input">
 
-        {{-- 🔐 Password --}}
+        {{--  Password --}}
         <label class="fl">Nouveau mot de passe (optionnel)</label>
         <input type="password"
                name="password"
                class="fi">
 
-        {{-- 🚀 Submit --}}
+        {{--  Submit --}}
         <button type="submit" class="btn-lg">
             Mettre à jour
         </button>

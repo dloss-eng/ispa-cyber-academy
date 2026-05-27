@@ -5,7 +5,7 @@
 
 @section('content')
 
-{{-- 🧩 Grid badges --}}
+{{--  Grid badges --}}
 <div class="badges-grid">
 
     @foreach($allBadges as $b)
@@ -16,22 +16,22 @@
 
         <div class="cyber-card badge-card {{ $earned ? 'badge-earned' : 'badge-locked' }}">
 
-            {{-- 🏅 Icône --}}
+            {{--  Icône --}}
             <div class="badge-icon">
                 {{ $b->icon }}
             </div>
 
-            {{-- 🏷️ Nom --}}
+            {{--  Nom --}}
             <div class="badge-name">
                 {{ $b->name }}
             </div>
 
-            {{-- 📝 Description --}}
+            {{--  Description --}}
             <div class="badge-description">
                 {{ $b->description }}
             </div>
 
-            {{-- 🎯 Statut --}}
+            {{--  Statut --}}
             <div class="badge-status">
                 <span class="tag {{ $earned ? 'tag-y' : 'tag-b' }}">
                     {{ $earned ? 'Obtenu ✓' : 'Non obtenu' }}

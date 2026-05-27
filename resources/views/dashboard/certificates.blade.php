@@ -25,15 +25,15 @@
                 <div class="cert-number">N° {{ $c->certificate_number }}</div>
             </div>
 
-            {{-- ✅ Voir le certificat --}}
+            {{--  Voir le certificat --}}
             @can('view', $c)
                 <a href="{{ route('certificate.show', $c) }}"
                    class="btn-cyber btn-sm" style="margin-right:6px">
-                    👁️ Voir
+                     Voir
                 </a>
             @endcan
 
-            {{-- ✅ Télécharger seulement si propriétaire --}}
+            {{--  Télécharger seulement si propriétaire --}}
             @can('download', $c)
                 <a href="{{ route('certificate.download', $c) }}"
                    class="btn-cyber btn-sm">
@@ -41,7 +41,7 @@
                 </a>
             @endcan
 
-            {{-- ✅ Accès refusé si pas propriétaire --}}
+            {{--  Accès refusé si pas propriétaire --}}
             @cannot('download', $c)
                 <button class="btn-cyber btn-sm" disabled title="Non autorisé">
                     🔒 PDF
