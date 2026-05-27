@@ -11,7 +11,7 @@ class ForumController extends Controller
     {
         $topics = ForumTopic::with('user')
             ->withCount('messages')
-            ->latest()       // ✅ Sujets : plus récent en premier
+            ->latest()
             ->paginate(20);
         return view('forum.index', compact('topics'));
     }
@@ -28,8 +28,13 @@ class ForumController extends Controller
         $this->authorize('create', ForumTopic::class);
 
         $data = $request->validate([
-            'title' => 'required|string|min:5|max:150',
-            'body'  => 'required|string|min:10|max:5000',
+            'title' => 'required|string|min:3|max:150',
+            'body'  => 'required|string|min:1|max:5000',
+        ], [
+            'title.min' => 'Le titre doit contenir au moins 3 caractères.',
+            'title.required' => 'Le titre est obligatoire.',
+            'body.required' => 'Le message est obligatoire.',
+            'body.min' => 'Le message ne peut pas être vide.',
         ]);
 
         $topic = ForumTopic::create([
@@ -43,7 +48,7 @@ class ForumController extends Controller
 
     public function show(ForumTopic $topic)
     {
-        $messages = $topic->messages()->with('user')->oldest()->paginate(30); // ✅ Messages : plus ancien en premier
+        $messages = $topic->messages()->with('user')->oldest()->paginate(30);
         return view('forum.show', compact('topic', 'messages'));
     }
 
@@ -54,7 +59,10 @@ class ForumController extends Controller
         }
 
         $data = $request->validate([
-            'body' => 'required|string|min:2|max:3000',
+            'body' => 'required|string|min:1|max:3000',
+        ], [
+            'body.required' => 'Le message est obligatoire.',
+            'body.min' => 'Le message ne peut pas être vide.',
         ]);
 
         ForumMessage::create([
