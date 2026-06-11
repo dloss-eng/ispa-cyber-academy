@@ -20,7 +20,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Installer les dépendances PHP
-RUN composer install --optimize-autoloader --no-dev --no-interaction
+RUN composer install --prefer-dist --optimize-autoloader --no-dev --no-interaction
 
 # Installer et builder les assets
 RUN npm ci && npm run build
