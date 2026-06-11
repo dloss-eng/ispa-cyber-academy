@@ -26,7 +26,7 @@ class Challenge extends Model
         ];
     }
 
-    // ── Relations ─────────────────────────────────────────────────
+    // Relations
 
     public function module(): BelongsTo
     {
@@ -38,21 +38,21 @@ class Challenge extends Model
         return $this->hasMany(ChallengeAttempt::class);
     }
 
-    // ── Helpers ───────────────────────────────────────────────────
+    // Helpers 
 
-    /** Vérifie si un flag soumis est correct (insensible à la casse et aux espaces). */
+    // Vérifie si un flag soumis est correct (insensible à la casse et aux espaces)
     public function checkFlag(string $submitted): bool
     {
         return strtolower(trim($submitted)) === strtolower(trim($this->flag));
     }
 
-    /** Tentatives d'un utilisateur sur ce challenge. */
+    // Tentatives d'un utilisateur sur ce challenge
     public function userAttempts(int $userId): \Illuminate\Database\Eloquent\Collection
     {
         return $this->attempts()->where('user_id', $userId)->get();
     }
 
-    /** L'utilisateur a-t-il résolu ce challenge ? */
+    // L'utilisateur a-t-il résolu ce challenge ?
     public function isSolvedBy(int $userId): bool
     {
         return $this->attempts()
@@ -61,7 +61,7 @@ class Challenge extends Model
             ->exists();
     }
 
-    /** Nombre de tentatives restantes (0 = épuisé, null = illimité). */
+    // Nombre de tentatives restantes (0 = épuisé, null = illimité)
     public function remainingAttempts(int $userId): ?int
     {
         if ($this->max_attempts === 0) return null;
@@ -69,14 +69,14 @@ class Challenge extends Model
         return max(0, $this->max_attempts - $used);
     }
 
-    /** Points gagnés selon les indices utilisés. */
+    // Points gagnés selon les indices utilisés
     public function pointsForSolve(int $hintsUsed): int
     {
         $penalty = $hintsUsed * 10; // -10 pts par indice utilisé
         return max(10, $this->points - $penalty);
     }
 
-    /** Badge couleur selon la difficulté. */
+    // Badge couleur selon la difficulté
     public function difficultyColor(): string
     {
         return match ($this->difficulty) {
@@ -87,7 +87,7 @@ class Challenge extends Model
         };
     }
 
-    /** Icône selon le type. */
+    // Icône selon le type
     public function typeIcon(): string
     {
         return match ($this->type) {
@@ -97,8 +97,7 @@ class Challenge extends Model
         };
     }
 
-    // ── Boot ──────────────────────────────────────────────────────
-
+    // Boot 
     protected static function booted(): void
     {
         static::creating(function ($challenge) {

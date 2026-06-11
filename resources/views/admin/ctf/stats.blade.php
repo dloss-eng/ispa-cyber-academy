@@ -4,19 +4,16 @@
 
 @section('content')
 
-{{-- ── Résumé du challenge ──────────────────────────────────────── --}}
-<div class="cyber-card" style="padding:0;overflow:hidden;margin-bottom:20px">
-    <div style="background:{{ match($challenge->difficulty) {
-        'facile'    => 'linear-gradient(135deg,rgba(0,229,160,0.1),rgba(0,229,160,0.03))',
-        'moyen'     => 'linear-gradient(135deg,rgba(255,215,0,0.1),rgba(255,215,0,0.03))',
-        'difficile' => 'linear-gradient(135deg,rgba(255,107,53,0.12),rgba(255,107,53,0.03))',
-    } }};padding:18px 22px;border-bottom:1px solid var(--bd)">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+{{-- ── Résumé du challenge ───── --}}
+<div class="cyber-card ctf-summary">
+
+    <div class="ctf-summary-header ctf-diff-{{ $challenge->difficulty }}">
+        <div class="ctf-summary-top">
             <div>
-                <div style="font-size:16px;font-weight:800">{{ $challenge->typeIcon() }} {{ $challenge->title }}</div>
-                <div style="font-size:12px;color:var(--t2);margin-top:4px">{{ $challenge->description }}</div>
+                <div class="ctf-summary-title">{{ $challenge->typeIcon() }} {{ $challenge->title }}</div>
+                <div class="ctf-summary-desc">{{ $challenge->description }}</div>
             </div>
-            <div style="display:flex;gap:8px">
+            <div class="ctf-summary-badges">
                 <span class="tag {{ match($challenge->difficulty) {
                     'facile'    => 'tag-g',
                     'moyen'     => 'tag-y',
@@ -31,26 +28,31 @@
     </div>
 
     {{-- Métriques clés --}}
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
-        @foreach([
-            ['label' => 'Tentatives',       'value' => $totalAttempts, 'color' => 'var(--bl)'],
-            ['label' => 'Joueurs ayant résolu', 'value' => $solvedCount,   'color' => 'var(--gr)'],
-            ['label' => 'Taux de réussite', 'value' => $successRate.'%',  'color' => 'var(--ye)'],
-            ['label' => 'Points max',       'value' => $challenge->points, 'color' => 'var(--t1)'],
-        ] as $i => $stat)
-        <div style="text-align:center;padding:18px 10px;{{ $i < 3 ? 'border-right:1px solid var(--bd)' : '' }}">
-            <div style="font-size:22px;font-weight:900;color:{{ $stat['color'] }}">{{ $stat['value'] }}</div>
-            <div style="font-size:11px;color:var(--t3);margin-top:4px">{{ $stat['label'] }}</div>
+    <div class="ctf-metrics">
+        <div class="ctf-metric ctf-metric-border">
+            <div class="ctf-metric-value ctf-color-bl">{{ $totalAttempts }}</div>
+            <div class="ctf-metric-label">Tentatives</div>
         </div>
-        @endforeach
+        <div class="ctf-metric ctf-metric-border">
+            <div class="ctf-metric-value ctf-color-gr">{{ $solvedCount }}</div>
+            <div class="ctf-metric-label">Joueurs ayant résolu</div>
+        </div>
+        <div class="ctf-metric ctf-metric-border">
+            <div class="ctf-metric-value ctf-color-ye">{{ $successRate }}%</div>
+            <div class="ctf-metric-label">Taux de réussite</div>
+        </div>
+        <div class="ctf-metric">
+            <div class="ctf-metric-value ctf-color-t1">{{ $challenge->points }}</div>
+            <div class="ctf-metric-label">Points max</div>
+        </div>
     </div>
 </div>
 
-{{-- ── Barre de progression réussite ───────────────────────────── --}}
-<div class="cyber-card" style="margin-bottom:20px">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-        <div style="font-size:13px;font-weight:700">Taux de réussite global</div>
-        <div style="font-size:13px;font-weight:900;color:{{ $successRate >= 60 ? 'var(--gr)' : ($successRate >= 30 ? 'var(--ye)' : 'var(--re)') }}">
+{{-- ── Barre de progression réussite ──── --}}
+<div class="cyber-card ctf-progress-card">
+    <div class="ctf-progress-header">
+        <div class="ctf-progress-title">Taux de réussite global</div>
+        <div class="ctf-progress-rate {{ $successRate >= 60 ? 'ctf-color-gr' : ($successRate >= 30 ? 'ctf-color-ye' : 'ctf-color-re') }}">
             {{ $successRate }}%
         </div>
     </div>
@@ -58,69 +60,135 @@
         <div class="pf {{ $successRate >= 60 ? 'pfg' : 'pf-gradient' }}"
              style="width:{{ $successRate }}%;transition:width 0.6s ease"></div>
     </div>
-    <div style="font-size:11px;color:var(--t3);margin-top:8px">
+    <div class="ctf-progress-info">
         {{ $solvedCount }} joueur(s) ont trouvé le flag sur {{ $totalAttempts }} tentative(s) totales
     </div>
 </div>
 
-{{-- ── Historique des tentatives ────────────────────────────────── --}}
-<div class="cyber-card" style="padding:0;overflow:hidden">
+{{-- ── Historique des tentatives ──── --}}
+<div class="cyber-card ctf-table-card">
 
-    <div style="padding:14px 20px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center">
-        <div style="font-size:13px;font-weight:700">Historique des tentatives</div>
-        <div style="font-size:11px;color:var(--t3)">{{ $attempts->total() }} tentative(s)</div>
+    <div class="ctf-table-header">
+        <div class="ctf-table-title">Historique des tentatives</div>
+        <div class="ctf-table-count">{{ $attempts->total() }} tentative(s)</div>
     </div>
 
     @forelse($attempts as $attempt)
-    <div style="display:grid;grid-template-columns:1fr auto auto auto;gap:12px;align-items:center;padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.03)">
+    <div class="ctf-attempt-row">
 
         {{-- Joueur --}}
         <div>
-            <div style="font-size:13px;font-weight:600">{{ $attempt->user->name ?? 'Utilisateur supprimé' }}</div>
-            <div style="font-family:monospace;font-size:11px;color:{{ $attempt->is_correct ? 'var(--gr)' : 'var(--re)' }};margin-top:2px">
+            <div class="ctf-attempt-name">{{ $attempt->user->name ?? 'Utilisateur supprimé' }}</div>
+            <div class="ctf-attempt-flag {{ $attempt->is_correct ? 'ctf-color-gr' : 'ctf-color-re' }}">
                 {{ $attempt->is_correct ? '✅' : '❌' }} {{ Str::limit($attempt->submitted_flag, 40) }}
             </div>
         </div>
 
         {{-- Indices utilisés --}}
-        <div style="text-align:center">
-            <div style="font-size:12px;color:{{ $attempt->hints_used > 0 ? 'var(--ye)' : 'var(--t3)' }}">
+        <div class="ctf-attempt-center">
+            <div class="{{ $attempt->hints_used > 0 ? 'ctf-color-ye' : 'ctf-color-t3' }} ctf-sm">
                 💡 {{ $attempt->hints_used }}
             </div>
-            <div style="font-size:10px;color:var(--t3)">indice(s)</div>
+            <div class="ctf-xs ctf-color-t3">indice(s)</div>
         </div>
 
         {{-- Points gagnés --}}
-        <div style="text-align:center">
-            <div style="font-size:12px;font-weight:700;color:{{ $attempt->points_earned > 0 ? 'var(--ye)' : 'var(--t3)' }}">
+        <div class="ctf-attempt-center">
+            <div class="ctf-sm ctf-fw-bold {{ $attempt->points_earned > 0 ? 'ctf-color-ye' : 'ctf-color-t3' }}">
                 {{ $attempt->points_earned > 0 ? '+' . $attempt->points_earned : '—' }}
             </div>
-            <div style="font-size:10px;color:var(--t3)">pts</div>
+            <div class="ctf-xs ctf-color-t3">pts</div>
         </div>
 
         {{-- Date --}}
-        <div style="text-align:right">
-            <div style="font-size:11px;color:var(--t3)">{{ $attempt->created_at->format('d/m H:i') }}</div>
-            <div style="font-size:10px;color:var(--t3)">{{ $attempt->created_at->diffForHumans() }}</div>
+        <div class="ctf-attempt-right">
+            <div class="ctf-xs ctf-color-t3">{{ $attempt->created_at->format('d/m H:i') }}</div>
+            <div class="ctf-xs ctf-color-t3">{{ $attempt->created_at->diffForHumans() }}</div>
         </div>
 
     </div>
     @empty
-    <div style="text-align:center;padding:40px;color:var(--t3)">
-        <div style="font-size:32px;margin-bottom:10px">🏁</div>
-        <div style="font-size:13px">Aucune tentative pour ce challenge.</div>
+    <div class="ctf-empty-attempts">
+        <div class="ctf-empty-icon">🏁</div>
+        <div class="ctf-empty-text">Aucune tentative pour ce challenge.</div>
     </div>
     @endforelse
 
 </div>
 
-{{-- ── Pagination ───────────────────────────────────────────────── --}}
+{{-- ── Pagination ─── --}}
 <div class="pagination-wrapper">{{ $attempts->links() }}</div>
 
-{{-- ── Navigation ──────────────────────────────────────────────── --}}
-<div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px">
-    <a href="{{ route('admin.ctf.index') }}" style="font-size:13px;color:var(--t3)">← Retour aux challenges</a>
-    <a href="{{ route('admin.ctf.edit', $challenge) }}" class="btn-cyber btn-sm">✏️ Modifier ce challenge</a>
+{{-- ── Navigation ───── --}}
+<div class="ctf-nav">
+    <a href="{{ route('admin.ctf.index') }}" class="ctf-nav-back">← Retour aux challenges</a>
+    <a href="{{ route('admin.ctf.edit', $challenge) }}" class="btn-cyber btn-sm">Modifier ce challenge</a>
 </div>
 
 @endsection
+
+@push('styles')
+<style>
+/* ── Résumé ──── */
+.ctf-summary        { padding: 0; overflow: hidden; margin-bottom: 20px; }
+.ctf-summary-header { padding: 18px 22px; border-bottom: 1px solid var(--bd); }
+
+.ctf-diff-facile    { background: linear-gradient(135deg,rgba(0,229,160,0.1),rgba(0,229,160,0.03)); }
+.ctf-diff-moyen     { background: linear-gradient(135deg,rgba(255,215,0,0.1),rgba(255,215,0,0.03)); }
+.ctf-diff-difficile { background: linear-gradient(135deg,rgba(255,107,53,0.12),rgba(255,107,53,0.03)); }
+
+.ctf-summary-top    { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.ctf-summary-title  { font-size: 16px; font-weight: 800; }
+.ctf-summary-desc   { font-size: 12px; color: var(--t2); margin-top: 4px; }
+.ctf-summary-badges { display: flex; gap: 8px; }
+
+/* ── Métriques ─── */
+.ctf-metrics       { display: grid; grid-template-columns: repeat(4, 1fr); }
+.ctf-metric        { text-align: center; padding: 18px 10px; }
+.ctf-metric-border { border-right: 1px solid var(--bd); }
+.ctf-metric-value  { font-size: 22px; font-weight: 900; }
+.ctf-metric-label  { font-size: 11px; color: var(--t3); margin-top: 4px; }
+
+/* ── Couleurs ─── */
+.ctf-color-bl { color: var(--bl); }
+.ctf-color-gr { color: var(--gr); }
+.ctf-color-ye { color: var(--ye); }
+.ctf-color-re { color: var(--re); }
+.ctf-color-t1 { color: var(--t1); }
+.ctf-color-t3 { color: var(--t3); }
+
+/* ── Barre de progression ─── */
+.ctf-progress-card   { margin-bottom: 20px; }
+.ctf-progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.ctf-progress-title  { font-size: 13px; font-weight: 700; }
+.ctf-progress-rate   { font-size: 13px; font-weight: 900; }
+.ctf-progress-info   { font-size: 11px; color: var(--t3); margin-top: 8px; }
+
+/* ── Tableau tentatives ─── */
+.ctf-table-card   { padding: 0; overflow: hidden; }
+.ctf-table-header { padding: 14px 20px; border-bottom: 1px solid var(--bd); display: flex; justify-content: space-between; align-items: center; }
+.ctf-table-title  { font-size: 13px; font-weight: 700; }
+.ctf-table-count  { font-size: 11px; color: var(--t3); }
+
+/* ── Ligne tentative ──── */
+.ctf-attempt-row   { display: grid; grid-template-columns: 1fr auto auto auto; gap: 12px; align-items: center; padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.ctf-attempt-name  { font-size: 13px; font-weight: 600; }
+.ctf-attempt-flag  { font-family: monospace; font-size: 11px; margin-top: 2px; }
+.ctf-attempt-center { text-align: center; }
+.ctf-attempt-right  { text-align: right; }
+
+/* ── Typographie utilitaires ─── */
+.ctf-sm      { font-size: 12px; }
+.ctf-xs      { font-size: 10px; }
+.ctf-fw-bold { font-weight: 700; }
+
+/* ── État vide ─── */
+.ctf-empty-attempts { text-align: center; padding: 40px; color: var(--t3); }
+.ctf-empty-icon     { font-size: 32px; margin-bottom: 10px; }
+.ctf-empty-text     { font-size: 13px; }
+
+/* ── Navigation ── */
+.ctf-nav      { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+.ctf-nav-back { font-size: 13px; color: var(--t3); }
+</style>
+@endpush

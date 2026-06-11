@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class CtfController extends Controller
 {
-    // ── Liste ──────────────────────────────────────────────────────
+    // Liste 
     public function index()
     {
         $challenges = Challenge::withCount('attempts')
@@ -20,14 +20,14 @@ class CtfController extends Controller
         return view('admin.ctf.index', compact('challenges'));
     }
 
-    // ── Formulaire création ────────────────────────────────────────
+    //  Formulaire création 
     public function create()
     {
         $modules = Module::where('is_published', true)->orderBy('order')->get();
         return view('admin.ctf.form', compact('modules'));
     }
 
-    // ── Sauvegarder un nouveau challenge ──────────────────────────
+    //  Sauvegarder un nouveau challenge 
     public function store(Request $request)
     {
         $data = $this->validateChallenge($request);
@@ -42,14 +42,14 @@ class CtfController extends Controller
             ->with('success', 'Challenge CTF créé avec succès.');
     }
 
-    // ── Formulaire édition ─────────────────────────────────────────
+    //  Formulaire édition 
     public function edit(Challenge $challenge)
     {
         $modules = Module::where('is_published', true)->orderBy('order')->get();
         return view('admin.ctf.form', compact('challenge', 'modules'));
     }
 
-    // ── Mettre à jour ──────────────────────────────────────────────
+    //  Mettre à jour 
     public function update(Request $request, Challenge $challenge)
     {
         $data = $this->validateChallenge($request);
@@ -62,7 +62,7 @@ class CtfController extends Controller
             ->with('success', 'Challenge CTF modifié.');
     }
 
-    // ── Supprimer ──────────────────────────────────────────────────
+    //  Supprimer 
     public function destroy(Challenge $challenge)
     {
         $challenge->delete();
@@ -71,7 +71,7 @@ class CtfController extends Controller
             ->with('success', 'Challenge supprimé.');
     }
 
-    // ── Stats d'un challenge ───────────────────────────────────────
+    //  Stats d'un challenge 
     public function stats(Challenge $challenge)
     {
         $attempts = ChallengeAttempt::where('challenge_id', $challenge->id)
@@ -94,7 +94,7 @@ class CtfController extends Controller
         ));
     }
 
-    // ── Validation commune ─────────────────────────────────────────
+    //  Validation commune 
     private function validateChallenge(Request $request): array
     {
         return $request->validate([
@@ -112,7 +112,7 @@ class CtfController extends Controller
         ]);
     }
 
-    // ── Parser les indices depuis le formulaire ────────────────────
+    // Parser les indices depuis le formulaire 
     private function parseHints(Request $request): array
     {
         $hints = [];
