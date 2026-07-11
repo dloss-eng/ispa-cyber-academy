@@ -114,7 +114,6 @@
 
                 {{--  État vide — aucun cours commencé --}}
                 <div class="cyber-card" style="padding:36px 24px;text-align:center">
-                    <div style="font-size:40px;margin-bottom:14px">🚀</div>
                     <div style="font-size:14px;font-weight:700;margin-bottom:8px">
                         Vous n'avez pas encore commencé de cours
                     </div>
@@ -122,7 +121,7 @@
                         Choisissez votre premier module et lancez-vous !
                     </div>
                     <a href="{{ route('courses.index') }}" class="btn-cyber" style="display:inline-flex">
-                        📚 Découvrir les cours
+                         Découvrir les cours
                     </a>
                 </div>
 

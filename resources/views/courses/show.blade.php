@@ -122,7 +122,7 @@
                             onclick="loadLesson('{{ route('courses.lesson.ajax', [$module, $targetLesson]) }}', {{ $targetLesson->id }})">
                             @if($moduleProgress >= 100) ↺ Revoir depuis le début
                             @elseif($moduleProgress > 0) ▶ Continuer — {{ Str::limit($targetLesson->title, 30) }}
-                            @else 🚀 Commencer le module
+                            @else  Commencer le module
                             @endif
                         </button>
                     @endif
