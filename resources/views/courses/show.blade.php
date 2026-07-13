@@ -5,6 +5,15 @@
 
 <div class="course-layout">
 
+    {{-- Toast de succès --}}
+    <div id="pointsToast" class="points-toast">
+        <div class="points-toast-icon">🎉</div>
+        <div class="points-toast-text">
+            <div class="points-toast-title">Leçon terminée !</div>
+            <div class="points-toast-sub" id="pointsToastSub">Vous avez gagné 10 points</div>
+        </div>
+    </div>
+
     {{-- ═══════ SIDEBAR GAUCHE ═══════ --}}
     <aside class="course-sidebar" id="courseSidebar">
 
@@ -191,6 +200,34 @@
     </main>
 </div>
 
+<style>
+.points-toast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    z-index: 9999;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform .35s ease, opacity .35s ease;
+    max-width: 320px;
+}
+.points-toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+.points-toast-icon { font-size: 28px; line-height: 1; }
+.points-toast-title { font-weight: 700; font-size: 14px; }
+.points-toast-sub { font-size: 12.5px; opacity: .9; margin-top: 2px; }
+</style>
+
 <script>
 const CSRF = document.querySelector('meta[name="csrf-token"]').content;
 let lessonsOpen = false;
@@ -263,6 +300,7 @@ function loadLesson(ajaxUrl, lessonId) {
                 fetch(form.action, { method: 'POST', headers: { 'X-CSRF-TOKEN': CSRF }, body: new FormData(form) })
                 .then(r => r.json().catch(() => ({})))
                 .then(data => {
+                    showPointsToast(data.points_earned ?? 10);
                     const dot  = document.getElementById('dot-' + lessonId);
                     const num  = document.getElementById('num-' + lessonId);
                     const item = document.getElementById('sb-' + lessonId);
@@ -292,6 +330,19 @@ function backToOverview() {
     document.getElementById('moduleOverview').style.display = 'block';
     document.querySelectorAll('.cs-lesson-item').forEach(i => i.classList.remove('active-lesson'));
     document.getElementById('courseMain').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showPointsToast(points) {
+    const toast = document.getElementById('pointsToast');
+    const sub   = document.getElementById('pointsToastSub');
+    if (!toast || !sub) return;
+
+    sub.textContent = `Vous avez gagné ${points} points`;
+    toast.classList.add('show');
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3500);
 }
 </script>
 

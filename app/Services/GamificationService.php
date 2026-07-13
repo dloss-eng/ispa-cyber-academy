@@ -51,22 +51,19 @@ class GamificationService
     // BADGES PAR MODULE ← NOUVEAUX
     // ============================
 
-    /**
-     * Appelé après chaque leçon terminée ou quiz réussi.
-     * Vérifie les 4 nouveaux badges liés à la progression d'un module.
-     */
+
     public function checkModuleBadges(User $user, Module $module): void
     {
         $user->load('badges');
 
         $progress = $this->getProgressForModule($user, $module);
 
-        // 🎓 Badge 1 : Module terminé à 100%
+        //  Badge 1 : Module terminé à 100%
         $this->awardBadgeIf($user, 'module-complete',
             fn() => $progress >= 100
         );
 
-        // ⚡ Badge 2 : Module à moitié (>= 50%)
+        //  Badge 2 : Module à moitié (>= 50%)
         $this->awardBadgeIf($user, 'module-mi-parcours',
             fn() => $progress >= 50
         );
@@ -83,12 +80,12 @@ class GamificationService
                 ->distinct('quiz_id')
                 ->count('quiz_id');
 
-            // 🏅 Badge 3 : Tous les quiz réussis
+            //  Badge 3 : Tous les quiz réussis
             $this->awardBadgeIf($user, 'quiz-master',
                 fn() => $passedQuizzes >= $totalQuizzes
             );
 
-            // 📚 Badge 4 : Moitié des quiz réussis
+            //  Badge 4 : Moitié des quiz réussis
             $this->awardBadgeIf($user, 'quiz-apprenti',
                 fn() => $passedQuizzes >= ceil($totalQuizzes / 2)
             );
@@ -99,12 +96,10 @@ class GamificationService
     // ÉVÉNEMENTS
     // ============================
 
-    /**
-     * Appelé depuis CourseController::completeLesson()
-     */
-    public function onLessonComplete(User $user, \App\Models\Lesson $lesson): void
+    public function onLessonComplete(User $user, \App\Models\Lesson $lesson): int
     {
-        $user->addPoints(10);
+        $pointsAwarded = 10;
+        $user->addPoints($pointsAwarded);
         $module = $lesson->module ?? Module::find($lesson->module_id);
 
         if ($module) {
@@ -112,6 +107,8 @@ class GamificationService
             $this->checkModuleBadges($user, $module);
             $this->checkCertificate($user, $module);
         }
+
+        return $pointsAwarded;
     }
 
     // ============================

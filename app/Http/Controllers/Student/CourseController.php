@@ -17,7 +17,7 @@ class CourseController extends Controller
     {
         $user = Auth::user();
 
-        // ✅ Filtrer selon le niveau de l'utilisateur
+        //  Filtrer selon le niveau de l'utilisateur
         $modules = Module::where('is_published', true)
             ->whereIn('level', $user->allowedModuleLevels())
             ->withCount('lessons as total_lessons')
@@ -37,7 +37,7 @@ class CourseController extends Controller
             $m->user_progress = $total > 0 ? round(($completed / $total) * 100) : 0;
         });
 
-        // ✅ Passer le niveau lisible à la vue pour affichage contextuel
+        //  Passer le niveau lisible à la vue pour affichage contextuel
         $userLevelLabel = $user->moduleLevelLabel();
 
         return view('courses.index', compact('modules', 'userLevelLabel'));
@@ -51,7 +51,7 @@ class CourseController extends Controller
     {
         abort_if(! $module->is_published, 404);
 
-        // ✅ Bloquer l'accès si le module ne correspond pas au niveau de l'utilisateur
+        //  Bloquer l'accès si le module ne correspond pas au niveau de l'utilisateur
         abort_if(
             ! in_array($module->level, Auth::user()->allowedModuleLevels()),
             403,
@@ -83,7 +83,7 @@ class CourseController extends Controller
     {
         abort_if($lesson->module_id !== $module->id, 404);
 
-        // ✅ Vérification niveau sur la leçon également
+        //  Vérification niveau sur la leçon également
         abort_if(
             ! in_array($module->level, Auth::user()->allowedModuleLevels()),
             403,
@@ -171,7 +171,7 @@ class CourseController extends Controller
             ['status' => 'completed', 'completed_at' => now()]
         );
 
-        app(\App\Services\GamificationService::class)->onLessonComplete(auth()->user(), $lesson);
+        $pointsEarned = app(\App\Services\GamificationService::class)->onLessonComplete(auth()->user(), $lesson);
 
         $total = $module->lessons()->count();
         $done  = StudentProgress::where('user_id', auth()->id())
@@ -180,6 +180,10 @@ class CourseController extends Controller
             ->count();
         $moduleProgress = $total > 0 ? round(($done / $total) * 100) : 0;
 
-        return response()->json(['ok' => true, 'progress' => $moduleProgress]);
+        return response()->json([
+            'ok'             => true,
+            'moduleProgress' => $moduleProgress,
+            'points_earned'  => $pointsEarned,
+        ]);
     }
 }
