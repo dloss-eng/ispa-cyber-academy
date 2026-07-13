@@ -57,7 +57,7 @@
         <form id="completeForm" action="{{ route('courses.lesson.complete', [$module, $lesson]) }}" method="POST">
             @csrf
             <button type="submit" class="btn-cyber btn-sm">
-                 Terminer (+10 pts)
+                 Terminer
             </button>
         </form>
     @else

@@ -99,7 +99,7 @@
                 @endif
 
                 <button type="submit" class="btn-lg">
-                    🔐 Se connecter
+                     Se connecter
                 </button>
 
             </form>

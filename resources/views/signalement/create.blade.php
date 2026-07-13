@@ -49,7 +49,7 @@
         <label class="fl">Capture d'écran (optionnel)</label>
         <input type="file" name="screenshot" accept="image/*" class="fi" style="padding:10px">
 
-        <button type="submit" class="btn-lg">🚨 Envoyer le signalement</button>
+        <button type="submit" class="btn-lg"> Envoyer le signalement</button>
 
     </form>
 </div>

@@ -2,7 +2,7 @@
 @section('title', 'Signalements')
 @section('page-title', '🚨 Mes Signalements')
 @section('content')
-<div style="display:flex;justify-content:flex-end;margin-bottom:16px"><a href="{{ route('signalements.create') }}" class="btn-cyber btn-sm">🚨 Signaler une arnaque</a></div>
+<div style="display:flex;justify-content:flex-end;margin-bottom:16px"><a href="{{ route('signalements.create') }}" class="btn-cyber btn-sm"> Signaler une arnaque</a></div>
 @foreach($signalements as $s)
     <div class="cyber-card" style="padding:14px 18px;margin-bottom:8px;display:flex;align-items:center;gap:14px">
         <div style="font-size:24px">{{ explode(' ',$s->type_label)[0] }}</div>

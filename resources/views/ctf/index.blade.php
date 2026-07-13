@@ -25,7 +25,7 @@
     <div style="font-size:12px;color:var(--t3)">
         {{ $solvedCount }} / {{ $challenges->count() }} challenges complétés
     </div>
-    <a href="{{ route('ctf.leaderboard') }}" class="btn-cyber btn-sm">🏆 Classement</a>
+    <a href="{{ route('ctf.leaderboard') }}" class="btn-cyber btn-sm"> Classement</a>
 </div>
 
 {{-- ── Challenges ───────────────────────────────────────────────── --}}
@@ -80,7 +80,7 @@
             @elseif($c->attempts_count > 0)
                 <a href="{{ route('ctf.show', $c) }}" class="bcours">▶️ Continuer</a>
             @else
-                <a href="{{ route('ctf.show', $c) }}" class="bcours st">🚀 Relever le défi</a>
+                <a href="{{ route('ctf.show', $c) }}" class="bcours st">Relever le défi</a>
             @endif
         </div>
     </div>
