@@ -6,7 +6,7 @@
 
 <a href="{{ route('admin.users.index') }}" class="back-link">← Retour</a>
 
-{{-- ✅ Erreurs de validation lisibles (grâce aux fichiers lang/fr/) --}}
+{{--  Erreurs de validation lisibles (grâce aux fichiers lang/fr/) --}}
 @if ($errors->any())
     <div class="alert-error">
         @foreach ($errors->all() as $e)
@@ -31,7 +31,7 @@
         <input type="password" name="password" required class="fi"
                autocomplete="new-password">
 
-        {{-- ✅ FIX — champ confirmation ajouté --}}
+        {{--  FIX — champ confirmation ajouté --}}
         <label class="fl">Confirmer le mot de passe</label>
         <input type="password" name="password_confirmation" required class="fi"
                autocomplete="new-password">
@@ -44,7 +44,7 @@
 
             <div>
                 <label class="fl">Rôle</label>
-                {{-- ✅ FIX — display_name chargé correctement via UserController --}}
+                {{--  FIX — display_name chargé correctement via UserController --}}
                 <select name="role_id" required class="fi">
                     <option value="" disabled selected>-- Choisir un rôle --</option>
                     @foreach($roles as $r)
@@ -71,7 +71,7 @@
 
         </div>
 
-        <button type="submit" class="btn-lg">🚀 Créer l'utilisateur</button>
+        <button type="submit" class="btn-lg"> Créer l'utilisateur</button>
 
     </form>
 </div>

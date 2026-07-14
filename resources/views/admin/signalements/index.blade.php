@@ -8,7 +8,7 @@
 
 @section('content')
 
-{{-- 📊 Statistiques --}}
+{{--  Statistiques --}}
 <div class="kr">
 
     <div class="kc kc-o">
@@ -34,7 +34,7 @@
 
 </div>
 
-{{-- 🔁 Liste des signalements --}}
+{{--  Liste des signalements --}}
 @foreach($signalements as $s)
 
     {{-- 🔗 Carte cliquable --}}
@@ -42,15 +42,15 @@
 
         <div class="cyber-card signalement-card">
 
-            {{-- ⚠️ Icône (premier mot du type) --}}
+            {{--  Icône (premier mot du type) --}}
             <div class="signalement-icon">
                 {{ explode(' ', $s->type_label)[0] }}
             </div>
 
-            {{-- 📄 Infos --}}
+            {{--  Infos --}}
             <div class="signalement-info">
 
-                {{-- 🏷️ Type + utilisateur --}}
+                {{--  Type + utilisateur --}}
                 <div class="signalement-title">
                     {{ $s->type_label }}
                     <span class="signalement-user">
@@ -58,25 +58,25 @@
                     </span>
                 </div>
 
-                {{-- 📝 Description courte --}}
+                {{--  Description courte --}}
                 <div class="signalement-desc">
                     {{ Str::limit($s->description, 80) }}
                 </div>
 
-                {{-- 🆔 Ticket + date --}}
+                {{--  Ticket + date --}}
                 <div class="signalement-meta">
                     {{ $s->ticket_number }} · {{ $s->created_at->diffForHumans() }}
                 </div>
 
             </div>
 
-            {{-- 🏷️ Statut --}}
+            {{--  Statut --}}
             <span class="tag 
                 {{ $s->status === 'traite' ? 'tag-g' : ($s->status === 'en_cours' ? 'tag-y' : 'tag-o') }}">
                 {{ ucfirst(str_replace('_', ' ', $s->status)) }}
             </span>
 
-            {{-- 🤖 Score IA --}}
+            {{--  Score IA --}}
             @if($s->ai_confidence)
                 <div class="signalement-ai">
                     <div class="ai-score">
@@ -92,7 +92,7 @@
 
 @endforeach
 
-{{-- 🔢 Pagination --}}
+{{--  Pagination --}}
 <div class="pagination-wrapper">
     {{ $signalements->links() }}
 </div>

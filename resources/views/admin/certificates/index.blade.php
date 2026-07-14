@@ -1,42 +1,42 @@
 @extends('layouts.app')
 
-{{-- 🏷️ Titre navigateur --}}
+{{--  Titre navigateur --}}
 @section('title', 'Certificats')
 
-{{-- 📌 Titre affiché --}}
-@section('page-title', '📜 Tous les Certificats')
+{{--  Titre affiché --}}
+@section('page-title', ' Tous les Certificats')
 
 @section('content')
 
-{{-- 📊 Nombre total de certificats --}}
+{{--  Nombre total de certificats --}}
 <div class="cert-meta">
     {{ $certificates->total() }} certificats délivrés
 </div>
 
-{{-- 🔁 Liste des certificats --}}
+{{--  Liste des certificats --}}
 @forelse($certificates as $c)
 
     <a href="{{ route('certificate.show', $c) }}" class="cyber-card cert-card cert-card-link">
 
-        {{-- 📜 Icône --}}
+        {{--  Icône --}}
         <div class="cert-icon">
             📜
         </div>
 
-        {{-- 📄 Infos certificat --}}
+        {{--  Infos certificat --}}
         <div class="cert-info">
 
-            {{-- 👤 Nom utilisateur --}}
+            {{--  Nom utilisateur --}}
             <div class="cert-user">
                 {{ $c->user->name }}
             </div>
 
-            {{-- 📘 Module + score --}}
+            {{--  Module + score --}}
             <div class="cert-module">
                 {{ $c->module->title }} · {{ $c->final_score }}%
             </div>
 
-            {{-- 🆔 Numéro + date --}}
+            {{--  Numéro + date --}}
             <div class="cert-meta-small">
                 N° {{ $c->certificate_number }} · {{ $c->issued_at->format('d/m/Y') }}
             </div>
@@ -45,19 +45,19 @@
 
         {{-- 👁️ Icône voir --}}
         <div class="cert-view-icon">
-            👁️
+            Voir
         </div>
 
     </a>
 
-{{-- ❌ Aucun certificat --}}
+{{--  Aucun certificat --}}
 @empty
     <div class="empty-state">
         Aucun certificat délivré.
     </div>
 @endforelse
 
-{{-- 🔢 Pagination --}}
+{{--  Pagination --}}
 <div class="pagination-wrapper">
     {{ $certificates->links() }}
 </div>

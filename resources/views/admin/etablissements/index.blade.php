@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="etab-header">
-    {{-- ✅ Créer seulement si autorisé --}}
+    {{--  Créer seulement si autorisé --}}
     @can('create', \App\Models\Etablissement::class)
         <a href="{{ route('admin.etablissements.create') }}" class="btn-cyber btn-sm">+ Ajouter</a>
     @endcan
@@ -25,12 +25,12 @@
             <div class="etab-meta">{{ ucfirst($e->type) }} · {{ $e->city }} · {{ $e->users_count }} utilisateurs</div>
         </div>
 
-        {{-- ✅ Modifier seulement si autorisé --}}
+        {{--  Modifier seulement si autorisé --}}
         @can('update', $e)
             <a href="{{ route('admin.etablissements.edit', $e) }}" class="etab-edit">Modifier</a>
         @endcan
 
-        {{-- ✅ Supprimer seulement admin --}}
+        {{--  Supprimer seulement admin --}}
         @can('delete', $e)
             <form action="{{ route('admin.etablissements.destroy', $e) }}"
                   method="POST" class="etab-delete-form"

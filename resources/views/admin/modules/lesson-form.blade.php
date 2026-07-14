@@ -8,7 +8,7 @@
 
 @section('content')
 
-{{-- 🔙 Retour au module --}}
+{{--  Retour au module --}}
 <a href="{{ route('admin.modules.edit',$module) }}" class="back-link">
     ← Module
 </a>
@@ -72,11 +72,11 @@
                             📄 {{ $r->title }}
                         </span>
 
-                        {{-- ✅ Cloudinary = URL complète | ancien = chemin local --}}
+                        {{--  Cloudinary = URL complète | ancien = chemin local --}}
                         <a href="{{ Str::startsWith($r->file_path, 'http') ? $r->file_path : asset('storage/'.$r->file_path) }}"
                            target="_blank"
                            class="resource-view">
-                            👁️ Voir
+                            Voir
                         </a>
 
                     </div>
@@ -91,7 +91,7 @@
         <input type="file" name="pdf_files[]" multiple accept=".pdf"
                class="fi file-input">
 
-        {{-- ⏱️ durée + ordre --}}
+        {{--  durée + ordre --}}
         <div class="form-grid-2">
 
             <div>
@@ -136,7 +136,7 @@
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
         <div>
             <div style="font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;margin-bottom:6px;color:var(--t)">
-                🧠 QUIZ DE LA LEÇON
+                 QUIZ DE LA LEÇON
             </div>
             @if($quiz)
                 <span style="font-size:12px;color:var(--t2)">
@@ -150,7 +150,7 @@
             @if($quiz)
                 <a href="{{ route('admin.lessons.quiz.edit', $quiz) }}"
                    style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;background:rgba(75,123,255,0.12);color:var(--bl);border:1px solid rgba(75,123,255,0.3);transition:all .2s">
-                    ✏️ Modifier le Quiz
+                     Modifier le Quiz
                 </a>
             @else
                 <a href="{{ route('admin.lessons.quiz.create', $lesson) }}"
@@ -163,13 +163,13 @@
 </div>
 @endif
 
-{{-- 🗑️ SUPPRESSION PDF --}}
+{{--  SUPPRESSION PDF --}}
 @if(isset($lesson) && $lesson->resources->count() > 0)
 
 <div class="cyber-card resource-delete-card">
 
     <div class="resource-delete-title">
-        🗑️ SUPPRIMER DES FICHIERS
+         SUPPRIMER DES FICHIERS
     </div>
 
     @foreach($lesson->resources as $r)

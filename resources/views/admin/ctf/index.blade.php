@@ -12,7 +12,7 @@
 
 {{-- ── Alertes ──── --}}
 @if(session('success'))
-    <div class="ctf-alert-success">✅ {{ session('success') }}</div>
+    <div class="ctf-alert-success"> {{ session('success') }}</div>
 @endif
 
 {{-- ── Liste ─── --}}
@@ -48,7 +48,7 @@
 
     {{-- Actions --}}
     <div class="ctf-actions">
-        <a href="{{ route('admin.ctf.stats', $c) }}" class="btn-cyber btn-sm ctf-btn-stats">📊 Stats</a>
+        <a href="{{ route('admin.ctf.stats', $c) }}" class="btn-cyber btn-sm ctf-btn-stats"> Stats</a>
         <a href="{{ route('admin.ctf.edit', $c) }}" class="module-edit">Modifier</a>
         <form action="{{ route('admin.ctf.destroy', $c) }}" method="POST" class="inline-form"
               onsubmit="return confirm('Supprimer ce challenge et toutes ses tentatives ?')">

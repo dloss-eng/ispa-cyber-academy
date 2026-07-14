@@ -30,7 +30,7 @@
         <label class="fl">Mot de passe <span class="td-muted">(vide = inchangé)</span></label>
         <input type="password" name="password" class="fi" autocomplete="new-password">
 
-        {{-- ✅ FIX — champ confirmation ajouté --}}
+        {{-- champ confirmation ajouté --}}
         <label class="fl">Confirmer le mot de passe <span class="td-muted">(si changé)</span></label>
         <input type="password" name="password_confirmation" class="fi" autocomplete="new-password">
 
@@ -42,7 +42,7 @@
 
             <div>
                 <label class="fl">Rôle</label>
-                {{-- ✅ FIX — display_name chargé correctement --}}
+                {{-- display_name chargé correctement --}}
                 <select name="role_id" required class="fi">
                     <option value="" disabled>-- Choisir un rôle --</option>
                     @foreach($roles as $r)
@@ -69,7 +69,7 @@
 
         </div>
 
-        <button type="submit" class="btn-lg">💾 Mettre à jour</button>
+        <button type="submit" class="btn-lg"> Mettre à jour</button>
 
     </form>
 </div>

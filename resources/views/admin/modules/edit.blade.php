@@ -8,12 +8,12 @@
 
 @section('content')
 
-{{-- 🔙 Retour --}}
+{{-- Retour --}}
 <a href="{{ route('admin.modules.index') }}" class="back-link">
     ← Retour
 </a>
 
-{{-- 📦 FORMULAIRE MODULE --}}
+{{--  FORMULAIRE MODULE --}}
 <div class="cyber-card module-form-card">
 
     <form method="POST"
@@ -22,7 +22,7 @@
         @csrf
         @if(isset($module)) @method('PUT') @endif
 
-        {{-- 🧩 Ligne : titre + niveau --}}
+        {{--  Ligne : titre + niveau --}}
         <div class="form-grid-2">
 
             <div>
@@ -43,13 +43,13 @@
 
         </div>
 
-        {{-- 📝 Description --}}
+        {{--  Description --}}
         <label class="fl">Description</label>
         <textarea name="description" rows="3" required class="fi">
 {{ old('description',$module->description??'') }}
         </textarea>
 
-        {{-- 🧩 Ligne : durée + ordre --}}
+        {{--  Ligne : durée + ordre --}}
         <div class="form-grid-2">
 
             <div>
@@ -68,7 +68,7 @@
 
         </div>
 
-        {{-- ✅ Publication --}}
+        {{--  Publication --}}
         <label class="checkbox-inline">
             <input type="checkbox"
                    name="is_published"
@@ -78,7 +78,7 @@
             Publié
         </label>
 
-        {{-- 🚀 Submit --}}
+        {{--  Submit --}}
         <button type="submit" class="btn-lg">
             {{ isset($module)?'Mettre à jour':'Créer' }}
         </button>
@@ -87,17 +87,17 @@
 
 </div>
 
-{{-- 📚 LISTE DES LEÇONS --}}
+{{--  LISTE DES LEÇONS --}}
 @if(isset($module))
 
-    {{-- 🔝 Header --}}
+    {{--  Header --}}
     <div class="lessons-header">
 
         <div class="lessons-title">
             📖 LEÇONS
         </div>
 
-        {{-- ✅ Boutons + Leçon et + Quiz côte à côte --}}
+        {{--  Boutons + Leçon et + Quiz côte à côte --}}
         <div style="display:flex;gap:8px;align-items:center">
 
             <a href="{{ route('admin.modules.lessons.create',$module) }}"
@@ -125,7 +125,7 @@
 
     </div>
 
-    {{-- 🔁 Liste des leçons --}}
+    {{-- Liste des leçons --}}
     @foreach($module->lessons as $l)
 
         @php $quiz = $l->quizzes->first(); @endphp
@@ -155,7 +155,7 @@
                           method="POST" class="inline-form"
                           onsubmit="return confirm('Supprimer le quiz ?')">
                         @csrf @method('DELETE')
-                        <button class="btn-delete-small">🗑️ Quiz</button>
+                        <button class="btn-delete-small"> Quiz</button>
                     </form>
                 @else
                     <a href="{{ route('admin.lessons.quiz.create', $l) }}" class="link-quiz-add">

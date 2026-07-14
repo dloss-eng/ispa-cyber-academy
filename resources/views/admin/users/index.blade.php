@@ -35,7 +35,7 @@
                 <th>Nom</th>
                 <th>Email</th>
                 <th>Rôle</th>
-                <th>Établissement</th>  {{-- ✅ Nouvelle colonne --}}
+                <th>Établissement</th>  {{--  Nouvelle colonne --}}
                 <th>Points</th>
                 <th class="text-right">Actions</th>
             </tr>
@@ -53,7 +53,7 @@
                         </span>
                     </td>
 
-                    {{-- ✅ Établissement --}}
+                    {{--  Établissement --}}
                     <td>
                         @if($u->etablissement)
                             <span style="display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:var(--gr);background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);padding:3px 10px;border-radius:99px;white-space:nowrap">

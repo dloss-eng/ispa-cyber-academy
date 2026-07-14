@@ -5,7 +5,7 @@
 
 @section('content')
 
-{{-- ✅ Contexte : leçon OU module --}}
+{{--  Contexte : leçon OU module --}}
 <div class="quiz-lesson-info">
     @isset($lesson)
         Leçon : <strong class="quiz-lesson-title">{{ $lesson->title }}</strong>
@@ -14,7 +14,7 @@
     @endisset
 </div>
 
-{{-- ✅ Action selon le contexte --}}
+{{--  Action selon le contexte --}}
 <form method="POST"
       action="{{ isset($lesson)
           ? route('admin.lessons.quiz.store', $lesson)
@@ -62,7 +62,7 @@
     </button>
 
     <button type="submit" class="btn-lg">
-        💾 Enregistrer
+         Enregistrer
     </button>
 
 </form>

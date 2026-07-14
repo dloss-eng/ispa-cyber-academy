@@ -5,7 +5,7 @@
 
 @section('content')
 
-{{-- ✅ Succès --}}
+{{--  Succès --}}
 @if(session('success'))
     <div style="background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.25);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--gr)">
         ✓ {{ session('success') }}
@@ -19,12 +19,12 @@
     </div>
 @endif
 
-{{-- 🔙 Retour --}}
+{{--  Retour --}}
 <a href="{{ route('admin.signalements.index') }}" class="back-link">
     ← Retour
 </a>
 
-{{-- 📦 Détails du signalement --}}
+{{--  Détails du signalement --}}
 <div class="cyber-card signalement-detail-card">
 
     <div class="signalement-meta-grid">
@@ -72,10 +72,10 @@
 {{-- 🛠️ Formulaire admin --}}
 <div class="cyber-card signalement-form-card">
 
-    {{-- ⚠️ Avertissement si déjà traité --}}
+    {{--  Avertissement si déjà traité --}}
     @if($signalement->status === 'traite')
         <div style="background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.2);border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:12px;color:var(--ye)">
-            ⚠️ Ce signalement est marqué comme traité. Vous pouvez quand même modifier le statut.
+             Ce signalement est marqué comme traité. Vous pouvez quand même modifier le statut.
         </div>
     @endif
 

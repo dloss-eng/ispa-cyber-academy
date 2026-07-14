@@ -8,19 +8,19 @@
 
 @section('content')
 
-{{-- 🔙 Lien pour retourner à la liste des badges --}}
+{{--  Lien pour retourner à la liste des badges --}}
 <a href="{{ route('admin.badges.index') }}" class="back-link">
     ← Retour
 </a>
 
-{{-- 📦 Conteneur principal du formulaire --}}
+{{--  Conteneur principal du formulaire --}}
 <div class="cyber-card badge-form-card">
 
-    {{-- 📝 Formulaire (création ou modification selon présence de $badge) --}}
+    {{--  Formulaire (création ou modification selon présence de $badge) --}}
     <form method="POST"
           action="{{ isset($badge) ? route('admin.badges.update', $badge) : route('admin.badges.store') }}">
 
-        {{-- 🔐 Protection CSRF obligatoire Laravel --}}
+        {{--  Protection CSRF obligatoire Laravel --}}
         @csrf
 
         {{-- 🔄 Méthode PUT si modification --}}
@@ -28,7 +28,7 @@
             @method('PUT')
         @endif
 
-        {{-- 🏷️ Champ : Nom du badge --}}
+        {{--  Champ : Nom du badge --}}
         <label class="fl no-margin-top">Nom</label>
         <input type="text"
                name="name"
@@ -36,7 +36,7 @@
                required
                class="fi">
 
-        {{-- 😀 Champ : Icône (emoji) --}}
+        {{--  Champ : Icône (emoji) --}}
         <label class="fl">Icône (emoji)</label>
         <input type="text"
                name="icon"
@@ -44,14 +44,14 @@
                required
                class="fi icon-input">
 
-        {{-- 📝 Champ : Description --}}
+        {{--  Champ : Description --}}
         <label class="fl">Description</label>
         <textarea name="description"
                   rows="2"
                   required
                   class="fi">{{ old('description', $badge->description ?? '') }}</textarea>
 
-        {{-- 📂 Champ : Catégorie --}}
+        {{--  Champ : Catégorie --}}
         <label class="fl">Catégorie</label>
         <select name="category" required class="fi">
 
@@ -75,7 +75,7 @@
 
         </select>
 
-        {{-- 🚀 Bouton de soumission (Créer ou Modifier) --}}
+        {{--  Bouton de soumission (Créer ou Modifier) --}}
         <button type="submit" class="btn-lg">
             {{ isset($badge) ? 'Modifier' : 'Créer' }}
         </button>

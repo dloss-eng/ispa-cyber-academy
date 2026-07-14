@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', isset($challenge) ? 'Modifier le challenge' : 'Nouveau challenge CTF')
-@section('page-title', isset($challenge) ? '✏️ Modifier — ' . $challenge->title : '🚩 Nouveau challenge CTF')
+@section('page-title', isset($challenge) ? ' Modifier — ' . $challenge->title : '🚩 Nouveau challenge CTF')
 
 @section('content')
 
@@ -169,7 +169,7 @@
     {{-- ── Submit ───── --}}
     <div class="ctf-submit-row">
         <button type="submit" class="btn-cyber ctf-btn-submit">
-            {{ isset($challenge) ? '💾 Enregistrer les modifications' : '🚀 Créer le challenge' }}
+            {{ isset($challenge) ? ' Enregistrer les modifications' : ' Créer le challenge' }}
         </button>
         <a href="{{ route('admin.ctf.index') }}" class="ctf-btn-cancel">
             Annuler

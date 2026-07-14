@@ -7,7 +7,7 @@
 <div class="modules-header">
     <div class="modules-count">{{ $modules->total() }} modules</div>
 
-    {{-- ✅ Bouton créer seulement si admin peut créer --}}
+    {{--  Bouton créer seulement si admin peut créer --}}
     @can('create', \App\Models\Module::class)
         <a href="{{ route('admin.modules.create') }}" class="btn-cyber btn-sm">+ Nouveau</a>
     @endcan
@@ -27,12 +27,12 @@
             {{ $m->is_published ? 'Publié' : 'Brouillon' }}
         </span>
 
-        {{-- ✅ Modifier seulement si autorisé --}}
+        {{--  Modifier seulement si autorisé --}}
         @can('update', $m)
             <a href="{{ route('admin.modules.edit', $m) }}" class="module-edit">Modifier</a>
         @endcan
 
-        {{-- ✅ Supprimer seulement si autorisé --}}
+        {{--  Supprimer seulement si autorisé --}}
         @can('delete', $m)
             <form action="{{ route('admin.modules.destroy', $m) }}"
                   method="POST" class="inline-form"
@@ -43,9 +43,9 @@
             </form>
         @endcan
 
-        {{-- ✅ Lecture seule si pas admin --}}
+        {{--  Lecture seule si pas admin --}}
         @cannot('update', $m)
-            <span class="td-muted" title="Lecture seule">🔒 Lecture seule</span>
+            <span class="td-muted" title="Lecture seule"> Lecture seule</span>
         @endcannot
 
     </div>

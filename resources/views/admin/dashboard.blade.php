@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-{{-- 🏷️ Titre navigateur --}}
+{{--  Titre navigateur --}}
 @section('title', 'Administration')
 
-{{-- 📌 Titre page --}}
+{{--  Titre page --}}
 @section('page-title', '⚙️ Administration')
 
 @section('content')
 
-{{-- 📊 STATS PRINCIPALES --}}
+{{--  STATS PRINCIPALES --}}
 <div class="kr">
     @foreach([
         ['total_users','👥','Utilisateurs','kc-g','var(--gr)'],
@@ -27,7 +27,7 @@
     @endforeach
 </div>
 
-{{-- 📊 STATS SECONDAIRES --}}
+{{--  STATS SECONDAIRES --}}
 <div class="kr kr-4">
     @foreach([
         ['total_etablissements','🏫','Établissements','kc-b','var(--bl)'],
@@ -46,10 +46,10 @@
     @endforeach
 </div>
 
-{{-- 📊 SECTION 2 COLONNES --}}
+{{--  SECTION 2 COLONNES --}}
 <div class="grid-2 mt-10">
 
-    {{-- 🏫 CLASSEMENT ÉTABLISSEMENTS --}}
+    {{--  CLASSEMENT ÉTABLISSEMENTS --}}
     <div class="cyber-card dash-card">
         <div class="dash-title dash-title-yellow">
             🏫 CLASSEMENT ÉTABLISSEMENTS
@@ -79,10 +79,10 @@
         @endforeach
     </div>
 
-    {{-- 🏆 TOP APPRENANTS --}}
+    {{--  TOP APPRENANTS --}}
     <div class="cyber-card dash-card">
         <div class="dash-title dash-title-green">
-            🏆 TOP APPRENANTS
+             TOP APPRENANTS
         </div>
 
         @foreach($topStudents as $i => $s)
@@ -109,10 +109,10 @@
 
 </div>
 
-{{-- 📊 SECTION 2 --}}
+{{--  SECTION 2 --}}
 <div class="grid-2 mt-10">
 
-    {{-- 👥 DERNIÈRES INSCRIPTIONS --}}
+    {{--  DERNIÈRES INSCRIPTIONS --}}
     <div class="cyber-card dash-card">
         <div class="dash-title">
             DERNIÈRES INSCRIPTIONS
@@ -141,7 +141,7 @@
         @endforeach
     </div>
 
-    {{-- 🧪 DERNIERS QUIZ --}}
+    {{--  DERNIERS QUIZ --}}
     <div class="cyber-card dash-card">
         <div class="dash-title">
             DERNIERS QUIZ

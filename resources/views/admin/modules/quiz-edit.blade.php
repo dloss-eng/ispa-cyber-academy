@@ -99,12 +99,12 @@
     </button>
 
     <button type="submit" class="btn-lg">
-        💾 Enregistrer
+         Enregistrer
     </button>
 
 </form>
 
-{{-- ✅ JS global — fonctions accessibles par onclick --}}
+{{--  JS global — fonctions accessibles par onclick --}}
 <script>
 var qc = 0;
 var ac = {};
