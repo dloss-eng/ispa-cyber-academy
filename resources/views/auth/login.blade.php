@@ -115,7 +115,7 @@
             <div style="text-align:center;margin-top:16px;">
                 <button onclick="toggleAuthMode()" id="auth-mode-btn"
                     style="background:none;border:1px solid var(--bd);border-radius:20px;padding:6px 16px;cursor:pointer;font-size:12px;color:var(--t2);">
-                    🌙 Mode sombre
+                     Mode sombre
                 </button>
             </div>
 
@@ -142,7 +142,7 @@
         function updateBtn(mode) {
             const btn = document.getElementById('auth-mode-btn');
             if (!btn) return;
-            btn.textContent = mode === 'dark' ? '☀️ Mode clair' : '🌙 Mode sombre';
+            btn.textContent = mode === 'dark' ? ' Mode clair' : '🌙 Mode sombre';
         }
 
         function togglePasswordVisibility() {

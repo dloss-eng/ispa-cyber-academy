@@ -503,11 +503,11 @@
         </p>
         <div class="catalog-cta-btns">
             @guest
-                <a href="{{ route('login') }}" class="btn-cyber">🚀 Commencer maintenant</a>
-                <a href="{{ route('contact') }}" class="btn-ghost">✉️ Nous contacter</a>
+                <a href="{{ route('login') }}" class="btn-cyber"> Commencer maintenant</a>
+                <a href="{{ route('contact') }}" class="btn-ghost"> Nous contacter</a>
             @else
                 <a href="{{ route('courses.index') }}" class="btn-cyber">📚 Mes cours</a>
-                <a href="{{ route('contact') }}"       class="btn-ghost">✉️ Nous contacter</a>
+                <a href="{{ route('contact') }}"       class="btn-ghost"> Nous contacter</a>
             @endguest
         </div>
     </div>
