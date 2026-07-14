@@ -60,6 +60,13 @@
 
 </nav>
 
+<script>
+document.getElementById('navToggle').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('navMenu').classList.toggle('open');
+});
+</script>
+
 <style>
 .nav-hamburger {
     display: none;
@@ -110,10 +117,3 @@
     }
 }
 </style>
-
-<script>
-document.getElementById('navToggle').addEventListener('click', function() {
-    this.classList.toggle('open');
-    document.getElementById('navMenu').classList.toggle('open');
-});
-</script>
