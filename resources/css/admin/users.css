@@ -141,7 +141,7 @@ select:active {
     font-weight: 600;
 }
 
-/*  pagination */
+/* pagination */
 .pagination-wrapper {
     margin-top: 16px;
 }
@@ -156,5 +156,14 @@ select:active {
     .input-search,
     .select-role {
         width: 100%;
+    }
+
+    .users-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .users-header > a.btn-cyber {
+        text-align: center;
     }
 }
