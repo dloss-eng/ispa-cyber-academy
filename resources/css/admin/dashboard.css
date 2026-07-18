@@ -1,21 +1,21 @@
-/* 📐 Grid 2 colonnes */
+/*  Grid 2 colonnes */
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-/* 📏 marge top */
+/*  marge top */
 .mt-10 {
     margin-top: 10px;
 }
 
-/* 📦 Carte dashboard */
+/*  Carte dashboard */
 .dash-card {
     padding: 18px;
 }
 
-/* 🏷️ Titres sections */
+/*  Titres sections */
 .dash-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 10px;
@@ -28,7 +28,7 @@
 .dash-title-yellow { color: var(--ye); }
 .dash-title-green { color: var(--gr); }
 
-/* 📊 Stat color dynamique */
+/*  Stat color dynamique */
 .stat-color {
     color: var(--stat-color);
 }
@@ -37,7 +37,7 @@
     font-size: 18px;
 }
 
-/* 📋 Ligne liste */
+/*  Ligne liste */
 .list-row {
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@
     padding: 6px 0;
 }
 
-/* 🔢 Ranking */
+/*  Ranking */
 .rank {
     font-family: 'Orbitron', sans-serif;
     font-weight: 900;
@@ -72,7 +72,7 @@
     color: var(--t3);
 }
 
-/* 📄 Utilitaires */
+/*  Utilitaires */
 .flex-1 { flex: 1; }
 .fw-700 { font-weight: 700; }
 .fw-600 { font-weight: 600; }
@@ -83,7 +83,7 @@
     color: var(--t3);
 }
 
-/* 🧮 Points */
+/*  Points */
 .points {
     font-family: 'Orbitron', sans-serif;
     font-size: 12px;
@@ -95,7 +95,7 @@
     font-size: 11px;
 }
 
-/* 👤 Avatar */
+/*  Avatar */
 .avatar {
     width: 28px;
     height: 28px;
@@ -109,11 +109,19 @@
     color: var(--bl);
 }
 
-/* 🧪 Quiz */
+/*  Quiz */
 .quiz-icon {
     font-size: 14px;
 }
 
-/* 📊 Score */
+/*  Score */
 .score.success { color: var(--gr); }
 .score.danger { color: var(--re); }
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 900px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}

@@ -2,7 +2,7 @@
    USER Create
 ================================= */
 
-/* 🔙 lien retour */
+/*  lien retour */
 .back-link {
     font-size: 12px;
     color: var(--gr);
@@ -11,20 +11,20 @@
     display: inline-block;
 }
 
-/* 📦 carte formulaire */
+/*  carte formulaire */
 .user-form-card {
     padding: 24px;
     max-width: 600px;
 }
 
-/* 🧩 grid */
+/*  grid */
 .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-/* ❌ supprimer marge top */
+/*  supprimer marge top */
 .no-margin-top {
     margin-top: 0;
 }
@@ -40,7 +40,7 @@ select:active {
    USER Edit
 ================================= */
 
-/* 🔙 lien retour */
+/*  lien retour */
 .back-link {
     font-size: 12px;
     color: var(--gr);
@@ -49,20 +49,20 @@ select:active {
     display: inline-block;
 }
 
-/* 📦 carte */
+/*  carte */
 .user-form-card {
     padding: 24px;
     max-width: 600px;
 }
 
-/* 🧩 grid */
+/*  grid */
 .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-/* ❌ enlever marge top */
+/*  enlever marge top */
 .no-margin-top {
     margin-top: 0;
 }
@@ -72,7 +72,7 @@ select:active {
    USERS INDEX
 ================================= */
 
-/* 🔝 header */
+/*  header */
 .users-header {
     display: flex;
     justify-content: space-between;
@@ -81,7 +81,7 @@ select:active {
     gap: 10px;
 }
 
-/* 🔍 form */
+/*  form */
 .users-filter-form {
     display: flex;
     gap: 8px;
@@ -99,13 +99,13 @@ select:active {
     margin: 0;
 }
 
-/* 📦 table */
+/*  table */
 .table-wrapper {
     padding: 0;
     overflow-x: auto;
 }
 
-/* ✏️ texte */
+/*  texte */
 .td-strong {
     font-weight: 700;
 }
@@ -114,12 +114,12 @@ select:active {
     color: var(--t2);
 }
 
-/* 📌 alignement */
+/*  alignement */
 .text-right {
     text-align: right;
 }
 
-/* 🔗 modifier */
+/*  modifier */
 .link-edit {
     color: var(--bl);
     font-size: 11px;
@@ -127,7 +127,7 @@ select:active {
     text-decoration: none;
 }
 
-/* 🗑️ supprimer */
+/*  supprimer */
 .inline-form {
     display: inline;
 }
@@ -141,7 +141,20 @@ select:active {
     font-weight: 600;
 }
 
-/* 🔢 pagination */
+/*  pagination */
 .pagination-wrapper {
     margin-top: 16px;
+}
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 600px) {
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .input-search,
+    .select-role {
+        width: 100%;
+    }
 }

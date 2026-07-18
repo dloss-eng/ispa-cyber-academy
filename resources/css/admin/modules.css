@@ -2,21 +2,21 @@
    MODULE Create
 ================================= */
 
-/* 📦 carte formulaire */
+/*  carte formulaire */
 .module-form-card {
     padding: 24px;
     max-width: 700px;
     margin-bottom: 20px;
 }
 
-/* 🧩 grid 2 colonnes */
+/*  grid 2 colonnes */
 .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-/* 🔙 lien retour */
+/*  lien retour */
 .back-link {
     font-size: 12px;
     color: var(--gr);
@@ -25,12 +25,12 @@
     display: inline-block;
 }
 
-/* ❌ margin top label */
+/*  margin top label */
 .no-margin-top {
     margin-top: 0;
 }
 
-/* ✅ checkbox */
+/*  checkbox */
 .checkbox-inline {
     display: flex;
     align-items: center;
@@ -44,14 +44,14 @@
     accent-color: var(--gr);
 }
 
-/* 📚 header leçons */
+/*  header leçons */
 .lessons-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 14px;
 }
 
-/* 🏷️ titre */
+/*  titre */
 .lessons-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 10px;
@@ -60,7 +60,7 @@
     letter-spacing: 1.5px;
 }
 
-/* 📦 carte leçon */
+/*  carte leçon */
 .lesson-card {
     padding: 12px 16px;
     margin-bottom: 8px;
@@ -69,7 +69,7 @@
     gap: 10px;
 }
 
-/* 🔢 ordre */
+/*  ordre */
 .lesson-order {
     width: 28px;
     height: 28px;
@@ -83,30 +83,30 @@
     font-weight: 900;
 }
 
-/* 📄 info */
+/*  info */
 .lesson-info {
     flex: 1;
 }
 
-/* 🏷️ titre */
+/*  titre */
 .lesson-title {
     font-size: 12px;
     font-weight: 600;
 }
 
-/* 🧪 badge quiz */
+/*  badge quiz */
 .lesson-quiz-tag {
     margin-left: 6px;
 }
 
-/* ⚙️ actions */
+/*  actions */
 .lesson-actions {
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-/* 🔗 liens */
+/*  liens */
 .link-edit {
     color: var(--bl);
     font-size: 10px;
@@ -125,7 +125,7 @@
     text-decoration: none;
 }
 
-/* 🗑️ boutons */
+/*  boutons */
 .inline-form {
     display: inline;
 }
@@ -150,7 +150,7 @@
    MODULE Edit
 ================================= */
 
-/* 🔙 retour */
+/*  retour */
 .back-link {
     font-size: 12px;
     color: var(--gr);
@@ -159,26 +159,26 @@
     display: inline-block;
 }
 
-/* 📦 carte formulaire */
+/*  carte formulaire */
 .module-form-card {
     padding: 24px;
     max-width: 700px;
     margin-bottom: 20px;
 }
 
-/* 🧩 grid */
+/*  grid */
 .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-/* ❌ label fix */
+/*  label fix */
 .no-margin-top {
     margin-top: 0;
 }
 
-/* ✅ checkbox */
+/*  checkbox */
 .checkbox-inline {
     display: flex;
     align-items: center;
@@ -192,14 +192,14 @@
     accent-color: var(--gr);
 }
 
-/* 📚 header */
+/*  header */
 .lessons-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 14px;
 }
 
-/* 🏷️ titre */
+/*  titre */
 .lessons-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 10px;
@@ -208,7 +208,7 @@
     letter-spacing: 1.5px;
 }
 
-/* 📦 carte */
+/*  carte */
 .lesson-card {
     padding: 12px 16px;
     margin-bottom: 8px;
@@ -217,7 +217,7 @@
     gap: 10px;
 }
 
-/* 🔢 ordre */
+/*  ordre */
 .lesson-order {
     width: 28px;
     height: 28px;
@@ -231,7 +231,7 @@
     font-weight: 900;
 }
 
-/* 📄 infos */
+/*  infos */
 .lesson-info {
     flex: 1;
 }
@@ -245,19 +245,19 @@
     margin-left: 6px;
 }
 
-/* ⚙️ actions */
+/*  actions */
 .lesson-actions {
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-/* 🔗 liens */
+/*  liens */
 .link-edit { color: var(--bl); font-size: 10px; text-decoration: none; }
 .link-quiz-edit { color: var(--gr); font-size: 10px; text-decoration: none; }
 .link-quiz-add { color: var(--or); font-size: 10px; text-decoration: none; }
 
-/* 🗑️ */
+/* delete */
 .inline-form { display: inline; }
 
 .btn-delete {
@@ -280,20 +280,20 @@
    MODULES INDEX
 ================================= */
 
-/* 🔝 header */
+/*  header */
 .modules-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
 }
 
-/* 📊 compteur */
+/*  compteur */
 .modules-count {
     font-size: 13px;
     color: var(--t2);
 }
 
-/* 📦 carte module */
+/*  carte module */
 .module-card {
     padding: 14px 18px;
     margin-bottom: 10px;
@@ -302,7 +302,7 @@
     gap: 14px;
 }
 
-/* 🔢 bloc ordre */
+/*  bloc ordre */
 .module-order {
     width: 40px;
     height: 40px;
@@ -320,31 +320,31 @@
     color: var(--gr);
 }
 
-/* 📄 infos */
+/*  infos */
 .module-info {
     flex: 1;
 }
 
-/* 🏷️ titre */
+/*  titre */
 .module-title {
     font-size: 13px;
     font-weight: 700;
 }
 
-/* 📊 meta */
+/*  meta */
 .module-meta {
     font-size: 10px;
     color: var(--t3);
 }
 
-/* ✏️ lien */
+/*  lien */
 .module-edit {
     color: var(--bl);
     font-size: 11px;
     text-decoration: none;
 }
 
-/* 🗑️ suppression */
+/*  suppression */
 .inline-form {
     display: inline;
 }
@@ -357,7 +357,7 @@
     font-size: 12px;
 }
 
-/* 🔢 pagination */
+/*  pagination */
 .pagination-wrapper {
     margin-top: 16px;
 }
@@ -366,7 +366,7 @@
    LESSON FORM
 ================================= */
 
-/* 🔙 retour */
+/*  retour */
 .back-link {
     font-size: 12px;
     color: var(--gr);
@@ -375,42 +375,42 @@
     display: inline-block;
 }
 
-/* 📦 formulaire */
+/*  formulaire */
 .lesson-form-card {
     padding: 24px;
     max-width: 700px;
 }
 
-/* 📦 suppression */
+/*  suppression */
 .resource-delete-card {
     padding: 20px;
     max-width: 700px;
     margin-top: 16px;
 }
 
-/* 🧩 grid */
+/*  grid */
 .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-/* ❌ fix label */
+/*  fix label */
 .no-margin-top {
     margin-top: 0;
 }
 
-/* 📁 file input */
+/*  file input */
 .file-input {
     padding: 10px;
 }
 
-/* 📄 section ressources */
+/*  section ressources */
 .resource-section {
     margin-top: 16px;
 }
 
-/* 📄 item */
+/*  item */
 .resource-item {
     display: flex;
     align-items: center;
@@ -421,20 +421,20 @@
     margin-bottom: 6px;
 }
 
-/* 📄 nom */
+/*  nom */
 .resource-name {
     font-size: 12px;
     flex: 1;
 }
 
-/* 👁️ voir */
+/*  voir */
 .resource-view {
     font-size: 10px;
     color: var(--bl);
     text-decoration: none;
 }
 
-/* 🗑️ section */
+/*  section */
 .resource-delete-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 10px;
@@ -444,7 +444,7 @@
     margin-bottom: 14px;
 }
 
-/* 🗑️ item */
+/*  item */
 .resource-delete-item {
     display: flex;
     align-items: center;
@@ -456,7 +456,7 @@
     margin-bottom: 6px;
 }
 
-/* 🗑️ bouton */
+/*  bouton */
 .btn-delete-pdf {
     background: rgba(255,59,92,0.1);
     border: 1px solid rgba(255,59,92,0.3);
@@ -468,7 +468,7 @@
     font-weight: 600;
 }
 
-/* ✅ checkbox */
+/*  checkbox */
 .checkbox-inline {
     display: flex;
     align-items: center;
@@ -486,7 +486,7 @@
    QUIZ PAGE
 ================================= */
 
-/* 📘 leçon */
+/*  leçon */
 .quiz-lesson-info {
     font-size: 12px;
     color: var(--t2);
@@ -497,25 +497,25 @@
     color: var(--t);
 }
 
-/* 📦 quiz */
+/*  quiz */
 .quiz-card {
     padding: 20px;
     margin-bottom: 16px;
 }
 
-/* 🧩 grid */
+/*  grid */
 .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-/* ❌ fix label */
+/*  fix label */
 .no-margin-top {
     margin-top: 0;
 }
 
-/* 🏷️ section */
+/*  section */
 .section-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 10px;
@@ -528,7 +528,7 @@
     color: var(--bl);
 }
 
-/* 📦 question */
+/*  question */
 .question-card {
     padding: 20px;
     margin-bottom: 12px;
@@ -541,7 +541,7 @@
     margin-bottom: 12px;
 }
 
-/* 📄 réponses */
+/*  réponses */
 .answer-row {
     display: flex;
     align-items: center;
@@ -563,7 +563,7 @@
     white-space: nowrap;
 }
 
-/* ➕ bouton */
+/*  bouton */
 .btn-add-question {
     width: 100%;
     padding: 14px;
@@ -587,7 +587,7 @@
 ================================= */
 
 
-/* 📘 info */
+/*  info */
 .quiz-lesson-info {
     font-size: 12px;
     color: var(--t2);
@@ -598,7 +598,7 @@
     color: var(--t);
 }
 
-/* 📦 carte */
+/*  carte */
 .quiz-card {
     padding: 20px;
     margin-bottom: 16px;
@@ -611,12 +611,12 @@
     gap: 12px;
 }
 
-/* ❌ fix */
+/*  fix */
 .no-margin-top {
     margin-top: 0;
 }
 
-/* ➕ bouton question */
+/*  bouton question */
 .btn-add-question {
     width: 100%;
     padding: 14px;
@@ -630,7 +630,7 @@
     margin-bottom: 16px;
 }
 
-/* 📦 question */
+/*  question */
 .question-card {
     padding: 20px;
     margin-bottom: 12px;
@@ -693,4 +693,28 @@
 
 .checkbox-input {
     accent-color: var(--gr);
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 600px) {
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .lessons-header,
+    .modules-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .lesson-card,
+    .module-card,
+    .resource-item,
+    .resource-delete-item,
+    .answer-row {
+        flex-wrap: wrap;
+    }
 }

@@ -2,7 +2,7 @@
    ETABLISSEMENT FORM
 ================================= */
 
-/* 🔙 Lien retour */
+/*  Lien retour */
 .back-link {
     font-size: 12px;
     color: var(--gr);
@@ -11,35 +11,35 @@
     display: inline-block;
 }
 
-/* 📦 Carte formulaire */
+/*  Carte formulaire */
 .etab-form-card {
     padding: 24px;
     max-width: 600px;
 }
 
-/* ❌ Pas de marge en haut */
+/*  Pas de marge en haut */
 .no-margin-top {
     margin-top: 0;
 }
 
-/* 🧩 Grid 2 colonnes */
+/*  Grid 2 colonnes */
 .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-/* 📁 Input file spécifique */
+/*  Input file spécifique */
 .file-input {
     padding: 10px;
 }
 
-/* 🖼️ Conteneur preview */
+/*  Conteneur preview */
 .logo-preview-wrapper {
     margin-top: 8px;
 }
 
-/* 🖼️ Image logo */
+/*  Image logo */
 .logo-preview {
     width: 60px;
     height: 60px;
@@ -53,14 +53,14 @@
    ETABLISSEMENTS INDEX
 ================================= */
 
-/* ➕ Header avec bouton */
+/*  Header avec bouton */
 .etab-header {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 16px;
 }
 
-/* 📦 Carte établissement */
+/*  Carte établissement */
 .etab-card {
     padding: 14px 18px;
     margin-bottom: 10px;
@@ -69,7 +69,7 @@
     gap: 14px;
 }
 
-/* 🖼️ Logo */
+/*  Logo */
 .etab-logo {
     width: 40px;
     height: 40px;
@@ -77,29 +77,29 @@
     border-radius: 8px;
 }
 
-/* 🏫 Icône fallback */
+/*  Icône fallback */
 .etab-icon {
     font-size: 28px;
 }
 
-/* 📄 Infos */
+/*  Infos */
 .etab-info {
     flex: 1;
 }
 
-/* 🏷️ Nom */
+/*  Nom */
 .etab-name {
     font-size: 13px;
     font-weight: 700;
 }
 
-/* 📊 Meta infos */
+/*  Meta infos */
 .etab-meta {
     font-size: 10px;
     color: var(--t3);
 }
 
-/* ✏️ Bouton modifier */
+/*  Bouton modifier */
 .etab-edit {
     color: var(--bl);
     font-size: 11px;
@@ -107,16 +107,28 @@
     font-weight: 600;
 }
 
-/* 🗑️ Form suppression */
+/*  Form suppression */
 .etab-delete-form {
     display: inline;
 }
 
-/* 🗑️ Bouton suppression */
+/*  Bouton suppression */
 .etab-delete-btn {
     background: none;
     border: none;
     color: var(--re);
     cursor: pointer;
     font-size: 14px;
+}
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 600px) {
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .etab-card {
+        flex-wrap: wrap;
+    }
 }

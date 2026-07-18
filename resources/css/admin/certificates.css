@@ -2,14 +2,14 @@
    CERTIFICATES INDEX
 ================================= */
 
-/* 📊 Texte info (nombre de certificats) */
+/*  Texte info (nombre de certificats) */
 .cert-meta {
     font-size: 13px;
     color: var(--t2);
     margin-bottom: 16px;
 }
 
-/* 📦 Carte certificat */
+/*  Carte certificat */
 .cert-card {
     padding: 14px 18px;
     margin-bottom: 8px;
@@ -18,47 +18,47 @@
     gap: 14px;
 }
 
-/* 📜 Icône */
+/*  Icône */
 .cert-icon {
     font-size: 24px;
 }
 
-/* 📄 Bloc infos */
+/*  Bloc infos */
 .cert-info {
     flex: 1;
 }
 
-/* 👤 Nom utilisateur */
+/*  Nom utilisateur */
 .cert-user {
     font-size: 13px;
     font-weight: 700;
 }
 
-/* 📘 Module + score */
+/*  Module + score */
 .cert-module {
     font-size: 11px;
     color: var(--t2);
 }
 
-/* 🆔 Détails (numéro + date) */
+/*  Détails (numéro + date) */
 .cert-meta-small {
     font-size: 9px;
     color: var(--t3);
 }
 
-/* ❌ Aucun résultat */
+/*  Aucun résultat */
 .empty-state {
     text-align: center;
     padding: 40px;
     color: var(--t3);
 }
 
-/* 🔢 Pagination */
+/*  Pagination */
 .pagination-wrapper {
     margin-top: 16px;
 }
 
-/* 🔗 Carte cliquable */
+/*  Carte cliquable */
 .cert-card-link {
     text-decoration: none;
     color: inherit;
@@ -71,7 +71,7 @@
     transform: translateX(4px);
 }
 
-/* 👁️ Icône voir */
+/*  Icône voir */
 .cert-view-icon {
     font-size: 18px;
     opacity: 0.4;
@@ -80,4 +80,13 @@
 
 .cert-card-link:hover .cert-view-icon {
     opacity: 1;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 600px) {
+    .cert-card {
+        flex-wrap: wrap;
+    }
 }

@@ -2,7 +2,7 @@
    CLASS STATS
 ================================= */
 
-/* 🔙 retour */
+/*  retour */
 .back-link {
     font-size: 12px;
     color: var(--gr);
@@ -11,13 +11,13 @@
     display: inline-block;
 }
 
-/* 📦 tableau */
+/*  tableau */
 .table-wrapper {
     padding: 0;
     overflow-x: auto;
 }
 
-/* ✏️ styles texte */
+/*  styles texte */
 .td-strong {
     font-weight: 700;
 }
@@ -32,7 +32,7 @@
    CLASSES
 ================================= */
 
-/* 📦 item */
+/*  item */
 .class-item {
     padding: 14px 18px;
     margin-bottom: 10px;
@@ -41,12 +41,12 @@
     gap: 14px;
 }
 
-/* 📋 icône */
+/*  icône */
 .class-icon {
     font-size: 24px;
 }
 
-/* 📄 contenu */
+/*  contenu */
 .class-content {
     flex: 1;
 }
@@ -61,7 +61,7 @@
     color: var(--t3);
 }
 
-/* 🔗 liens */
+/*  liens */
 .class-link {
     font-size: 11px;
     text-decoration: none;
@@ -399,7 +399,7 @@
    STUDENTS 
 ================================= */
 
-/* 📦 tableau */
+/*  tableau */
 .table-wrapper {
     padding: 0;
     overflow-x: auto;
@@ -424,4 +424,30 @@
 /* pagination */
 .table-pagination {
     margin-top: 16px;
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 600px) {
+    .class-item,
+    .teacher-class-card,
+    .activity-item,
+    .teacher-activity,
+    .student-card,
+    .lesson-item,
+    .quiz-item {
+        flex-wrap: wrap;
+    }
+
+    .student-stats {
+        margin-left: 0;
+        text-align: left;
+        width: 100%;
+    }
+
+    .activity-time {
+        margin-left: 0;
+    }
 }

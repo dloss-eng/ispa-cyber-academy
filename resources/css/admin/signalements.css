@@ -2,12 +2,12 @@
    INDEX
 ================================= */
 
-/* 📊 couleur dynamique des stats */
+/*  couleur dynamique des stats */
 .stat-color {
     color: var(--stat-color);
 }
 
-/* 🔗 lien carte */
+/*  lien carte */
 .signalement-link {
     text-decoration: none;
     color: inherit;
@@ -15,7 +15,7 @@
     margin-bottom: 8px;
 }
 
-/* 📦 carte signalement */
+/*  carte signalement */
 .signalement-card {
     padding: 14px 18px;
     display: flex;
@@ -23,46 +23,46 @@
     gap: 14px;
 }
 
-/* ⚠️ icône */
+/*  icône */
 .signalement-icon {
     font-size: 20px;
 }
 
-/* 📄 bloc infos */
+/*  bloc infos */
 .signalement-info {
     flex: 1;
 }
 
-/* 🏷️ titre */
+/*  titre */
 .signalement-title {
     font-size: 13px;
     font-weight: 700;
 }
 
-/* 👤 utilisateur */
+/*  utilisateur */
 .signalement-user {
     font-weight: 400;
     color: var(--t3);
 }
 
-/* 📝 description */
+/*  description */
 .signalement-desc {
     font-size: 11px;
     color: var(--t2);
 }
 
-/* 🆔 meta */
+/*  meta */
 .signalement-meta {
     font-size: 9px;
     color: var(--t3);
 }
 
-/* 🤖 bloc IA */
+/*  bloc IA */
 .signalement-ai {
     text-align: center;
 }
 
-/* 🤖 score */
+/*  score */
 .ai-score {
     font-family: 'Orbitron', sans-serif;
     font-size: 12px;
@@ -70,13 +70,13 @@
     color: var(--bl);
 }
 
-/* 🤖 label */
+/*  label */
 .ai-label {
     font-size: 8px;
     color: var(--t3);
 }
 
-/* 🔢 pagination */
+/*  pagination */
 .pagination-wrapper {
     margin-top: 16px;
 }
@@ -85,7 +85,7 @@
    SIGNALEMENT SHOW
 ================================= */
 
-/* 🔙 lien retour */
+/*  lien retour */
 .back-link {
     font-size: 12px;
     color: var(--gr);
@@ -94,13 +94,13 @@
     display: inline-block;
 }
 
-/* 📦 carte détail */
+/*  carte détail */
 .signalement-detail-card {
     padding: 24px;
     margin-bottom: 20px;
 }
 
-/* 📊 grid infos */
+/*  grid infos */
 .signalement-meta-grid {
     display: flex;
     gap: 20px;
@@ -108,20 +108,20 @@
     margin-bottom: 16px;
 }
 
-/* 🏷️ label */
+/*  label */
 .meta-label {
     font-size: 10px;
     color: var(--t3);
 }
 
-/* 📄 valeur */
+/*  valeur */
 .meta-value {
     font-size: 14px;
     font-weight: 700;
     margin-top: 4px;
 }
 
-/* 🤖 IA */
+/*  IA */
 .meta-ai {
     font-family: 'Orbitron', sans-serif;
     font-size: 14px;
@@ -130,7 +130,7 @@
     margin-top: 4px;
 }
 
-/* 📝 description */
+/*  description */
 .signalement-description {
     background: var(--n3);
     border-radius: 10px;
@@ -140,31 +140,39 @@
     line-height: 1.7;
 }
 
-/* ⚠️ contact */
+/*  contact */
 .signalement-contact {
     margin-top: 12px;
     font-size: 12px;
     color: var(--or);
 }
 
-/* 🖼️ image wrapper */
+/*  image wrapper */
 .signalement-image-wrapper {
     margin-top: 12px;
 }
 
-/* 🖼️ image */
+/*  image */
 .signalement-image {
     max-width: 300px;
     border-radius: 8px;
     border: 1px solid var(--bd);
 }
 
-/* 📦 carte formulaire */
+/*  carte formulaire */
 .signalement-form-card {
     padding: 20px;
 }
 
-/* ❌ supprime marge top */
+/*  supprime marge top */
 .no-margin-top {
     margin-top: 0;
+}
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 600px) {
+    .signalement-card {
+        flex-wrap: wrap;
+    }
 }
