@@ -2,50 +2,50 @@
    BADGES PAGE
 ================================= */
 
-/* 🧩 grid */
+/*  grid */
 .badges-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 14px;
 }
 
-/* 📦 carte */
+/*  carte */
 .badge-card {
     text-align: center;
     padding: 20px;
 }
 
-/* 🏅 obtenu */
+/*  obtenu */
 .badge-earned {
     border-color: rgba(255,215,0,0.3);
 }
 
-/* 🔒 non obtenu */
+/*  non obtenu */
 .badge-locked {
     opacity: 0.4;
 }
 
-/* 🎨 icône */
+/*  icône */
 .badge-icon {
     font-size: 40px;
     margin-bottom: 8px;
 }
 
-/* 🏷️ nom */
+/*  nom */
 .badge-name {
     font-family: 'Orbitron', sans-serif;
     font-size: 11px;
     font-weight: 700;
 }
 
-/* 📝 description */
+/*  description */
 .badge-description {
     font-size: 10px;
     color: var(--t2);
     margin-top: 4px;
 }
 
-/* 🎯 status */
+/*  status */
 .badge-status {
     margin-top: 8px;
 }
@@ -70,7 +70,7 @@
     color: var(--t2);
 }
 
-/* 📜 item */
+/*  item */
 .cert-item {
     padding: 18px;
     display: flex;
@@ -258,13 +258,13 @@
    LEADERBOARD PAGE
 ================================= */
 
-/* 📦 carte */
+/*  carte */
 .leaderboard-card {
     padding: 0;
     overflow: hidden;
 }
 
-/* 📄 ligne */
+/*  ligne */
 .leaderboard-row {
     display: flex;
     align-items: center;
@@ -273,12 +273,12 @@
     border-bottom: 1px solid var(--bd);
 }
 
-/* 🎯 utilisateur courant */
+/*  utilisateur courant */
 .leaderboard-me {
     background: rgba(0,229,160,0.06);
 }
 
-/* 🏆 rang */
+/*  rang */
 .leaderboard-rank {
     font-family: 'Orbitron', sans-serif;
     font-size: 14px;
@@ -287,7 +287,7 @@
     text-align: center;
 }
 
-/* 👤 avatar */
+/*  avatar */
 .leaderboard-avatar {
     width: 36px;
     height: 36px;
@@ -307,7 +307,7 @@
     object-fit: cover;
 }
 
-/* 📄 infos */
+/*  infos */
 .leaderboard-info {
     flex: 1;
 }
@@ -324,7 +324,7 @@
     color: var(--t3);
 }
 
-/* ⭐ points */
+/*  points */
 .leaderboard-points {
     font-family: 'Orbitron', sans-serif;
     font-size: 13px;
@@ -332,7 +332,7 @@
     color: var(--gr);
 }
 
-/* 🔢 pagination */
+/*  pagination */
 .leaderboard-pagination {
     margin-top: 16px;
 }
@@ -343,7 +343,7 @@
    NOTIFICATIONS PAGE
 ================================= */
 
-/* 🔝 header */
+/*  header */
 .notifications-header {
     display: flex;
     justify-content: space-between;
@@ -355,7 +355,7 @@
     color: var(--t2);
 }
 
-/* 📄 item */
+/*  item */
 .notification-item {
     padding: 14px 18px;
     margin-bottom: 8px;
@@ -373,7 +373,7 @@
     border-color: rgba(0,229,160,0.3);
 }
 
-/* 🔔 icône */
+/*  icône */
 .notification-icon {
     font-size: 24px;
 }
@@ -423,19 +423,19 @@
 /* ===============================
    PROFILE PAGE
 ================================= */
-/* 📦 carte */
+/*  carte */
 .profile-card {
     padding: 24px;
     max-width: 500px;
 }
 
-/* 👤 avatar container */
+/*  avatar container */
 .profile-avatar {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* 🖼️ image */
+/*  image */
 .profile-avatar-img {
     width: 100px;
     height: 100px;
@@ -444,7 +444,7 @@
     border: 3px solid var(--gr);
 }
 
-/* 🧩 placeholder */
+/*  placeholder */
 .profile-avatar-placeholder {
     width: 100px;
     height: 100px;
@@ -458,19 +458,19 @@
     margin: 0 auto;
 }
 
-/* 📁 file input */
+/* file input */
 .file-input {
     padding: 10px;
 }
 
-/* ❌ margin fix */
+/*  margin fix */
 .no-margin-top {
     margin-top: 0;
 }
 
 
 
-/* 🔙 retour */
+/*  retour */
 .back-link {
     font-size: 12px;
     color: var(--gr);
@@ -479,7 +479,7 @@
     display: inline-block;
 }
 
-/* 📦 carte profil */
+/*  carte profil */
 .profile-public-card {
     padding: 32px;
     text-align: center;
@@ -508,28 +508,28 @@
     object-fit: cover;
 }
 
-/* 🧑 nom */
+/* nom */
 .profile-public-name {
     font-family: 'Orbitron', sans-serif;
     font-size: 20px;
     font-weight: 900;
 }
 
-/* 📝 bio */
+/*  bio */
 .profile-public-bio {
     font-size: 13px;
     color: var(--t2);
     margin-top: 6px;
 }
 
-/* 📄 meta */
+/*  meta */
 .profile-public-meta {
     font-size: 12px;
     color: var(--t3);
     margin-top: 4px;
 }
 
-/* 📊 stats */
+/* stats */
 .profile-public-stats {
     display: flex;
     justify-content: center;
@@ -552,7 +552,7 @@
     color: var(--t3);
 }
 
-/* 📦 section */
+/*  section */
 .section-card {
     padding: 20px;
     margin-bottom: 20px;
@@ -626,4 +626,41 @@
     color: var(--gr);
     letter-spacing: 1.5px;
     margin-bottom: 14px;
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .badges-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .profile-public-stats {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .notifications-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .leaderboard-row,
+    .cert-item,
+    .notification-item {
+        flex-wrap: wrap;
+    }
+
+    .profile-card {
+        padding: 16px;
+    }
 }
