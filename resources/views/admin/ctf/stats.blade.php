@@ -122,7 +122,7 @@
 {{-- ── Navigation ───── --}}
 <div class="ctf-nav">
     <a href="{{ route('admin.ctf.index') }}" class="ctf-nav-back">← Retour aux challenges</a>
-    <a href="{{ route('admin.ctf.edit', $challenge) }}" class="btn-cyber btn-sm">Modifier ce challenge</a>
+    <a href="{{ route('admin.ctf.edit', ['ctf' => $challenge->id]) }}" class="btn-cyber btn-sm">Modifier ce challenge</a>
 </div>
 
 @endsection

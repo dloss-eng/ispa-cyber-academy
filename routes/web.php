@@ -180,7 +180,7 @@ Route::middleware(['auth', 'role:admin'])
     Route::delete('/forum/message/{message}/delete', [ForumController::class, 'destroyMessage'])->name('forum.message.delete');
 
     Route::resource('ctf', AdminCtf::class)->except('show');
-    Route::get('/ctf/{challenge}/stats', [AdminCtf::class, 'stats'])->name('ctf.stats');
+    Route::get('/ctf/{challenge}/stats', [AdminCtf::class, 'stats'])->name('ctf.stats'); 
 });
 
 // ══════════════════════════════════════════════
