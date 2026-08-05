@@ -15,7 +15,7 @@
     <div class="cyber-card etab-card">
 
         @if($e->logo_path)
-            <img src="{{ asset('storage/'.$e->logo_path) }}" class="etab-logo">
+            <img src="{{ \Illuminate\Support\Facades\Storage::disk(config('filesystems.default'))->url($e->logo_path) }}" class="etab-logo">
         @else
             <div class="etab-icon">{{ $e->type === 'lycee' ? '🏫' : '🎓' }}</div>
         @endif
