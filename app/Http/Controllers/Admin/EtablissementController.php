@@ -42,7 +42,7 @@ class EtablissementController extends Controller
         // ── Logo ──
         $logoPath = null;
         if ($request->hasFile('logo_file')) {
-            $logoPath = $request->file('logo_file')->store('logos', 'public');
+            $logoPath = $request->file('logo_file')->store('logos', config('filesystems.default'));
         }
 
         // ── Créer l'établissement ──
@@ -97,7 +97,7 @@ class EtablissementController extends Controller
         $data = $request->only('name', 'type', 'city', 'address', 'phone', 'email', 'is_active');
 
         if ($request->hasFile('logo_file')) {
-            $data['logo_path'] = $request->file('logo_file')->store('logos', 'public');
+            $data['logo_path'] = $request->file('logo_file')->store('logos', config('filesystems.default'));
         }
 
         $etablissement->update($data);
