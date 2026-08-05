@@ -14,8 +14,19 @@
 @foreach($etablissements as $e)
     <div class="cyber-card etab-card">
 
-        @if($e->logo_path)
-            <img src="{{ \Illuminate\Support\Facades\Storage::disk(config('filesystems.default'))->url($e->logo_path) }}" class="etab-logo">
+        @php
+            $logoUrl = null;
+            if ($e->logo_path) {
+                try {
+                    $logoUrl = \Illuminate\Support\Facades\Storage::disk(config('filesystems.default'))->url($e->logo_path);
+                } catch (\Throwable $ex) {
+                    $logoUrl = null;
+                }
+            }
+        @endphp
+
+        @if($logoUrl)
+            <img src="{{ $logoUrl }}" class="etab-logo" onerror="this.style.display='none'">
         @else
             <div class="etab-icon">{{ $e->type === 'lycee' ? '🏫' : '🎓' }}</div>
         @endif
