@@ -175,7 +175,7 @@
                 </div>
 
                 <button type="submit" class="btn-cyber contact-form-submit">
-                    🚀 Envoyer le message
+                     Envoyer le message
                 </button>
 
             </form>
