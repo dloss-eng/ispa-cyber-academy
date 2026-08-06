@@ -1,17 +1,27 @@
 @extends('layouts.app')
 
 @section('title', 'Dashboard')
-@section('page-title', '🏫 Dashboard')
+@section('page-title', ' Dashboard')
 
 @section('content')
 
-{{-- 🏫 Header établissement --}}
+{{--  Header établissement --}}
 <div class="etab-header">
 
     {{-- Logo ou icône --}}
-    @if($etab->logo_path)
-        <img src="{{ asset('storage/'.$etab->logo_path) }}"
-             class="etab-logo">
+    @php
+        $logoUrl = null;
+        if ($etab->logo_path) {
+            try {
+                $logoUrl = \Illuminate\Support\Facades\Storage::disk(config('filesystems.default'))->url($etab->logo_path);
+            } catch (\Throwable $ex) {
+                $logoUrl = null;
+            }
+        }
+    @endphp
+
+    @if($logoUrl)
+        <img src="{{ $logoUrl }}" class="etab-logo" onerror="this.style.display='none'">
     @else
         <div class="etab-icon">
             {{ $etab->type === 'lycee' ? '🏫' : '🎓' }}
@@ -31,7 +41,7 @@
 
 </div>
 
-{{-- 📊 Stats --}}
+{{--  Stats --}}
 <div class="kr">
 
     <div class="kc kc-g">
@@ -51,12 +61,12 @@
 
 </div>
 
-{{-- 📌 Section --}}
+{{--  Section --}}
 <div class="section-title">
     ACTIVITÉ RÉCENTE
 </div>
 
-{{-- 📋 Activités --}}
+{{--  Activités --}}
 @foreach($recentProgress->take(10) as $p)
 
     <div class="cyber-card activity-item">
