@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('title', 'Cours')
-@section('page-title', '📚 Cours disponibles')
+@section('page-title', ' Cours disponibles')
 
 @section('content')
 
-{{-- ℹ️ Info --}}
+{{-- ℹ Info --}}
 <div class="info-box" style="margin-bottom:24px">
     ℹ️ Consultez les modules. Seul le super admin peut modifier le contenu.
 </div>
 
-{{-- 📊 Stats rapides --}}
+{{--  Stats rapides --}}
 <div style="display:flex;gap:20px;margin-bottom:28px;flex-wrap:wrap">
     <div class="cyber-card" style="padding:14px 20px;flex:1;min-width:120px;text-align:center">
         <div style="font-size:22px;font-weight:900;color:var(--gr)">{{ $modules->count() }}</div>
@@ -26,7 +26,7 @@
     </div>
 </div>
 
-{{-- 📚 Grille des modules --}}
+{{--  Grille des modules --}}
 <div class="etab-courses-grid">
 
     @php

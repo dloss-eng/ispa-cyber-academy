@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('title', 'Ajouter élève')
-@section('page-title', '➕ Nouvel élève')
+@section('page-title', ' Nouvel élève')
 
 @section('content')
 
-{{-- 🔙 Retour --}}
+{{--  Retour --}}
 <a href="{{ route('etablissement.students') }}" class="back-link">
     ← Retour
 </a>
 
-{{-- 📦 Formulaire --}}
+{{--  Formulaire --}}
 <div class="cyber-card student-form-card">
 
     <form method="POST"
@@ -18,21 +18,21 @@
 
         @csrf
 
-        {{-- 👤 Nom --}}
+        {{--  Nom --}}
         <label class="fl no-margin-top">Nom complet</label>
         <input type="text"
                name="name"
                required
                class="fi">
 
-        {{-- 📧 Email --}}
+        {{--  Email --}}
         <label class="fl">Email</label>
         <input type="email"
                name="email"
                required
                class="fi">
 
-        {{-- 🔐 Mot de passe --}}
+        {{--  Mot de passe --}}
         <label class="fl">Mot de passe</label>
         <input type="password"
                name="password"
@@ -48,7 +48,7 @@
             minlength="8"
             class="fi">
 
-        {{-- 🎓 Type --}}
+        {{--  Type --}}
         <label class="fl">Type</label>
         <select name="role_type" required class="fi">
 
@@ -60,7 +60,7 @@
 
         </select>
 
-        {{-- 🏫 Classe --}}
+        {{--  Classe --}}
         <label class="fl">Classe</label>
 
         <select name="class_id" class="fi">
@@ -74,7 +74,7 @@
 
         </select>
 
-        {{-- 🚀 Submit --}}
+        {{--  Submit --}}
         <button type="submit" class="btn-lg">
             Créer le compte
         </button>

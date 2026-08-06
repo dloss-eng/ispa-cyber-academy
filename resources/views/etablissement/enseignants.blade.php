@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title', 'Enseignants')
-@section('page-title', '👨‍🏫 Mes Enseignants')
+@section('page-title', ' Mes Enseignants')
 
 @section('content')
 
-{{-- ➕ Ajouter --}}
+{{--  Ajouter --}}
 <div class="teachers-header">
     <a href="{{ route('etablissement.enseignants.create') }}"
        class="btn-cyber btn-sm">
@@ -23,7 +23,7 @@
 
         <div class="teacher-row">
 
-            {{-- 👤 Avatar --}}
+            {{--  Avatar --}}
             <div class="teacher-avatar">
 
                 @if($e->avatar)
@@ -34,7 +34,7 @@
 
             </div>
 
-            {{-- 📄 Infos --}}
+            {{--  Infos --}}
             <div class="teacher-content">
 
                 <div class="teacher-name">
@@ -45,7 +45,7 @@
                     {{ $e->email }}
                 </div>
 
-                {{-- 🏫 Classes --}}
+                {{--  Classes --}}
                 @if($classes->count() > 0)
 
                     <div class="teacher-classes">
@@ -70,16 +70,16 @@
 
             </div>
 
-            {{-- 🏷️ rôle --}}
+            {{--  rôle --}}
             <span class="tag tag-b">Enseignant</span>
 
-            {{-- ✏️ edit --}}
+            {{--  edit --}}
             <a href="{{ route('etablissement.enseignants.edit',$e) }}"
                class="teacher-link link-orange">
                 Modifier
             </a>
 
-            {{-- 🗑️ delete --}}
+            {{--  delete --}}
             <form action="{{ route('etablissement.enseignants.destroy',$e) }}"
                   method="POST"
                   class="inline-form"

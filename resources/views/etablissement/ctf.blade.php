@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Stats CTF — ' . $etab->name)
-@section('page-title', '🚩 Challenges CTF — ' . $etab->name)
+@section('page-title', ' Challenges CTF — ' . $etab->name)
 
 @section('content')
 

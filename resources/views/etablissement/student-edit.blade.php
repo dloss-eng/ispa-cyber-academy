@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Modifier élève')
-@section('page-title', '✏️ Modifier élève')
+@section('page-title', ' Modifier élève')
 
 @section('content')
 
@@ -14,12 +14,12 @@
     </div>
 @endif
 
-{{-- 🔙 Retour --}}
+{{--  Retour --}}
 <a href="{{ route('etablissement.students') }}" class="back-link">
     ← Retour
 </a>
 
-{{-- 📦 Formulaire --}}
+{{--  Formulaire --}}
 <div class="cyber-card student-form-card">
 
     <form method="POST"
@@ -28,7 +28,7 @@
         @csrf
         @method('PUT')
 
-        {{-- 👤 Nom --}}
+        {{--  Nom --}}
         <label class="fl no-margin-top">Nom</label>
         <input type="text"
                name="name"
@@ -36,7 +36,7 @@
                required
                class="fi">
 
-        {{-- 📧 Email --}}
+        {{--  Email --}}
         <label class="fl">Email</label>
         <input type="email"
                name="email"
@@ -44,14 +44,14 @@
                required
                class="fi">
 
-        {{-- 📱 Téléphone --}}
+        {{--  Téléphone --}}
         <label class="fl">Téléphone</label>
         <input type="text"
                name="phone"
                value="{{ old('phone', $user->phone) }}"
                class="fi">
 
-        {{-- 🏫 Classe --}}
+        {{--  Classe --}}
         <label class="fl">Classe</label>
         <select name="class_id" class="fi">
             <option value="">Aucune</option>
@@ -63,15 +63,15 @@
             @endforeach
         </select>
 
-        {{-- 🔐 Mot de passe --}}
+        {{--  Mot de passe --}}
         <label class="fl">Nouveau mot de passe <span style="color:var(--t3);font-weight:400">(laisser vide = inchangé)</span></label>
         <input type="password" name="password" class="fi" placeholder="Minimum 8 caractères">
 
-        {{-- ✅ Confirmation mot de passe --}}
+        {{--  Confirmation mot de passe --}}
         <label class="fl">Confirmer le mot de passe</label>
         <input type="password" name="password_confirmation" class="fi" placeholder="Répétez le mot de passe">
 
-        {{-- 🚀 Submit --}}
+        {{--  Submit --}}
         <button type="submit" class="btn-lg">
             Modifier
         </button>

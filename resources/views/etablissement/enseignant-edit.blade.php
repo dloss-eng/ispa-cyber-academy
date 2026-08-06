@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('title', 'Modifier enseignant')
-@section('page-title', '✏️ Modifier enseignant')
+@section('page-title', ' Modifier enseignant')
 
 @section('content')
 
-{{-- 🔙 Retour --}}
+{{--  Retour --}}
 <a href="{{ route('etablissement.enseignants') }}" class="back-link">
     ← Retour
 </a>
 
-{{-- 📦 Formulaire --}}
+{{--  Formulaire --}}
 <div class="cyber-card teacher-form-card">
 
     <form method="POST"
@@ -19,19 +19,19 @@
         @csrf
         @method('PUT')
 
-        {{-- 👤 Nom --}}
+        {{--  Nom --}}
         <label class="fl no-margin-top">Nom</label>
         <input type="text" name="name" value="{{ $user->name }}" required class="fi">
 
-        {{-- 📧 Email --}}
+        {{--  Email --}}
         <label class="fl">Email</label>
         <input type="email" name="email" value="{{ $user->email }}" required class="fi">
 
-        {{-- 📱 Téléphone --}}
+        {{--  Téléphone --}}
         <label class="fl">Téléphone</label>
         <input type="text" name="phone" value="{{ $user->phone }}" class="fi">
 
-        {{-- 🔐 Mot de passe --}}
+        {{--  Mot de passe --}}
         <div style="border:1px solid var(--bd);border-radius:10px;padding:16px;margin:16px 0;">
             <p style="font-size:12px;color:var(--t2);margin:0 0 12px 0;">
                 🔐 Laisser vide pour conserver le mot de passe actuel
@@ -50,7 +50,7 @@
                    class="fi">
         </div>
 
-        {{-- 🏫 Classes --}}
+        {{--  Classes --}}
         <label class="fl">Classes assignées</label>
 
         <div class="class-select-box">

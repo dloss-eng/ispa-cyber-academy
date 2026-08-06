@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title', 'Classes')
-@section('page-title', '📋 Mes Classes')
+@section('page-title', ' Mes Classes')
 
 @section('content')
 
-{{-- ➕ bouton création --}}
+{{--  bouton création --}}
 <div class="classes-header">
     <a href="{{ route('etablissement.classes.create') }}"
        class="btn-cyber btn-sm">
@@ -13,15 +13,15 @@
     </a>
 </div>
 
-{{-- 📋 Liste --}}
+{{--  Liste --}}
 @foreach($classes as $c)
 
     <div class="cyber-card class-item">
 
-        {{-- 📋 Icône --}}
+        {{--  Icône --}}
         <div class="class-icon">📋</div>
 
-        {{-- 📄 Infos --}}
+        {{--  Infos --}}
         <div class="class-content">
 
             <div class="class-name">
@@ -34,20 +34,20 @@
 
         </div>
 
-        {{-- 👥 Élèves --}}
+        {{--  Élèves --}}
         <span class="class-count">
             {{ $c->students_count }} élèves
         </span>
 
-        {{-- 📊 Actions --}}
+        {{--  Actions --}}
         <a href="{{ route('etablissement.classes.stats',$c) }}"
            class="class-link link-blue">
-            📊 Stats
+             Stats
         </a>
 
         <a href="{{ route('etablissement.classes.edit',$c) }}"
            class="class-link link-orange">
-            ✏️
+            Modifier
         </a>
 
         <form action="{{ route('etablissement.classes.destroy',$c) }}"

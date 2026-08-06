@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Certificats élèves')
-@section('page-title', '📜 Certificats de mes élèves')
+@section('page-title', ' Certificats de mes élèves')
 
 @section('content')
 
@@ -9,25 +9,25 @@
 
     <div class="cyber-card certificate-item">
 
-        {{-- 📜 Icône --}}
+        {{--  Icône --}}
         <div class="certificate-icon">
             📜
         </div>
 
-        {{-- 📄 Infos --}}
+        {{--  Infos --}}
         <div class="certificate-content">
 
-            {{-- 👤 Nom --}}
+            {{--  Nom --}}
             <div class="certificate-name">
                 {{ $c->user->name }}
             </div>
 
-            {{-- 📚 Module --}}
+            {{--  Module --}}
             <div class="certificate-module">
                 {{ $c->module->title }} · {{ $c->final_score }}%
             </div>
 
-            {{-- 🔢 Détails --}}
+            {{--  Détails --}}
             <div class="certificate-meta">
                 N° {{ $c->certificate_number }} · {{ $c->issued_at->format('d/m/Y') }}
             </div>

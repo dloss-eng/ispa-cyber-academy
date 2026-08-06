@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('title', isset($classe) ? 'Modifier' : 'Nouvelle classe')
-@section('page-title', isset($classe) ? '✏️ Modifier' : '➕ Nouvelle classe')
+@section('page-title', isset($classe) ? ' Modifier' : ' Nouvelle classe')
 
 @section('content')
 
-{{-- 🔙 Retour --}}
+{{--  Retour --}}
 <a href="{{ route('etablissement.classes') }}" class="back-link">
     ← Retour
 </a>
 
-{{-- 📦 Carte --}}
+{{--  Carte --}}
 <div class="cyber-card class-form-card">
 
     <form method="POST"
@@ -21,7 +21,7 @@
             @method('PUT')
         @endif
 
-        {{-- 🏷️ Nom --}}
+        {{--  Nom --}}
         <label class="fl no-margin-top">Nom de la classe</label>
         <input type="text"
                name="name"
@@ -29,7 +29,7 @@
                required
                class="fi">
 
-        {{-- 🎓 Niveau --}}
+        {{--  Niveau --}}
         <label class="fl">Niveau</label>
 
         <select name="level" required class="fi">
@@ -60,7 +60,7 @@
 
         </select>
 
-        {{-- 📅 Année --}}
+        {{--  Année --}}
         <label class="fl">Année scolaire</label>
 
         <input type="text"
@@ -68,7 +68,7 @@
                value="{{ old('year',$classe->year??date('Y').'-'.(date('Y')+1)) }}"
                class="fi">
 
-        {{-- 🚀 Submit --}}
+        {{--  Submit --}}
         <button type="submit" class="btn-lg">
             {{ isset($classe) ? 'Modifier' : 'Créer' }}
         </button>

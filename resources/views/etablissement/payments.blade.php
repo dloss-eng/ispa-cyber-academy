@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title', 'Abonnement')
-@section('page-title', '💰 Mon Abonnement')
+@section('page-title', ' Mon Abonnement')
 
 @section('content')
 
-{{-- ✅ Abonnement actif --}}
+{{--  Abonnement actif --}}
 @if($subscription && $subscription->isActive())
 
 <div class="cyber-card subscription-active">
@@ -47,18 +47,18 @@
 
 @else
 
-{{-- ⚠️ Aucun abonnement --}}
+{{--  Aucun abonnement --}}
 <div class="cyber-card subscription-empty">
     ⚠️ Aucun abonnement actif
 </div>
 
 @endif
 
-{{-- 📦 Formulaire --}}
+{{--  Formulaire --}}
 <form method="POST" action="{{ route('etablissement.payments.subscribe') }}">
 @csrf
 
-{{-- 📦 Formules --}}
+{{--  Formules --}}
 <div class="section-title">FORMULES</div>
 
 <div class="plan-grid">
@@ -103,7 +103,7 @@
 
 </div>
 
-{{-- 💳 Paiement --}}
+{{--  Paiement --}}
 <div class="section-title">MÉTHODE DE PAIEMENT</div>
 
 <div class="payment-list">
@@ -134,14 +134,14 @@
 
 </div>
 
-{{-- 🚀 Submit --}}
+{{--  Submit --}}
 <button type="submit" class="btn-lg subscribe-btn">
-    💰 Souscrire
+     Souscrire
 </button>
 
 </form>
 
-{{-- 📜 Historique --}}
+{{--  Historique --}}
 @if($history->count()>0)
 
 <div class="section-title section-margin">HISTORIQUE</div>

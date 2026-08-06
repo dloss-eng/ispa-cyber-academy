@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('title', 'Élèves')
-@section('page-title', '🎓 Mes Élèves')
+@section('page-title', ' Mes Élèves')
 
 @section('content')
 
-{{-- ➕ bouton --}}
+{{--  bouton --}}
 <div class="header-action">
     <a href="{{ route('etablissement.students.create') }}" class="btn-cyber btn-sm">
         + Ajouter
     </a>
 </div>
 
-{{-- 📋 tableau --}}
+{{--  tableau --}}
 <div class="cyber-card table-container">
     <table class="tbl">
 

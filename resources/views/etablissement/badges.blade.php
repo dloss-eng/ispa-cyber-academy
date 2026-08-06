@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Badges élèves')
-@section('page-title', '🏅 Badges de mes élèves')
+@section('page-title', ' Badges de mes élèves')
 
 @section('content')
 
@@ -26,7 +26,7 @@
 
         </div>
 
-        {{-- 🏅 Liste badges --}}
+        {{--  Liste badges --}}
         <div class="student-badge-list">
 
             @foreach($s->badges as $b)

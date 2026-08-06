@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Ajouter enseignant')
-@section('page-title', '➕ Nouvel enseignant')
+@section('page-title', ' Nouvel enseignant')
 
 @section('content')
 
@@ -14,35 +14,35 @@
     </div>
 @endif
 
-{{-- 🔙 Retour --}}
+{{--  Retour --}}
 <a href="{{ route('etablissement.enseignants') }}" class="back-link">
     ← Retour
 </a>
 
-{{-- 📦 Formulaire --}}
+{{--  Formulaire --}}
 <div class="cyber-card teacher-form-card">
 
     <form method="POST" action="{{ route('etablissement.enseignants.store') }}">
 
         @csrf
 
-        {{-- 👤 Nom --}}
+        {{--  Nom --}}
         <label class="fl no-margin-top">Nom</label>
         <input type="text" name="name" value="{{ old('name') }}" required class="fi">
 
-        {{-- 📧 Email --}}
+        {{--  Email --}}
         <label class="fl">Email</label>
         <input type="email" name="email" value="{{ old('email') }}" required class="fi">
 
-        {{-- 🔐 Mot de passe --}}
+        {{--  Mot de passe --}}
         <label class="fl">Mot de passe</label>
         <input type="password" name="password" required minlength="8" class="fi" placeholder="Minimum 8 caractères">
 
-        {{-- ✅ Confirmation mot de passe --}}
+        {{--  Confirmation mot de passe --}}
         <label class="fl">Confirmer le mot de passe</label>
         <input type="password" name="password_confirmation" required class="fi" placeholder="Répétez le mot de passe">
 
-        {{-- 🏫 Classes --}}
+        {{--  Classes --}}
         <label class="fl">Classes assignées</label>
 
         <div class="class-select-box">
@@ -59,7 +59,7 @@
             @endforeach
         </div>
 
-        {{-- 🚀 Submit --}}
+        {{--  Submit --}}
         <button type="submit" class="btn-lg">Créer</button>
 
     </form>
