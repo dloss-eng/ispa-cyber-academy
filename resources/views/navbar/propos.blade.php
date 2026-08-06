@@ -114,7 +114,7 @@
 
     </div>
 
- {--
+ {{--
     {{-- ── ÉQUIPE ── --}}
     <div class="page-header">
         <div class="page-label">👥 L'équipe</div>
@@ -167,7 +167,7 @@
 
     </div>
 
-    --}
+    --}}
 
     {{-- ── CTA FINAL ── --}}
     <div class="about-cta-box">
