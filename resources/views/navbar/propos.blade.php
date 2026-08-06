@@ -114,6 +114,7 @@
 
     </div>
 
+ {--
     {{-- ── ÉQUIPE ── --}}
     <div class="page-header">
         <div class="page-label">👥 L'équipe</div>
@@ -166,6 +167,8 @@
 
     </div>
 
+    --}
+
     {{-- ── CTA FINAL ── --}}
     <div class="about-cta-box">
         <h2 class="about-cta-title">
@@ -177,10 +180,10 @@
         </p>
         <div class="about-cta-actions">
             <a href="{{ route('public.courses') }}" class="btn-cyber">
-                📚 Voir les modules
+                 Voir les modules
             </a>
             <a href="{{ route('contact') }}" class="btn-cyber-outline">
-                ✉️ Nous contacter
+                 Nous contacter
             </a>
         </div>
     </div>

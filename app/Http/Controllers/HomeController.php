@@ -50,19 +50,24 @@ class HomeController extends Controller
         return view('public.api-docs');
     }
 
-    // ✅ Page Contact (GET)
+    //  Page Contact (GET)
     public function contact()
     {
         return view('navbar.contact');
     }
 
-    // ✅ Page À propos (GET)
+    //  Page À propos (GET)
     public function about()
     {
-        return view('navbar.propos');
+        $stats = [
+            'modules'      => Module::where('is_published', true)->count(),
+            'students'     => User::whereHas('role', fn($q) => $q->whereIn('name', ['eleve', 'etudiant']))->count(),
+            'certificates' => Certificate::count(),
+        ];
+        return view('navbar.propos', compact('stats'));
     }
 
-    // ✅ Contact — envoie une notification à tous les admins
+    //  Contact — envoie une notification à tous les admins
     public function sendContact(Request $request)
     {
         $data = $request->validate([
@@ -73,7 +78,7 @@ class HomeController extends Controller
             'message' => 'required|string|min:10|max:2000',
         ]);
 
-        // 🔔 Notifier tous les admins
+        //  Notifier tous les admins
         NotificationService::contactMessage(
             $data['prenom'],
             $data['nom'],
@@ -99,7 +104,7 @@ class HomeController extends Controller
             'name'   => 'required|string|max:255',
             'phone'  => 'nullable|string|max:30',
             'bio'    => 'nullable|string|max:500',
-            'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048', // ✅ F-19 FIX: validation MIME avatar
+            'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048', 
         ]);
 
         if ($request->hasFile('avatar')) {
@@ -108,7 +113,7 @@ class HomeController extends Controller
         }
 
         if ($request->filled('password')) {
-            // ✅ F-10 FIX: vérification du mot de passe actuel obligatoire
+            
             $request->validate([
                 'current_password' => 'required|current_password',
                 'password'         => 'min:8|confirmed',
