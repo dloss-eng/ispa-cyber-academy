@@ -114,8 +114,7 @@
 
     </div>
 
- {{--
-    {{-- ── ÉQUIPE ── --}}
+    {{--
     <div class="page-header">
         <div class="page-label">👥 L'équipe</div>
         <h2 class="page-title">
@@ -142,7 +141,6 @@
 
     </div>
 
-    {{-- ── PARTENAIRES ── --}}
     <div class="page-header">
         <div class="page-label">🤝 Partenaires</div>
         <h2 class="page-title">
@@ -166,7 +164,6 @@
         @endforeach
 
     </div>
-
     --}}
 
     {{-- ── CTA FINAL ── --}}
