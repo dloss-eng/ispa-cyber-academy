@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Stats — ' . $challenge->title)
-@section('page-title', '📊 Stats CTF — ' . $challenge->title)
+@section('page-title', ' Stats CTF — ' . $challenge->title)
 
 @section('content')
 

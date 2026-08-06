@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('title', 'Progression')
-@section('page-title', '📊 ' . $user->name)
+@section('page-title', 'Stats: ' . $user->name)
 
 @section('content')
 
-{{-- 🔙 Retour --}}
+{{--  Retour --}}
 <a href="{{ route('enseignant.students') }}" class="back-link">
     ← Retour
 </a>
 
-{{-- 👤 Carte utilisateur --}}
+{{--  Carte utilisateur --}}
 <div class="cyber-card student-card">
 
     {{-- Avatar --}}
@@ -34,9 +34,9 @@
 
 </div>
 
-{{-- 📖 Leçons --}}
+{{--  Leçons --}}
 <div class="section-title">
-    📖 LEÇONS SUIVIES
+     LEÇONS SUIVIES
 </div>
 
 @foreach($progress as $p)
@@ -63,9 +63,9 @@
 
 @endforeach
 
-{{-- 📝 Quiz --}}
+{{--  Quiz --}}
 <div class="section-title">
-    📝 QUIZ PASSÉS
+     QUIZ PASSÉS
 </div>
 
 @foreach($attempts as $a)

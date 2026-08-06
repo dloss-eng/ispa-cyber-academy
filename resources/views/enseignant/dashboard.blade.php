@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title', 'Dashboard Enseignant')
-@section('page-title', '👨‍🏫 Dashboard Enseignant')
+@section('page-title', ' Dashboard Enseignant')
 
 @section('content')
 
-{{-- 📊 Stats --}}
+{{--  Stats --}}
 <div class="kr">
 
     <div class="kc kc-g">
@@ -24,9 +24,9 @@
 
 </div>
 
-{{-- 📋 Section classes --}}
+{{--  Section classes --}}
 <div class="section-title">
-    📋 MES CLASSES
+     MES CLASSES
 </div>
 
 @foreach($classes as $c)
@@ -42,7 +42,7 @@
 
         <a href="{{ route('enseignant.classes.stats',$c) }}"
            class="btn-cyber btn-sm">
-            📊 Stats
+             Stats
         </a>
 
         <a href="{{ route('enseignant.classes.report',$c) }}"
@@ -54,9 +54,9 @@
 
 @endforeach
 
-{{-- 📖 Activité --}}
+{{--  Activité --}}
 <div class="section-title">
-    📖 ACTIVITÉ RÉCENTE
+     ACTIVITÉ RÉCENTE
 </div>
 
 @foreach($recentProgress->take(10) as $p)

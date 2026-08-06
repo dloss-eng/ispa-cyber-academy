@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', $quiz->title)
-@section('page-title', '🎯 Quiz')
+@section('page-title', ' Quiz')
 @section('content')
 <div class="cyber-card" style="padding:0;overflow:hidden">
     <div style="background:linear-gradient(135deg,rgba(255,107,53,0.1),rgba(192,132,252,0.05));padding:20px 24px;border-bottom:1px solid var(--bd)">

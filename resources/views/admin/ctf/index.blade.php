@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Gestion CTF')
-@section('page-title', '🚩 Gestion des Challenges CTF')
+@section('page-title', ' Gestion des Challenges CTF')
 
 @section('content')
 

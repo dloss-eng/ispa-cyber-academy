@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Signalement')
-@section('page-title', '🚨 Signalement ' . $signalement->ticket_number)
+@section('page-title', ' Signalement ' . $signalement->ticket_number)
 
 @section('content')
 
@@ -12,7 +12,7 @@
     </div>
 @endif
 
-{{-- ❌ Erreurs --}}
+{{--  Erreurs --}}
 @if($errors->any())
     <div style="background:rgba(255,59,92,.08);border:1px solid rgba(255,59,92,.2);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--re)">
         @foreach($errors->all() as $e) <div>✕ {{ $e }}</div> @endforeach

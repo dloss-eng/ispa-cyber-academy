@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Modifier utilisateur')
-@section('page-title', '✏️ Modifier l\'utilisateur')
+@section('page-title', ' Modifier l\'utilisateur')
 
 @section('content')
 

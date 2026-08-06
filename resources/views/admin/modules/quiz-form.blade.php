@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Créer Quiz')
-@section('page-title', '📝 Créer un Quiz')
+@section('page-title', ' Créer un Quiz')
 
 @section('content')
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Résultat')
-@section('page-title', '🎯 Résultat')
+@section('page-title', ' Résultat')
 @section('content')
 <div class="cyber-card" style="padding:32px;text-align:center;margin-bottom:20px;background:{{ $attempt->passed ? 'linear-gradient(135deg,rgba(0,229,160,0.08),rgba(0,229,160,0.02))' : 'linear-gradient(135deg,rgba(255,59,92,0.08),rgba(255,59,92,0.02))' }}">
     <div style="font-size:56px">{{ $attempt->passed ? '🎉' : '😔' }}</div>

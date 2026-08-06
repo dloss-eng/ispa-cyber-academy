@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-{{-- 🏷️ Titre navigateur --}}
+{{--  Titre navigateur --}}
 @section('title', 'Signalements')
 
-{{-- 📌 Titre page --}}
-@section('page-title', '🚨 Signalements')
+{{--  Titre page --}}
+@section('page-title', ' Signalements')
 
 @section('content')
 

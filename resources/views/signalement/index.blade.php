@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Signalements')
-@section('page-title', '🚨 Mes Signalements')
+@section('page-title', ' Mes Signalements')
 @section('content')
 <div style="display:flex;justify-content:flex-end;margin-bottom:16px"><a href="{{ route('signalements.create') }}" class="btn-cyber btn-sm"> Signaler une arnaque</a></div>
 @foreach($signalements as $s)

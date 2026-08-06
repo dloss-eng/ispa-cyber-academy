@@ -3,8 +3,8 @@
 {{--  Titre navigateur --}}
 @section('title', isset($lesson) ? 'Modifier leçon' : 'Nouvelle leçon')
 
-{{-- 📌 Titre page --}}
-@section('page-title', isset($lesson) ? '✏️ Modifier leçon' : '➕ Nouvelle leçon')
+{{--  Titre page --}}
+@section('page-title', isset($lesson) ? ' Modifier leçon' : ' Nouvelle leçon')
 
 @section('content')
 

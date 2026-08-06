@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title', 'Élèves')
-@section('page-title', '🎓 Élèves')
+@section('page-title', ' Élèves')
 
 @section('content')
 
-{{-- 📋 Tableau --}}
+{{--  Tableau --}}
 <div class="cyber-card table-wrapper">
 
     <table class="tbl">
@@ -26,33 +26,33 @@
 
                 <tr>
 
-                    {{-- 👤 Nom --}}
+                    {{--  Nom --}}
                     <td class="td-strong">
                         {{ $s->name }}
                     </td>
 
-                    {{-- 📧 Email --}}
+                    {{--  Email --}}
                     <td class="td-muted">
                         {{ $s->email }}
                     </td>
 
-                    {{-- 🎭 Rôle --}}
+                    {{--  Rôle --}}
                     <td>
                         <span class="tag tag-g">
                             {{ $s->role_display }}
                         </span>
                     </td>
 
-                    {{-- ⭐ Points --}}
+                    {{--  Points --}}
                     <td>
                         {{ $s->points }}
                     </td>
 
-                    {{-- 🔍 Voir --}}
+                    {{--  Voir --}}
                     <td>
                         <a href="{{ route('enseignant.students.progress',$s) }}"
                            class="table-link">
-                            📊
+                            Stats
                         </a>
                     </td>
 

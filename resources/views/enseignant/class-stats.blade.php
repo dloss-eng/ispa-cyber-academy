@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('title', 'Stats '.$classe->name)
-@section('page-title', '📊 Stats — '.$classe->name)
+@section('page-title', ' Stats — '.$classe->name)
 
 @section('content')
 
-{{-- 🔙 Retour --}}
+{{--  Retour --}}
 <a href="{{ route('enseignant.classes') }}" class="back-link">
     ← Classes
 </a>
 
-{{-- 📊 Tableau --}}
+{{--  Tableau --}}
 <div class="cyber-card table-wrapper">
 
     <table class="tbl">
@@ -31,27 +31,27 @@
 
                 <tr>
 
-                    {{-- 👤 Nom --}}
+                    {{--  Nom --}}
                     <td class="td-strong">
                         {{ $s['user']->name }}
                     </td>
 
-                    {{-- ⭐ Points --}}
+                    {{--  Points --}}
                     <td class="td-success">
                         {{ $s['points'] }}
                     </td>
 
-                    {{-- 📚 Progression --}}
+                    {{--  Progression --}}
                     <td>
                         {{ $s['progress'] }}
                     </td>
 
-                    {{-- 📝 Quiz --}}
+                    {{--  Quiz --}}
                     <td>
                         {{ $s['quizzes'] }}
                     </td>
 
-                    {{-- 🏅 Badges --}}
+                    {{--  Badges --}}
                     <td>
                         {{ $s['user']->badges->count() }}
                     </td>

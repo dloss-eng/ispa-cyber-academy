@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Classement')
-@section('page-title', '🥇 Classement')
+@section('page-title', ' Classement')
 
 @section('content')
 

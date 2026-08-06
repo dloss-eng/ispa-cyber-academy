@@ -4,7 +4,7 @@
 @section('title', 'Administration')
 
 {{--  Titre page --}}
-@section('page-title', '⚙️ Administration')
+@section('page-title', ' Administration')
 
 @section('content')
 
@@ -52,7 +52,7 @@
     {{--  CLASSEMENT ÉTABLISSEMENTS --}}
     <div class="cyber-card dash-card">
         <div class="dash-title dash-title-yellow">
-            🏫 CLASSEMENT ÉTABLISSEMENTS
+             CLASSEMENT ÉTABLISSEMENTS
         </div>
 
         @foreach($etabRanking as $i => $er)

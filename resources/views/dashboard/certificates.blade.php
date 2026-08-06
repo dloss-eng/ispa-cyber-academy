@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Certificats')
-@section('page-title', '🏆 Mes Certificats')
+@section('page-title', ' Mes Certificats')
 
 @section('content')
 

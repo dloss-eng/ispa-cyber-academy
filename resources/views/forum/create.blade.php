@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Nouveau sujet')
-@section('page-title', '➕ Nouveau sujet')
+@section('page-title', ' Nouveau sujet')
 
 @section('content')
 

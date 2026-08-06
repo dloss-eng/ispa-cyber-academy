@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Mon Profil')
-@section('page-title', '👤 Mon Profil')
+@section('page-title', ' Mon Profil')
 
 @section('content')
 

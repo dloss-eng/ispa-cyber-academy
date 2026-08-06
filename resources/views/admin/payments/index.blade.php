@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-{{-- 🏷️ Titre navigateur --}}
+{{--  Titre navigateur --}}
 @section('title', 'Paiements')
 
-{{-- 📌 Titre page --}}
-@section('page-title', '💰 Paiements')
+{{--  Titre page --}}
+@section('page-title', ' Paiements')
 
 @section('content')
 
-{{-- 📊 Statistiques --}}
+{{--  Statistiques --}}
 <div class="kr">
 
     {{-- Actifs --}}
@@ -37,7 +37,7 @@
 
 </div>
 
-{{-- 📦 Tableau des paiements --}}
+{{--  Tableau des paiements --}}
 <div class="cyber-card table-wrapper">
 
     <table class="tbl">
@@ -55,40 +55,40 @@
             </tr>
         </thead>
 
-        {{-- 📄 Données --}}
+        {{--  Données --}}
         <tbody>
 
             @foreach($subscriptions as $s)
 
                 <tr>
 
-                    {{-- 🏫 Nom établissement --}}
+                    {{--  Nom établissement --}}
                     <td class="td-strong">
                         {{ $s->etablissement->name }}
                     </td>
 
-                    {{-- 📦 Plan --}}
+                    {{--  Plan --}}
                     <td>{{ $s->plan_label }}</td>
 
-                    {{-- 💰 Montant --}}
+                    {{--  Montant --}}
                     <td class="td-amount">
                         {{ number_format($s->amount) }} FCFA
                     </td>
 
-                    {{-- 💳 Méthode --}}
+                    {{--  Méthode --}}
                     <td>{{ $s->payment_label }}</td>
 
-                    {{-- 📅 Début --}}
+                    {{--  Début --}}
                     <td class="td-date">
                         {{ $s->start_date?->format('d/m/Y') }}
                     </td>
 
-                    {{-- 📅 Fin --}}
+                    {{--  Fin --}}
                     <td class="td-date">
                         {{ $s->end_date?->format('d/m/Y') }}
                     </td>
 
-                    {{-- 🏷️ Statut --}}
+                    {{--  Statut --}}
                     <td>
                         <span class="tag {{ $s->isActive() ? 'tag-g' : 'tag-r' }}">
                             {{ $s->isActive() ? 'Actif' : 'Expiré' }}

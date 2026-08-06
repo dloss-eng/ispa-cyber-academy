@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Badges')
-@section('page-title', '🏅 Gestion des Badges')
+@section('page-title', ' Gestion des Badges')
 
 @section('content')
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', isset($challenge) ? 'Modifier le challenge' : 'Nouveau challenge CTF')
-@section('page-title', isset($challenge) ? ' Modifier — ' . $challenge->title : '🚩 Nouveau challenge CTF')
+@section('page-title', isset($challenge) ? ' Modifier — ' . $challenge->title : ' Nouveau challenge CTF')
 
 @section('content')
 

@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
 
-    {{-- 📄 CSS externe --}}
+    {{--  CSS externe --}}
     <link rel="stylesheet" href="{{ public_path('css/report.css') }}">
 
 </head>
 
 <body>
 
-    {{-- 🛡️ Header --}}
+    {{--  Header --}}
     <div class="report-title">
         🛡️ ISPA Cyber Academy
     </div>
@@ -20,17 +20,17 @@
         {{ $etab->name }} · {{ date('d/m/Y') }}
     </div>
 
-    {{-- 📊 Titre --}}
+    {{--  Titre --}}
     <h1>
         Rapport : {{ $classe->name }}
     </h1>
 
-    {{-- 📈 Stats --}}
+    {{--  Stats --}}
     <p>
         Élèves : <strong>{{ $stats->count() }}</strong>
     </p>
 
-    {{-- 📋 Tableau --}}
+    {{--  Tableau --}}
     <table>
 
         <thead>

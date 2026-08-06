@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Signaler')
-@section('page-title', '🚨 Signaler une arnaque')
+@section('page-title', ' Signaler une arnaque')
 
 @section('content')
 

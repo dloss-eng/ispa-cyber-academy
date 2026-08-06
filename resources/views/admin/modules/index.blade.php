@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Modules')
-@section('page-title', '📚 Modules & Cours')
+@section('page-title', ' Modules & Cours')
 
 @section('content')
 

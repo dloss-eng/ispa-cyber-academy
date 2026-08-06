@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', $topic->title)
-@section('page-title', '💬 ' . Str::limit($topic->title, 30))
+@section('page-title', 'Communauté ' . Str::limit($topic->title, 30))
 
 @section('content')
 

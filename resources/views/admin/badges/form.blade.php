@@ -4,7 +4,7 @@
 @section('title', isset($badge) ? 'Modifier badge' : 'Nouveau badge')
 
 {{-- Titre affiché dans la page --}}
-@section('page-title', isset($badge) ? '✏️ Modifier badge' : '➕ Nouveau badge')
+@section('page-title', isset($badge) ? ' Modifier badge' : ' Nouveau badge')
 
 @section('content')
 
@@ -23,7 +23,7 @@
         {{--  Protection CSRF obligatoire Laravel --}}
         @csrf
 
-        {{-- 🔄 Méthode PUT si modification --}}
+        {{--  Méthode PUT si modification --}}
         @if(isset($badge))
             @method('PUT')
         @endif

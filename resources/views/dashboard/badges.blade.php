@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Badges')
-@section('page-title', '🏅 Mes Badges')
+@section('page-title', ' Mes Badges')
 
 @section('content')
 

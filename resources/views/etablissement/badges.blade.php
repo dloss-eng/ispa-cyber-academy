@@ -9,7 +9,7 @@
 
     <div class="cyber-card student-badge-card">
 
-        {{-- 👤 Header --}}
+        {{--  Header --}}
         <div class="student-badge-header">
 
             <div class="student-badge-avatar">

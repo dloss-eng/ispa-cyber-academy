@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-{{-- 🏷️ Titre navigateur --}}
+{{--  Titre navigateur --}}
 @section('title', isset($etablissement) ? 'Modifier' : 'Nouvel établissement')
 
-{{-- 📌 Titre affiché --}}
-@section('page-title', isset($etablissement) ? '✏️ Modifier' : '➕ Nouvel établissement')
+{{--  Titre affiché --}}
+@section('page-title', isset($etablissement) ? ' Modifier' : ' Nouvel établissement')
 
 @section('content')
 
